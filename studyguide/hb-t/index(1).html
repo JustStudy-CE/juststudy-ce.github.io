@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" id="favi" href="">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KW15Q1QG97"></script>
+    <script type="text/javascript" src="/assets/js/LoadData.js"></script>
+    <script src="vs/crazygames-sdk-v3.js"></script>
+    <script>
+      var options  = {
+        loader: "unity2021",
+        loaderOptions: {
+          showProgress: true,
+          unityLoaderUrl:
+            "Build/Amended HT.loader.js",
+          unityConfigOptions: {
+            codeUrl:
+              "Build/ce1b9c52c70762427fbadba8f71c9883.wasm.br",
+            dataUrl:
+              "Build/22ef49f94b94ba140e012dbecf961747.data.br",
+            frameworkUrl:
+              "Build/f0795b14ac5529f779a0aa5d0c7846cf.js.br",
+          },
+        },
+        thumbnail: "hyperball-tachyon/20220829183443/hyperball-tachyon-cover",
+        gameName: "Hyperball Tachyon",
+        gameHttps: true,
+        gameSlug: "hyperball-tachyon",
+        gameId: "20902",
+        buildId: "861b65ab-8605-4dd8-852c-8268370a04a4",
+        gameStatus: "published",
+        showAdOnExternal: "ALWAYS",
+        showAdOnInternal: "DEFAULT",
+        disableEmbedding: false,
+        dollarRate: 0.8752551368723982,
+        upvotes: 1945,
+        downvotes: 285,
+        releaseDate: "2022-08-30",
+        locale: "en_US",
+        controls: {
+          text: "<h3>Controls</h3>\n<ul>\n    <li>Arrow Keys / WASD = move</li>\n    <li>Space / Z = dash</li>\n</ul>\n<p>Controllers Support</p>",
+        },
+        video: {
+          original:
+            "https://videos.crazygames.com/hyperball-tachyon/4/hyperball-tachyon.mp4",
+          sizes: [
+            {
+              width: 205,
+              height: 115,
+              location:
+                "https://videos.crazygames.com/hyperball-tachyon/4/hyperball-tachyon-landscape-205x115_30fps.mp4",
+            },
+            {
+              width: 249,
+              height: 140,
+              location:
+                "https://videos.crazygames.com/hyperball-tachyon/4/hyperball-tachyon-landscape-249x140_30fps.mp4",
+            },
+            {
+              width: 364,
+              height: 208,
+              location:
+                "https://videos.crazygames.com/hyperball-tachyon/4/hyperball-tachyon-landscape-364x208_30fps.mp4",
+            },
+            {
+              width: 494,
+              height: 276,
+              location:
+                "https://videos.crazygames.com/hyperball-tachyon/4/hyperball-tachyon-landscape-494x276_30fps.mp4",
+            },
+            {
+              width: 611,
+              height: 343,
+              location:
+                "https://videos.crazygames.com/hyperball-tachyon/4/hyperball-tachyon-landscape-611x343_30fps.mp4",
+            },
+          ],
+          portraitOriginal: null,
+          portraitSizes: [],
+          blurredVideo: {
+            width: 922,
+            height: 532,
+            location:
+              "https://videos.crazygames.com/hyperball-tachyon/4/hyperball-tachyon-landscape-922x532_30fps_blurred.mp4",
+          },
+        },
+        sandbox: true,
+        totalSizeBytes: 65168560,
+        minTimeBetweenMidrollAdsInMs: 180000,
+        minTimeBetweenRewardedAdsInMs: 5000,
+        noMidrollAdInFirstMinutes: 3,
+        noRewardedAdInFirstMinutes: 0,
+        categoryEnSlug: "casual",
+        tagsEnSlugs: [
+          "avoid",
+          "jumping",
+          "physics",
+          "platform",
+          "ball",
+          "obstacle",
+          "skill",
+          "speed",
+        ],
+        isKids: false,
+        androidFriendly: false,
+        iosFriendly: false,
+        hasMidroll: true,
+        hasRewarded: true,
+        showExternalProviderWarning: false,
+        fullscreen: "SUPPORTED",
+        orientation: null,
+        apsStorageType: "disabled",
+        userProgressionSaveMessage: "local",
+        category: "Ball",
+        categoryLink: "https://www.crazygames.com/t/ball",
+        gameLink: "",
+        domainHasNoCMP: false,
+        source: "games",
+      };
+      function loadScript(url, callback) {
+        var head = document.head;
+        var script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = url;
+        script.async = true;
+        script.onreadystatechange = callback;
+        script.onload = callback;
+        head.appendChild(script);
+      }
+      function loadContent() {
+        var script = document.createElement("script");
+        script.src = "Build/AmendedHT.loader.js";
+        script.onload = function () {
+          loadScript("v1.332/bundle.js", function () {
+            Crazygames.load(options);
+          });
+          createUnityInstance(document.getElementById("unity-canvas"), {
+            dataUrl: "Build/22ef49f94b94ba140e012dbecf961747.data.br",
+            frameworkUrl: "Build/f0795b14ac5529f779a0aa5d0c7846cf.js",
+            codeUrl: "Build/ce1b9c52c70762427fbadba8f71c9883.wasm.br",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "",
+            productName: "",
+            productVersion: "1.0",
+
+          }).then((unityInstance) => {
+            console.log("Loaded", unityInstance);
+            
+          }).catch((error) => {
+            console.error("Error:", error);
+          });
+        };
+        document.body.appendChild(script);
+      }
+      window.onload = loadContent;
+      window.alert = function (message) {
+        console.warn("Blocked alert:", message);
+      };
+
+    </script>
+    <!-- <script src="v1.332/bundle.js"></script> -->
+  </head>
+  <body style="margin: 0; padding: 0; background-color: black; overflow: hidden;">
+    <canvas id="unity-canvas" style="width: 100vw; height: 100vh;"></canvas>
+  </body>
+</html>

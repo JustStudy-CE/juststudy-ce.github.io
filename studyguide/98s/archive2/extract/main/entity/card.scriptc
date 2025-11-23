@@ -1,0 +1,1443 @@
+
+Êﬁ
+…ﬁlocal math2 = require "main.math2"
+local data = require "main.data"
+local color = require "main.color"
+local camera = require "orthographic.camera"
+local jim_horne = require "main.jim_horne"
+local flow = require "ludobits.m.flow"
+local cursor = require "in.cursor"
+
+                                
+                                  
+
+                                    
+
+                          
+
+
+                           
+
+
+                           
+
+                           
+
+                            
+
+                                             
+                               
+                              
+
+
+                             
+
+                                  
+                                    
+                                    
+                                   
+                                 
+
+                                  
+
+                                      
+
+                                         
+
+                                                                                              
+                                                                                         
+
+
+
+
+
+local function set_collisions(self)
+
+
+
+    if self.card_is_drag == true then
+        msg.post("#collisionobject_faceup", "enable")
+        msg.post("#collisionobject_faceup_slice", "disable")
+        msg.post("#collisionobject_faceup_cascade", "disable")
+        msg.post("#collisionobject_faceup_cursor", "disable")
+        return
+    end
+
+
+    if self.bottom_card_type == 0 then
+
+        if self.card_faceup == 1 then
+            if self.child_card_id == false then
+                msg.post("#collisionobject_faceup", "enable")
+                msg.post("#collisionobject_faceup_slice", "disable")
+                msg.post("#collisionobject_faceup_cascade", "disable")
+                msg.post("#collisionobject_faceup_cursor", "disable")
+            else
+                msg.post("#collisionobject_faceup", "disable")
+                msg.post("#collisionobject_faceup_slice", "enable")
+                msg.post("#collisionobject_faceup_cascade", "disable")
+                msg.post("#collisionobject_faceup_cursor", "disable")
+            end
+        else
+
+            if self.child_card_id == false then
+                msg.post("#collisionobject_faceup", "enable")
+                msg.post("#collisionobject_faceup_slice", "disable")
+                msg.post("#collisionobject_faceup_cascade", "disable")
+                msg.post("#collisionobject_faceup_cursor", "disable")
+            else
+                msg.post("#collisionobject_faceup", "disable")
+                msg.post("#collisionobject_faceup_slice", "disable")
+                msg.post("#collisionobject_faceup_cascade", "disable")
+                msg.post("#collisionobject_faceup_cursor", "disable")
+            end
+        end
+        return
+    end
+
+
+    if self.bottom_card_type == 1 then
+
+        if self.card_faceup == 1 then
+            if self.child_card_id == false and self.card_is_drag == false then
+                msg.post("#collisionobject_faceup", "disable")
+                msg.post("#collisionobject_faceup_slice", "disable")
+                msg.post("#collisionobject_faceup_cascade", "enable")
+                msg.post("#collisionobject_faceup_cursor", "enable")
+            elseif self.child_card_id == false and self.card_is_drag == true then
+                msg.post("#collisionobject_faceup", "enable")
+                msg.post("#collisionobject_faceup_slice", "disable")
+                msg.post("#collisionobject_faceup_cascade", "disable")
+                msg.post("#collisionobject_faceup_cursor", "disable")
+            else
+                msg.post("#collisionobject_faceup", "disable")
+                msg.post("#collisionobject_faceup_slice", "enable")
+                msg.post("#collisionobject_faceup_cascade", "disable")
+                msg.post("#collisionobject_faceup_cursor", "disable")
+            end
+        else
+
+            if self.child_card_id == false then
+                msg.post("#collisionobject_faceup", "enable")
+                msg.post("#collisionobject_faceup_slice", "disable")
+                msg.post("#collisionobject_faceup_cascade", "disable")
+                msg.post("#collisionobject_faceup_cursor", "disable")
+            else
+                msg.post("#collisionobject_faceup", "disable")
+                msg.post("#collisionobject_faceup_slice", "disable")
+                msg.post("#collisionobject_faceup_cascade", "disable")
+                msg.post("#collisionobject_faceup_cursor", "disable")
+            end
+        end
+        return
+    end
+
+
+    if self.bottom_card_type == 2 then
+        if self.child_card_id == false then
+            msg.post("#collisionobject_faceup", "enable")
+            msg.post("#collisionobject_faceup_slice", "disable")
+            msg.post("#collisionobject_faceup_cascade", "disable")
+            msg.post("#collisionobject_faceup_cursor", "disable")
+        else
+            msg.post("#collisionobject_faceup", "disable")
+            msg.post("#collisionobject_faceup_slice", "disable")
+            msg.post("#collisionobject_faceup_cascade", "disable")
+            msg.post("#collisionobject_faceup_cursor", "disable")
+        end
+        return
+    end
+
+
+    if self.bottom_card_type == 3 then
+        if self.child_card_id == false then
+            msg.post("#collisionobject_faceup", "enable")
+            msg.post("#collisionobject_faceup_slice", "disable")
+            msg.post("#collisionobject_faceup_cascade", "disable")
+            msg.post("#collisionobject_faceup_cursor", "disable")
+        else
+            msg.post("#collisionobject_faceup", "disable")
+            msg.post("#collisionobject_faceup_slice", "disable")
+            msg.post("#collisionobject_faceup_cascade", "disable")
+            msg.post("#collisionobject_faceup_cursor", "disable")
+        end
+        return
+    end
+
+
+    if self.bottom_card_type == 4 then
+        if self.child_card_id == false then
+            msg.post("#collisionobject_faceup", "enable")
+            msg.post("#collisionobject_faceup_slice", "disable")
+            msg.post("#collisionobject_faceup_cascade", "disable")
+            msg.post("#collisionobject_faceup_cursor", "disable")
+        else
+            msg.post("#collisionobject_faceup", "disable")
+            msg.post("#collisionobject_faceup_slice", "disable")
+            msg.post("#collisionobject_faceup_cascade", "disable")
+            msg.post("#collisionobject_faceup_cursor", "disable")
+        end
+        return
+    end
+end
+
+
+local function set_faceup(self)
+
+    if self.card_faceup == 1 then
+        msg.post("#sprite", "play_animation", {id = self.card_sprite})
+    else
+        msg.post("#sprite", "play_animation", {id = self.card_back_sprite})
+    end
+end
+
+
+local function check_card_move(card1_id, card2_id)
+
+    local card1_url = data.id_to_url[card1_id]
+    local card1_child_card_id = go.get(card1_url, "child_card_id")
+    local card1_top_card_id = go.get(card1_url, "top_card_id")
+    local card1_type = go.get(card1_url, "card_type")
+    local card1_is_drag = go.get(card1_url, "card_is_drag")
+    local card1_color
+    local card1_rank
+    local card1_suit
+
+    local card2_url = data.id_to_url[card2_id]
+    local card2_child_card_id = go.get(card2_url, "child_card_id")
+    local card2_top_card_id = go.get(card2_url, "top_card_id")
+    local card2_type = go.get(card2_url, "card_type")
+    local card2_faceup
+    local card2_color
+    local card2_rank
+    local card2_suit
+
+
+
+    if card1_id == card2_id or (card1_top_card_id ~= false and card1_top_card_id == card2_top_card_id) then
+        return false, card2_id
+    end
+
+    
+    if card2_type == 0 then
+
+
+        local bottom_card2_type = go.get(card2_url, "bottom_card_type")
+        if bottom_card2_type == 0 then
+
+            if card2_child_card_id == false then
+                return true, card2_id
+            else
+                return check_card_move(card1_id, card2_child_card_id)
+            end
+        elseif bottom_card2_type == 1 then
+
+            card1_color = go.get(card1_url, "card_color")
+            card1_rank = go.get(card1_url, "card_rank")
+            card2_faceup = go.get(card2_url, "card_faceup")
+            card2_color = go.get(card2_url, "card_color")
+            card2_rank = go.get(card2_url, "card_rank")
+            if card2_child_card_id ~= false then
+
+                return check_card_move(card1_id, card2_child_card_id)
+            elseif card2_faceup == 0 then
+
+                return false, card2_id
+            elseif card2_child_card_id == false and card2_color ~= card1_color and card2_rank == card1_rank + 1 then
+
+                return true, card2_id
+            else
+                return false, card2_id
+            end
+        elseif bottom_card2_type == 2 then
+
+            card1_rank = go.get(card1_url, "card_rank")
+            card1_suit = go.get(card1_url, "card_suit")
+            card2_rank = go.get(card2_url, "card_rank")
+            card2_suit = go.get(card2_url, "card_suit")
+            if card2_child_card_id == false and card1_child_card_id == false and card1_suit == card2_suit and card2_rank ==
+                card1_rank - 1 then
+                return true, card2_id
+            elseif card2_child_card_id ~= false then
+                return check_card_move(card1_id, card2_child_card_id)
+            else
+                return false, card2_id
+            end
+        elseif bottom_card2_type == 3 then
+
+            if card2_child_card_id == false and card1_child_card_id == false and card1_is_drag == false then
+                return true, card2_id
+            elseif card2_child_card_id ~= false then
+                return check_card_move(card1_id, card2_child_card_id)
+            else
+                return false, card2_id
+            end
+        elseif bottom_card2_type == 4 then
+
+            if card2_child_card_id == false and card1_child_card_id == false and card1_is_drag == false then
+                return true, card2_id
+            elseif card2_child_card_id ~= false then
+                return check_card_move(card1_id, card2_child_card_id)
+            else
+                return false, card2_id
+            end
+        end
+    elseif card2_type == 1 then
+
+        card1_rank = go.get(card1_url, "card_rank")
+        if card2_child_card_id == false and card1_rank == 13 then
+
+            return true, card2_id
+        elseif card2_child_card_id ~= false then
+
+            return check_card_move(card1_id, card2_child_card_id)
+        else
+
+            return false, card2_id
+        end
+    elseif card2_type == 2 then
+
+        card1_rank = go.get(card1_url, "card_rank")
+        if card2_child_card_id == false and card1_rank == 1 and card1_child_card_id == false then
+            return true, card2_id
+        elseif card2_child_card_id ~= false then
+            return check_card_move(card1_id, card2_child_card_id)
+        else
+            return false, card2_id
+        end
+    elseif card2_type == 3 then
+
+        if card2_child_card_id == false and card1_child_card_id == false and card1_is_drag == false then
+            return true, card2_id
+        elseif card2_child_card_id ~= false then
+            return check_card_move(card1_id, card2_child_card_id)
+        else
+            return false, card2_id
+        end
+    elseif card2_type == 4 then
+
+        if card2_child_card_id == false and card1_child_card_id == false and card1_is_drag == false then
+            return true, card2_id
+        elseif card2_child_card_id ~= false then
+            return check_card_move(card1_id, card2_child_card_id)
+        else
+            return false, card2_id
+        end
+    end
+end
+
+
+local function set_old_location_property(self)
+
+    local old_parent_card_id = self.parent_card_id
+    local old_parent_card_url = data.id_to_url[old_parent_card_id]
+    local old_parent_card_type = go.get(old_parent_card_url, "card_type")
+
+
+    data.id_to_childfree[old_parent_card_id] = old_parent_card_url
+
+
+    go.set(old_parent_card_url, "child_card_id", false)
+    go.set(old_parent_card_url, "top_card_id", old_parent_card_id)
+
+
+    local tableau_count = 1
+    if old_parent_card_type == 0 then
+        go.set(old_parent_card_url, "card_tableau", tableau_count)
+        data.id_to_tableau[old_parent_card_id] = old_parent_card_url
+    end
+
+
+    local card_url = old_parent_card_url
+    local other_parent_card_id = go.get(card_url, "parent_card_id")
+
+    while other_parent_card_id ~= false do
+
+        go.set(card_url, "top_card_id", old_parent_card_id)
+
+        local card_type = go.get(card_url, "card_type")
+        local child_card_id = go.get(card_url, "child_card_id")
+        if card_type == 0 and child_card_id ~= false then
+
+            if tableau_count ~= 0 then
+                local card_color = go.get(card_url, "card_color")
+                local card_rank = go.get(card_url, "card_rank")
+                local child_card_color = go.get(data.id_to_url[child_card_id], "card_color")
+                local child_card_rank = go.get(data.id_to_url[child_card_id], "card_rank")
+                if card_color ~= child_card_color and card_rank == child_card_rank + 1 then
+                    tableau_count = tableau_count + 1
+                    go.set(card_url, "card_tableau", tableau_count)
+                    data.id_to_tableau[other_parent_card_id] = card_url
+                else
+                    tableau_count = 0
+                    go.set(card_url, "card_tableau", tableau_count)
+                    data.id_to_tableau[other_parent_card_id] = nil
+                end
+            else
+
+                go.set(card_url, "card_tableau", tableau_count)
+                data.id_to_tableau[other_parent_card_id] = nil
+            end
+        end
+
+        other_parent_card_id = go.get(card_url, "parent_card_id")
+        card_url = data.id_to_url[other_parent_card_id]
+    end
+end
+
+
+local function set_new_location_property(self)
+
+
+    if self.child_card_id == false then
+        data.id_to_childfree[self.card_id] = self.card_url
+    else
+        data.id_to_childfree[self.card_id] = nil
+    end
+
+
+    if self.parent_card_id == false then
+        data.id_to_childfree[self.parent_card_id] = data.id_to_url[self.parent_card_id]
+    else
+        data.id_to_childfree[self.parent_card_id] = nil
+    end
+
+
+    local card_location = self.card_location
+    local other_child_card_id = self.child_card_id
+    local other_child_card_url = data.id_to_url[other_child_card_id]
+    local other_bottom_card_id = go.get(other_child_card_url, "bottom_card_id")
+    local other_card_location = go.get(other_child_card_url, "card_location")
+    local new_top_card_id = self.card_id
+
+
+    while other_child_card_id ~= false do
+
+        new_top_card_id = other_child_card_id
+
+        other_card_location = go.get(other_child_card_url, "card_location")
+
+        card_location = card_location + 1
+        go.set(other_child_card_url, "card_location", card_location)
+
+        data.id_to_children[self.bottom_card_id][card_location] = other_child_card_id
+
+        data.id_to_children[other_bottom_card_id][other_card_location] = nil
+
+        other_child_card_id = go.get(other_child_card_url, "child_card_id")
+        if other_child_card_id ~= false then
+            new_top_card_id = other_child_card_id
+        end
+        other_child_card_url = data.id_to_url[other_child_card_id]
+    end
+
+
+    local new_top_card_url = data.id_to_url[new_top_card_id]
+    local bottom_card_url = data.id_to_url[self.bottom_card_id]
+    go.set(bottom_card_url, "top_card_id", new_top_card_id)
+
+
+    local other_parent_card_id = go.get(new_top_card_url, "parent_card_id")
+
+
+
+    local card_url = new_top_card_url
+    local card_type = go.get(card_url, "card_type")
+    local child_card_id = go.get(card_url, "child_card_id")
+
+
+    local tableau_count = 1
+    if card_type == 0 then
+        go.set(card_url, "card_tableau", tableau_count)
+        data.id_to_tableau[new_top_card_id] = card_url
+    end
+
+    while other_parent_card_id ~= false do
+
+        go.set(card_url, "bottom_card_id", self.bottom_card_id)
+        go.set(card_url, "bottom_card_type", self.bottom_card_type)
+        go.set(card_url, "top_card_id", new_top_card_id)
+
+        local card_type = go.get(card_url, "card_type")
+        local child_card_id = go.get(card_url, "child_card_id")
+        if card_type == 0 and child_card_id ~= false then
+            if tableau_count ~= 0 then
+                local card_color = go.get(card_url, "card_color")
+                local card_rank = go.get(card_url, "card_rank")
+                local child_card_color = go.get(data.id_to_url[child_card_id], "card_color")
+                local child_card_rank = go.get(data.id_to_url[child_card_id], "card_rank")
+                if card_color ~= child_card_color and card_rank == child_card_rank + 1 then
+                    tableau_count = tableau_count + 1
+                    go.set(card_url, "card_tableau", tableau_count)
+                    data.id_to_tableau[other_parent_card_id] = card_url
+                else
+                    tableau_count = 0
+                    go.set(card_url, "card_tableau", tableau_count)
+                    data.id_to_tableau[other_parent_card_id] = nil
+                end
+            else
+
+                go.set(card_url, "card_tableau", tableau_count)
+                data.id_to_tableau[other_parent_card_id] = nil
+            end
+        end
+
+        other_parent_card_id = go.get(card_url, "parent_card_id")
+        card_url = data.id_to_url[other_parent_card_id]
+    end
+
+end
+
+
+local function play_card_cannot_move_animation(self)
+
+
+    if math2.table_size(self.triggered_cards_for_move) ~= 0 then
+        for card_id, card_url in pairs(self.triggered_cards_for_move) do
+            msg.post(card_id, "order: uninvert_card_sprite")
+            self.triggered_cards_for_move[card_id] = nil
+        end
+    end
+
+    self.triggered_cards_for_move = {}
+
+    go.animate(".", "position.x", go.PLAYBACK_ONCE_FORWARD, self.card_position.x, go.EASING_OUTSINE, 0.1)
+    go.animate(".", "position.y", go.PLAYBACK_ONCE_FORWARD, self.card_position.y, go.EASING_OUTSINE, 0.1, 0, function()
+        go.set_position(self.card_position)
+        
+        msg.post(".", "order: delete_dummy")
+        msg.post(".", "order: delete_frame")
+        
+        set_collisions(self)
+
+        msg.post(DEALER_ID, "order: enable_control")
+    end)
+end
+
+
+local function play_card_move_animation(self)
+
+    msg.post(".", "order: delete_dummy")
+    msg.post(".", "order: delete_frame")
+
+
+    if math2.table_size(self.triggered_cards_for_move) ~= 0 then
+        for card_id, card_url in pairs(self.triggered_cards_for_move) do
+            msg.post(card_id, "order: uninvert_card_sprite")
+            self.triggered_cards_for_move[card_id] = nil
+        end
+    end
+
+    self.triggered_cards_for_move = {}
+
+    set_collisions(self)
+
+
+    msg.post(DEALER_ID, "order: enable_control")
+
+end
+
+
+local function get_nearest_card_id(table)
+    local nearest_card_id = nil
+    local nearest_card_distance = 2 ^ 10
+    local card_position = go.get_world_position()
+
+    if math2.table_size(table) > 0 then
+        for card_id, data_card in pairs(table) do
+            local distance = vmath.length(card_position - go.get_world_position(card_id))
+            if distance < nearest_card_distance then
+                nearest_card_distance = distance
+                nearest_card_id = card_id
+            end
+        end
+    end
+    return nearest_card_id
+end
+
+
+
+
+
+function init(self)
+
+    self.card_id = go.get_id()
+    self.bottom_card_id = self.card_id
+    self.top_card_id = self.card_id
+    self.card_url = msg.url()
+
+    self.card_position = go.get_position()
+    self.card_world_position = go.get_world_position()
+    self.card_location = math2.round(self.card_world_position.z * 100)
+
+
+    data.id_to_url[self.card_id] = self.card_url
+    data.url_to_id[self.card_url] = self.card_id
+    data.key_to_hash[self.card_key] = self.card_hash
+    data.key_to_url[self.card_key] = self.card_url
+
+
+    self.card_rank = data.hash_to_property[self.card_hash].card_rank
+
+    self.card_suit = data.hash_to_property[self.card_hash].card_suit
+
+    self.card_color = data.hash_to_property[self.card_hash].card_color
+    self.card_sprite = data.hash_to_property[self.card_hash].card_sprite
+
+    self.card_back_sprite = data.card_back_sprite[data.settings.card_back]
+    self.card_frame_sprite = hash("card_cursor_frame")
+    self.card_half_frame_sprite = hash("card_cursor_half_frame")
+
+    msg.post("#sprite", "play_animation", {id = self.card_sprite})
+
+
+    self.triggered_cards_for_move = {}
+
+
+    self.click_time_new = 0
+    self.click_time_old = 0
+
+
+    self.card_dummy_id = nil
+    self.card_dummy_position = nil
+    self.card_is_pressed_and_dragged = false
+
+
+    set_new_location_property(self)
+
+
+    set_collisions(self)
+
+
+    msg.post("#label", "disable")
+end
+
+function final(self)
+    flow.stop()
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function on_message(self, message_id, message, sender)
+    flow.on_message(message_id, message, sender)
+
+
+    if message_id == hash("trigger_response") and message.other_group ~= hash("cursor") then
+
+        if self.card_is_drag == true then
+
+            local other_card_id = message.other_id
+            local other_card_url = data.id_to_url[message.other_id]
+            local other_card_hash = go.get(other_card_url, "card_hash")
+
+            local answer, answer_id = check_card_move(self.card_id, other_card_id)
+
+            if message.enter then
+                if answer == true then
+                    local answer_card_url = data.id_to_url[answer_id]
+                    if self.triggered_cards_for_move[answer_id] == nil then
+                        self.triggered_cards_for_move[answer_id] = 1
+                    else
+                        self.triggered_cards_for_move[answer_id] = self.triggered_cards_for_move[answer_id] + 1
+                    end
+                    if data.settings.outline_dragging == true then
+                        msg.post(answer_id, "order: invert_card_sprite")
+                    end
+                end
+            else
+                if self.triggered_cards_for_move[answer_id] ~= nil then
+                    self.triggered_cards_for_move[answer_id] = self.triggered_cards_for_move[answer_id] - 1
+                    if self.triggered_cards_for_move[answer_id] == 0 then
+                        msg.post(answer_id, "order: uninvert_card_sprite")
+                        self.triggered_cards_for_move[answer_id] = nil
+                    end
+                end
+            end
+        end
+    end
+
+
+    if message_id == hash("cursor_over") then
+
+
+
+
+
+    end
+
+
+    if message_id == hash("cursor_out") then
+        
+    end
+
+
+    if message_id == hash("clicked") then
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        do
+
+            self.click_time_new = socket.gettime()
+            local time = 0.4
+            if self.click_time_new - self.click_time_old < time then
+
+                self.click_time_old = 0
+
+
+                if self.bottom_card_type ~= 3 and self.bottom_card_type ~= 2 then
+
+                    flow.start(function()
+                        msg.post(DEALER_ID, "order: disable_control")
+
+                        msg.post(".", "request: card_move_to_foundation", {fast = true})
+                        flow.until_message(hash("request_completed"))
+                        msg.post(DEALER_ID, "order: enable_control")
+                    end)
+                end 
+            end
+            self.click_time_old = self.click_time_new
+        end
+
+    end
+
+    if message_id == hash("pressed") then
+
+
+
+
+
+
+
+
+
+
+
+
+
+        self.card_position = go.get_position()
+
+
+        if self.bottom_card_type ~= 3 and data.settings.outline_dragging == true then
+            msg.post(".", "order: create_dummy")
+        end
+        self.card_is_pressed_and_dragged = true
+        
+
+
+        if self.bottom_card_type == 3 then
+            flow.start(function()
+
+
+                msg.post(DEALER_ID, "order: disable_control")
+
+
+                local count = data.settings.card_draw
+
+                local cards_in_stock_total = math2.table_size(data.id_to_children[STOCK_ID])
+
+                if cards_in_stock_total < count then
+                    count = cards_in_stock_total
+                end
+
+
+                data.move_position = data.move_position + 1
+                data.moves[data.move_position] = nil
+
+
+                local card_count = 1
+
+
+                self.card_cannot_drag = true
+
+
+                for card_location = cards_in_stock_total, cards_in_stock_total - count + 1, -1 do
+                    local last_card_id = data.id_to_children[STOCK_ID][card_location]
+
+                    if card_count == count then
+
+                        go.set(data.id_to_url[WASTE_ID], "waste_draw", count)
+                    end
+                    
+                    msg.post(last_card_id, "request: move_to_card",
+                    {other_id = WASTE_ID, fast = true, order = true, save = true})
+                    flow.until_message(hash("request_completed"))
+
+                    card_count = card_count + 1
+                end
+
+
+                msg.post(DEALER_ID, "request: set_waste_draw")
+                flow.until_message(hash("request_completed"))
+
+
+                msg.post(DEALER_ID, "order: enable_control")
+   
+
+
+                cards_in_stock_total = math2.table_size(data.id_to_children[STOCK_ID])
+                if cards_in_stock_total == 0 then
+
+                    data.waste_count = data.waste_count + 1
+                end
+
+
+                if data.settings.scoring == 2 then
+                    if data.settings.card_draw == 1 then
+
+                        if data.waste_count >= data.scoring_rules[data.settings.scoring].recycle_waste1_total then
+
+                            msg.post(STOCK_ID, "order: set_card_sprite_vegas")
+                        else
+                            msg.post(STOCK_ID, "order: set_card_sprite_standard")
+                        end
+                    elseif data.settings.card_draw == 3 then
+
+                        if data.waste_count >= data.scoring_rules[data.settings.scoring].recycle_waste3_total then
+
+                            msg.post(STOCK_ID, "order: set_card_sprite_vegas")
+                        else
+                            msg.post(STOCK_ID, "order: set_card_sprite_standard")
+                        end
+                    end
+                end
+            end)
+        end
+
+
+
+        if self.bottom_card_type == 1 and self.card_faceup == 0 then
+
+
+            self.card_cannot_drag = true
+            
+            self.card_faceup = 1
+            set_faceup(self)
+
+
+            if data.settings.scoring ~= 0 then
+                data.settings.score = data.settings.score + data.scoring_rules[data.settings.scoring].faceup_card_in_cascade
+            end
+
+
+            data.action_position = 0
+            data.move_position = 0
+            
+        end
+        
+    end
+
+
+    if message_id == hash("released") then	
+
+        self.card_cannot_drag = false
+        
+        if self.card_is_pressed_and_dragged == true then
+            msg.post(".", "order: delete_dummy")
+        end
+    end	
+
+
+    if message_id == hash("drag_start") then
+
+        self.card_is_drag = true
+        data.card_is_drag = true
+
+        self.card_is_pressed_and_dragged = false
+
+
+        set_collisions(self)
+
+
+
+
+        msg.post(DEALER_ID, "order: disable_control")
+
+        go.set(self.card_id, "position.z", 0.4)
+
+
+        if data.settings.outline_dragging == true then
+            msg.post(".", "order: create_frame")
+        end
+
+    end
+
+
+    if message_id == hash("drag_end") then
+
+        self.card_is_drag = false
+        data.card_is_drag = false
+
+
+        local nearest_card_id = get_nearest_card_id(self.triggered_cards_for_move)
+        
+        if nearest_card_id ~= nil then
+            
+
+            data.move_position = data.move_position + 1
+            data.moves[data.move_position] = nil
+            
+            msg.post(".", "request: move_to_card", {other_id = nearest_card_id, save = true})
+        else
+            play_card_cannot_move_animation(self)
+        end
+    end
+
+
+    if message_id == hash("request: card_move_to_any") then
+        local move = false
+        for id, url in pairs(data.id_to_childfree) do
+            local bottom_card_type = go.get(url, "bottom_card_type")
+
+            if bottom_card_type ~= 3 and bottom_card_type ~= 4 then
+                local answer, answer_id = check_card_move(self.card_id, id)
+                if answer == true then
+
+                    data.move_position = data.move_position + 1
+                    data.moves[data.move_position] = nil
+                    
+                    msg.post(".", "request: move_to_card", {
+                        other_id = answer_id,
+                        fast = message.fast,
+                        order = message.order,
+                        request_sender = message.request_sender,
+                        save = true
+                    })
+                    move = true
+                    break
+                end
+            end
+        end
+        if move == false then
+
+            msg.post(message.request_sender or sender, "request_completed", {result = false})
+        end
+    end
+
+
+    if message_id == hash("request: card_move_to_foundation") then
+        local foundations = {
+            [1] = data.id_to_url[FOUNDATION1_ID],
+            [2] = data.id_to_url[FOUNDATION2_ID],
+            [3] = data.id_to_url[FOUNDATION3_ID],
+            [4] = data.id_to_url[FOUNDATION4_ID]
+        }
+        local move = false
+        for key = 1, #foundations do
+            local foundation_url = foundations[key]
+            local foundation_top_card_id = go.get(foundations[key], "top_card_id")
+            local foundation_top_card_url = data.id_to_url[foundation_top_card_id]
+
+            local answer, answer_id = check_card_move(self.card_id, foundation_top_card_id)
+            if answer == true then
+
+                data.move_position = data.move_position + 1
+                data.moves[data.move_position] = nil
+                msg.post(".", "request: move_to_card", {
+                    other_id = answer_id,
+                    fast = message.fast,
+                    order = message.order,
+                    request_sender = message.request_sender,
+                    save = true
+                })
+                move = true
+                break
+            end
+        end
+        if move == false then
+
+            msg.post(message.request_sender or sender, "request_completed", {result = false})
+        end
+    end
+
+
+    if message_id == hash("request: move_to_card") then
+
+
+
+        local answer, answer_id = check_card_move(self.card_id, message.other_id)
+
+
+        if answer ~= false or message.order == true then
+
+            local other_card_id = answer_id
+            local other_card_url = data.id_to_url[other_card_id]
+
+
+            local old_parent_card_id = self.parent_card_id
+
+            local old_bottom_card_type = self.bottom_card_type
+            local old_waste_draw = go.get(data.id_to_url[WASTE_ID], "waste_draw")
+
+
+            if message.card_faceup ~= nil then
+                self.card_faceup = message.card_faceup
+                set_faceup(self)
+            end
+
+
+            go.set(data.id_to_url[other_card_id], "child_card_id", self.card_id)
+
+            msg.post(other_card_id, "order: set_collisions")
+
+
+            if old_parent_card_id ~= false then
+
+
+                set_old_location_property(self)
+
+
+                msg.post(old_parent_card_id, "order: set_collisions")
+            end
+
+
+            self.parent_card_id = other_card_id
+
+
+            if data.id_to_children[self.bottom_card_id] == nil then
+                data.id_to_children[self.bottom_card_id] = {}
+            end
+            data.id_to_children[self.bottom_card_id][self.card_location] = nil
+
+
+            self.bottom_card_id = go.get(other_card_url, "bottom_card_id")
+            self.bottom_card_type = go.get(other_card_url, "bottom_card_type")
+
+
+
+            local child_card_position = vmath.vector3(-10, 10, 0.01)
+
+
+            if self.bottom_card_type == 0 then
+                child_card_position = vmath.vector3(0, -18, 0.01)
+            elseif self.bottom_card_type == 1 then
+                local other_parent_card_type = go.get(data.id_to_url[self.parent_card_id], "card_type")
+
+                if other_parent_card_type == 1 then
+                    child_card_position = vmath.vector3(0, 0, 0.01)
+                elseif other_parent_card_type == 0 then
+                    local other_parent_card_faceup = go.get(data.id_to_url[self.parent_card_id], "card_faceup")
+                    if other_parent_card_faceup == 0 then
+                        child_card_position = vmath.vector3(0, -4, 0.01)
+                    else
+                        child_card_position = vmath.vector3(0, -18, 0.01)
+                    end
+                end
+            elseif self.bottom_card_type == 2 then
+                child_card_position = vmath.vector3(0, 0, 0.01)
+            elseif self.bottom_card_type == 3 then
+
+                child_card_position = vmath.vector3(0, 0, 0.01)
+
+                self.card_faceup = 0
+            elseif self.bottom_card_type == 4 then
+
+                child_card_position = vmath.vector3(0, 0, 0.01)
+
+                self.card_faceup = 1
+            end
+
+
+            local new_card_position = go.get_world_position(self.parent_card_id) + child_card_position
+
+
+            self.card_location = math2.round(new_card_position.z * 100)
+
+
+            if data.id_to_children[self.bottom_card_id] == nil then
+                data.id_to_children[self.bottom_card_id] = {}
+            end
+            data.id_to_children[self.bottom_card_id][self.card_location] = self.card_id
+
+
+            set_new_location_property(self)
+
+
+            if self.bottom_card_type == 2 then
+
+                if self.card_location == 5 or self.card_location == 9 or self.card_location == 13 then
+                    new_card_position = new_card_position + vmath.vector3(2, -1, 0)
+                end
+            elseif self.bottom_card_type == 3 then
+
+                if self.card_location == 11 or self.card_location == 21 then
+                    new_card_position = new_card_position + vmath.vector3(2, -1, 0)
+                end
+            elseif self.bottom_card_type == 4 then
+
+                if self.card_location == 12 or self.card_location == 22 then
+                    new_card_position = new_card_position + vmath.vector3(2, -1, 0)
+                end        
+            end
+
+
+            local old_score = data.settings.score
+            if data.settings.scoring ~= 0 then
+                local score = data.settings.score
+                if old_bottom_card_type == 4 and self.bottom_card_type == 1 then
+
+                    score = data.settings.score + data.scoring_rules[data.settings.scoring].waste_to_cascade
+                elseif old_bottom_card_type == 4 and self.bottom_card_type == 2 then
+
+                    score = data.settings.score + data.scoring_rules[data.settings.scoring].waste_to_foundation
+                elseif old_bottom_card_type == 1 and self.bottom_card_type == 2 then
+
+                    score = data.settings.score + data.scoring_rules[data.settings.scoring].cascade_to_foundation
+                elseif old_bottom_card_type == 2 and self.bottom_card_type == 1 then
+
+                    score = data.settings.score + data.scoring_rules[data.settings.scoring].foundation_to_cascade
+                end
+
+                if data.settings.scoring == 1 and score < 0 then
+                    data.settings.score = 0
+                else
+                    data.settings.score = score
+                end
+            end
+
+
+
+            if message.save == true and data.settings.timed_game == true and data.timer_handle == nil then
+                msg.post(DEALER_ID, "order: start_timer")
+            end
+  
+
+            if message.save == true then
+
+                local action = {}
+
+
+                action.card_key_from = go.get(data.id_to_url[old_parent_card_id], "card_key")
+                action.card_key_self = self.card_key
+                action.card_key_to = go.get(data.id_to_url[self.parent_card_id], "card_key")
+
+                action.card_faceup_parent = nil
+                local parent_card_type = go.get(data.id_to_url[old_parent_card_id], "card_type")
+
+                if parent_card_type == 0 then
+                    local parent_card_faceup = go.get(data.id_to_url[old_parent_card_id], "card_faceup")
+
+                    if parent_card_faceup == 0 then
+                        action.card_faceup_parent = 0
+                    end
+                end
+
+
+                data.action_position = data.action_position + 1
+                data.actions[data.action_position] = action
+
+
+                local move = {}
+
+
+                move.score = old_score
+                move.waste_count = data.waste_count
+
+
+                move.action_to = data.action_position
+                move.action_from = data.action_position
+
+
+                move.waste_draw_from = old_waste_draw
+
+                if old_bottom_card_type == 4 then
+                    local waste_draw = go.get(data.id_to_url[WASTE_ID], "waste_draw")
+
+                    if waste_draw > 1 then
+                        waste_draw = waste_draw - 1
+                        go.set(data.id_to_url[WASTE_ID], "waste_draw", waste_draw)
+                    end
+                end
+                move.waste_draw_to = go.get(data.id_to_url[WASTE_ID], "waste_draw")
+
+
+                if data.moves[data.move_position] ~= nil then
+
+                    move.action_from = data.moves[data.move_position].action_from
+                    move.waste_draw_from = data.moves[data.move_position].waste_draw_from
+                end
+
+
+                data.moves[data.move_position] = move
+            end
+            
+
+
+            go.set_parent(self.card_id, nil, false)
+
+
+            go.set_position(new_card_position)
+
+
+            go.set_parent(self.card_id, self.parent_card_id, true)
+
+
+            set_faceup(self)
+
+
+            if message.fast == true then
+                set_collisions(self)
+
+                msg.post(message.request_sender or sender, "request_completed", {result = true})
+            else
+
+                play_card_move_animation(self)
+
+                msg.post(message.request_sender or sender, "request_completed", {result = true})
+            end
+
+        else
+
+
+            if message.fast == true then
+
+                msg.post(message.request_sender or sender, "request_completed", {result = false})
+            else
+
+                set_collisions(self)
+
+                play_card_cannot_move_animation(self)
+
+                msg.post(message.request_sender or sender, "request_completed", {result = false})
+            end
+
+        end
+
+
+        msg.post(DEALER_ID, "order: check_game_state")
+        
+    end
+
+
+
+
+
+    if message_id == hash("order: invert_card_sprite") then
+
+        sprite.set_constant("#sprite", "invert", vmath.vector4(1))
+    end
+
+    if message_id == hash("order: uninvert_card_sprite") then
+
+        sprite.set_constant("#sprite", "invert", vmath.vector4(0))
+    end
+
+    if message_id == hash("request: card_faceup") then
+        self.card_faceup = message.card_faceup or 0
+        set_faceup(self)
+        msg.post(message.request_sender or sender, "request_completed")
+    end
+
+
+    if message_id == hash("order: create_dummy") then
+        if self.card_dummy_id ~= nil then
+            if math2.go_exists(self.card_dummy_id) then
+                go.delete(self.card_dummy_id)
+            end
+            self.card_dummy_id = nil
+            self.card_dummy_position = nil
+            if self.child_card_id ~= false then
+                msg.post(self.child_card_id, "order: delete_dummy")
+            end
+        end
+        local rot = nil 
+        local scale = 1
+        
+        if self.card_is_drag == true then
+            self.card_dummy_position = self.card_position
+        else
+            self.card_dummy_position = go.get_position()
+        end
+        local pos = self.card_dummy_position
+        self.card_dummy_id = factory.create("#factory_card_dummy", pos, rot, { card_hash = self.card_hash}, scale)
+        
+
+        if message.parent_card_dummy_id ~= nil then
+            go.set_parent(self.card_dummy_id, message.parent_card_dummy_id, false)
+        else
+            if self.parent_card_id ~= false then
+                go.set_parent(self.card_dummy_id, self.parent_card_id, false)
+            else
+
+            end
+        end
+        
+        if self.child_card_id ~= false then
+            msg.post(self.child_card_id, "order: create_dummy", { parent_card_dummy_id = self.card_dummy_id })
+        end
+    end
+    if message_id == hash("order: delete_dummy") then
+        if self.card_dummy_id ~= nil then
+            if math2.go_exists(self.card_dummy_id) then
+                go.delete(self.card_dummy_id)
+            end
+
+            self.card_dummy_id = nil
+            self.card_dummy_position = nil
+            
+            if self.child_card_id ~= false then
+                msg.post(self.child_card_id, "order: delete_dummy")
+            end
+        end
+    end
+
+    if message_id == hash("order: create_frame") then
+
+        if self.child_card_id == false then
+
+            msg.post("#sprite", "play_animation", {id = self.card_frame_sprite}) 
+        else
+
+            msg.post("#sprite", "play_animation", {id = self.card_half_frame_sprite})
+            msg.post(self.child_card_id, "order: create_frame")
+        end
+    end
+
+    if message_id == hash("order: delete_frame") then
+        set_faceup(self)
+        if self.child_card_id ~= false then
+            msg.post(self.child_card_id, "order: delete_frame")
+        end
+    end
+
+    if message_id == hash("order: update_card_back_sprite") then
+        self.card_back_sprite = data.card_back_sprite[data.settings.card_back]
+        set_faceup(self)
+    end
+
+
+    if message_id == hash("request: win_and_jump") then
+
+
+        msg.post("#collisionobject_faceup", "disable")
+        msg.post("#collisionobject_faceup_slice", "disable")
+        msg.post("#collisionobject_faceup_cascade", "disable")
+        msg.post("#collisionobject_faceup_cursor", "disable")
+
+        self.card_world_position = go.get_world_position()
+
+        self.card_position = self.card_world_position + vmath.vector3(0, 0, (100 - message.delay) / 1000)
+
+        go.set_parent(self.card_id, nil, false)
+
+        go.set_position(self.card_position)
+        
+        local display_width, display_height = camera.get_display_size()
+
+
+        local jump_y = display_height 
+        local jump_y_time = 2
+        local jump_x
+        local jump_x_time = 20
+
+
+
+        if math.random(0, 1) == 1 then
+            jump_x = math.random(- display_width * 4, - display_width ) 
+        else
+            jump_x = math.random(display_width , display_width * 4) 
+        end
+        
+        local jump_delay = message.delay or 0
+
+        local init_jump_height = 9
+        local init_fall_depth = display_height  
+        
+        go.animate(self.card_id, "position.y", go.PLAYBACK_ONCE_FORWARD, self.card_position.y, go.EASING_LINEAR, 0, jump_delay, function()
+            msg.post(".", "order: set_card_material_trail")
+            msg.post(".", "order: jump_up", { time = 0.1, height = init_jump_height, depth = init_fall_depth })
+        end)
+        go.animate(self.card_id, "position.x", go.PLAYBACK_ONCE_FORWARD, self.card_position.x + jump_x, go.EASING_OUTSINE, jump_x_time, jump_delay, function()
+
+
+
+        end)       
+    end  
+    if message_id == hash("order: jump_up") then
+
+        self.card_position = go.get_position()
+        go.animate(self.card_id, "position.y", go.PLAYBACK_ONCE_FORWARD, self.card_position.y + message.height, go.EASING_OUTQUAD, message.time, 0, function() 
+            msg.post(".", "order: fall_down", { time = 0.5, height = message.height, depth = message.depth - message.depth * 0.27 })
+        end)
+    end
+    if message_id == hash("order: fall_down") then
+
+        self.card_position = go.get_position()
+        go.animate(self.card_id, "position.y", go.PLAYBACK_ONCE_FORWARD, self.card_position.y - message.depth, go.EASING_INQUAD, message.time, 0, function() 
+            msg.post(".", "order: jump_up", { time = 0.5, height = message.depth - message.depth * 0.27, depth = message.depth })
+        end)
+    end
+    if message_id == hash("order: set_card_material_default") then
+        go.set("#sprite", "material", self.card_material_default)
+    end
+    if message_id == hash("order: set_card_material_trail") then
+        go.set("#sprite", "material", self.card_material_trail)
+    end
+
+
+    if message_id == hash("order: set_collisions") then
+        set_collisions(self)
+    end
+
+end
+main/entity/card.script
+main.math2	main.data
+main.colororthographic.cameramain.jim_horneludobits.m.flow	in.cursor/main/math2.luac/main/data.luac/main/color.luac/orthographic/camera.luac/main/jim_horne.luac/ludobits/m/flow.luac/in/cursor.luac"ù
+
+card_keyœƒ„¥õƒá«" 
+
+	card_type°Ä˜ñî‘•Ù
+
+	card_rank¶á–ãã„œè∞
+
+	card_suit®‚Ãó‚Ò»ËÕ
+
+
+card_colorÜ¡ÂüñõÅÜ—
+
+card_locationˇœΩÜ⁄¬˚Ñò
+
+card_tableau·ê∑»π ﬂòˆ	
+
+card_faceupÁ£˛ÂúäªãÂ
+
+
+bottom_card_type˛ˆŸ˙Ñ„Íà°
+card_id£õ–ÇóÜààR 
+	card_hashç…¶◊ïΩµÂ“
+card_back_spriteá˜’›ôó÷ü¯#
+card_material_default£Ìƒ“è“ìä1"
+card_material_trail”üıÃõº‚ñπ
+card_url¡ﬂÏ•ôÊ‡¯T "<
+card_positionÛŸ‚â†¨˚ÅW Íì‹ë©Ÿêò≤ àóøÀ≠Õ˛‰É √„‰’†ñïÍ:
+bottom_card_idá¡ã√”√ä€#:
+parent_card_id⁄í·≠∏…œú◊:
+child_card_idé·πãñîÇœÃ:
+top_card_idêˇ∂‡•ÚÏˇÛ:
+card_is_drag¿ìÔÛ∏Î˚ï\:
+card_cannot_dragÉ⁄ªÛì‰Ô‘¥E    E    E    E    E    E    E    E    E  Ä?E    E  Ä?E    E    E    E    E    E    E    H H∏ƒÊÿ¸∂™òÊH H∂Òﬁ∂˚ì«∞Hï˚ß¶πÒ˚õR *$/main/render/sprite_invert.materialc*!/main/render/card_trail.materialc

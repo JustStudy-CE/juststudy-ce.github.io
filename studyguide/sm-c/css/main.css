@@ -1,0 +1,302 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#mainContainer {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+
+    /* Use dynamic viewport units if supported */
+    @supports (width: 100dvw) {
+        width: 100dvw;
+        height: 100dvh;
+    }
+}
+
+#gameContainer {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#gameCanvasWrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+}
+
+#gameCanvas {
+    position: static;
+    width: 100%;
+    height: 100%;
+}
+
+#xsolla-iframe {
+    position: absolute;
+    width: 80%;
+    height: 100%;
+    left: 50.5%;
+    transform: translate(-50%, 0%);
+    border: none;
+    padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px) env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+    display: none;
+}
+
+#adContainerDeath {
+    display: none;
+    --shown_display: flex;
+    position: absolute;
+    /* border: 1px solid red; */
+    z-index: 100;
+    bottom: 0px;
+    right: 0px;
+    width: fit-content;
+    height: fit-content;
+    align-items: center;
+}
+
+#adContainerLoadingLeft {
+    display: none;
+    --shown_display: block;
+    position: absolute;
+    transform-origin: left top;
+    transform: translate(0px, -50%);
+    /* border: 1px solid red; */
+    z-index: 100;
+    top: 50%;
+    left: 10px;
+    width: auto;
+    height: auto;
+}
+
+#adContainerMainMenu {
+    display: none;
+    --shown_display: block;
+    position: absolute;
+    transform-origin: right top;
+    transform: translate(0px, -50%);
+    /* border: 1px solid red; */
+    z-index: 100;
+    top: 50%;
+    right: 10px;
+    width: auto;
+    height: auto;
+}
+
+@media screen and (max-width: 600px) {
+    #smashkarts-io_300x250 {
+        /* border: 1px solid blue; */
+        display: none;
+    }
+}
+
+#adContainerWin {
+    display: none;
+    --shown_display: block;
+    position: absolute;
+    transform-origin: right bottom;
+    /* border: 1px solid red; */
+    z-index: 100;
+    bottom: 10px;
+    right: 10px;
+    width: auto;
+    height: auto;
+}
+
+#adContainerSpectate {
+    display: none;
+    --shown_display: block;
+    position: absolute;
+    transform-origin: right bottom;
+    /* border: 1px solid red; */
+    z-index: 100;
+    bottom: 10px;
+    right: 10px;
+    width: auto;
+    height: auto;
+}
+
+#pw-video-container {
+    position: absolute;
+    display: none; /* default to hidden */
+
+    width: 100vw;
+    height: 100vh;
+
+    /* Use dynamic viewport units if supported */
+    @supports (width: 100dvw) {
+        width: 100dvw;
+        height: 100dvh;
+    }
+}
+
+#pw-video-placeholder {
+    position: absolute;
+
+    width: 100vw;
+    height: 100vh;
+
+    /* Use dynamic viewport units if supported */
+    @supports (width: 100dvw) {
+        width: 100dvw;
+        height: 100dvh;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #smashkarts-io_300x250_2 {
+        /* border: 1px solid blue; */
+        display: none;
+    }
+}
+
+/* try to handle mobile dialog */
+canvas+* {
+    z-index: 2;
+}
+
+.logo {
+    display: block;
+
+    width: 35vw;
+
+    /* Use dynamic viewport units if supported */
+    @supports (width: 35dvw) {
+        width: 35dvw;
+    }
+}
+
+.progress {
+    display: none;
+    margin: 1.5em;
+    border: 2px solid;
+    width: 25vw;
+
+    /* Use dynamic viewport units if supported */
+    @supports (width: 25dvw) {
+        width: 25dvw;
+    }
+}
+
+.progress .full {
+    margin: 2px;
+    background: white;
+    height: 1em;
+    transform-origin: top left;
+}
+
+#loader {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #1b70f0;
+    background-image: url("../images/overlay.png"), url("../images/menuBGTile.png");
+    background-size: cover, 13vw;
+    background-repeat: no-repeat, repeat;
+    overflow: hidden;
+
+    width: 100vw;
+    height: 100vh;
+
+    /* Use dynamic viewport units if supported */
+    @supports (width: 100dvw) {
+        width: 100dvw;
+        height: 100dvh;
+    }
+}
+
+.spinner {
+    position: absolute;
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #3498db;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+
+    left: 2vw;
+    bottom: 2vh;
+    width: 10vh;
+    height: 10vh;
+
+    /* Use dynamic viewport units if supported */
+    @supports (width: 10dvw) {
+        left: 2dvw;
+        bottom: 2dvh;
+        width: 10dvh;
+        height: 10dvh;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* for all screens */
+#rotate-landscape {
+    display: none;
+}
+
+/* only when orientation is in portrait mode */
+@media all and (orientation:portrait) {
+    #rotate-landscape {
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        background: #1b70f0;
+        background-image: url("../images/overlay.png"), url("../images/menuBGTile.png");
+        background-size: cover, 13vw;
+        background-repeat: no-repeat, repeat;
+        overflow: hidden;
+
+        width: 100vw;
+        height: 100vh;
+
+        /* Use dynamic viewport units if supported */
+        @supports (width: 100dvw) {
+            width: 100dvw;
+            height: 100dvh;
+        }
+    }
+}
+
+.center {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 90vw;
+
+    /* Use dynamic viewport units if supported */
+    @supports (width: 90dvw) {
+        width: 90dvw;
+    }
+}

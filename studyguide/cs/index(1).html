@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" id="favi" href="">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KW15Q1QG97"></script>
+    <script type="text/javascript" src="/assets/js/LoadData.js"></script>
+    <script>
+      function loadContent() {
+        var script = document.createElement("script");
+        script.src = "Build/0370d8460a05df387c7e20ba8e669bea.loader.js";
+        script.onload = function () {
+          createUnityInstance(document.getElementById("unity-canvas"), {
+            dataUrl: "Build/cfde9a676f559c3cf0ed95a743561541.data.br",
+            frameworkUrl: "Build/bba575b393754c7d476b34fedcaa2a13.framework.js",
+            codeUrl: "Build/47779255c8e343b640b94b768c5526a7.wasm.br",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "",
+            productName: "",
+            productVersion: "1.0",
+          }).then((unityInstance) => {
+            console.log("Loaded", unityInstance);
+          }).catch((error) => {
+            console.error("Error:", error);
+          });
+        };
+        document.body.appendChild(script);
+      }
+      window.onload = loadContent;
+      window.alert = function (message) {
+        console.warn("Blocked alert:", message);
+      };
+
+    </script>
+    <script src="v1.332/bundle.js"></script>
+  </head>
+  <body style="margin: 0; padding: 0; background-color: black; overflow: hidden;">
+    <canvas id="unity-canvas" style="width: 100vw; height: 100vh;"></canvas>
+  </body>
+</html>

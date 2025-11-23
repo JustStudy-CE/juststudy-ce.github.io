@@ -1,0 +1,303 @@
+"key":"mainmenu_play_btn"
+"default":"PLAY"
+"en":"PLAY"
+"ru":"ИГРАТЬ"
+
+"key":"mainmenu_ready_label"
+"default":"READY"
+"en":"READY"
+"ru":"ГОТОВО"
+
+
+"key":"infomenu_sound_on"
+"default":"SOUND ON"
+"en":"SOUND ON"
+"ru":"ЗВУК ВКЛ"
+
+"key":"infomenu_sound_off"
+"default":"SOUND OFF"
+"en":"SOUND OFF"
+"ru":"ЗВУК ВЫКЛ"
+
+"key":"infomenu_rules_1"
+"default":"HOW TO PLAY"
+"en":"HOW TO PLAY"
+"ru":"КАК ИГРАТЬ"
+
+"key":"infomenu_rules_2"
+"default":"TAP TO JUMP\nDON'T HIT THE SPIKES"
+"en":"TAP TO JUMP\nDON'T HIT THE SPIKES"
+"ru":"НАЖМИТЕ ДЛЯ ПРЫЖКА\nНЕ КАСАЙТЕСЬ ШИПОВ"
+
+"key":"infomenu_rules_3"
+"default":"ESCAPE THROUGH THE HOLE"
+"en":"ESCAPE THROUGH THE HOLE"
+"ru":"ДОБЕРИТЕСЬ ДО ВЫХОДА"
+
+"key":"infomenu_rules_4"
+"default":"+2 DIAMONDS PER TRY"
+"en":"+2 DIAMONDS PER TRY"
+"ru":"+2 КРИСТАЛЛА ЗА ПОПЫТКУ"
+
+
+"key":"dailymenu_reward_btn"
+"default":"DOUBLE\nREWARD!"
+"en":"DOUBLE\nREWARD!"
+"ru":"ДВОЙНАЯ\nНАГРАДА"
+
+"key":"dailymenu_back_btn"
+"default":"BACK"
+"en":"BACK"
+"ru":"НАЗАД"
+
+
+"key":"winmenu_win_label"
+"default":"LEVEL COMPLETE!"
+"en":"LEVEL COMPLETE!"
+"ru":"УРОВЕНЬ ПРОЙДЕН"
+
+
+"key":"losemenu_skip_btn"
+"default":"SKIP LEVEL"
+"en":"SKIP LEVEL"
+"ru":"ПРОПУСТИТЬ УРОВЕНЬ"
+
+"key":"losemenu_next_btn"
+"default":"NEXT LEVEL"
+"en":"NEXT LEVEL"
+"ru":"СЛЕДУЮЩИЙ УРОВЕНЬ"
+
+"key":"losemenu_label_1"
+"default":"OOPS!"
+"en":"OOPS!"
+"ru":"ОЙ!"
+
+"key":"losemenu_label_2"
+"default":"TRY AGAIN"
+"en":"TRY AGAIN"
+"ru":"ПОПРОБУЙ ЕЩЕ РАЗ"
+
+
+"key":"shopmenu_rareballs_btn"
+"default":"RARE BALLS"
+"en":"RARE BALLS"
+"ru":"РЕДКИЕ МЯЧИ"
+
+
+"key":"unlockpackmenu_title_label"
+"default":"Congrats!"
+"en":"Congrats!"
+"ru":"Поздравляю!"
+
+"key":"unlockpackmenu_label_1"
+"default":"The next level pack is unlocked!"
+"en":"The next level pack is unlocked!"
+"ru":"Следующий пак уровней открыт"
+
+"key":"unlockpackmenu_play_btn"
+"default":"Check it out"
+"en":"Check it out"
+"ru":"Попробуйте"
+
+
+"key":"completegamemenu_title_label"
+"default":"Congrats!"
+"en":"Congrats!"
+"ru":"Поздравляю!"
+
+"key":"completegamemenu_label_1"
+"default":"You have completed all levels!"
+"en":"You have completed all levels!"
+"ru":"Вы прошли все уровни"
+
+"key":"completegamemenu_label_2"
+"default":"You can play levels again for a better result"
+"en":"You can play levels again for a better result"
+"ru":"Пройдите уровни еще раз, для лучшего результата"
+
+"key":"completegamemenu_ok_btn"
+"default":"Ok"
+"en":"Ok"
+"ru":"Ок"
+
+
+"key":"skinexpiredmenu_title_label"
+"default":"Chapter Complete"
+"en":"Chapter Complete"
+"ru":"Глава Закончена"
+
+"key":"skinexpiredmenu_label_1"
+"default":"Sorry but you missed the challenge"
+"en":"Sorry but you missed the challenge"
+"ru":"К сожалению, вы пропустили испытание"
+
+"key":"skinexpiredmenu_expired_label"
+"default":"EXPIRED"
+"en":"EXPIRED"
+"ru":"ЗАКОНЧИЛСЯ"
+
+"key":"skinexpiredmenu_ok_btn"
+"default":"Ok"
+"en":"Ok"
+"ru":"Ок"
+
+
+"key":"skinunlockedmenu_title_label"
+"default":"Chapter Complete"
+"en":"Chapter Complete"
+"ru":"Глава Закончена"
+
+"key":"skinunlockedmenu_label_1"
+"default":"Congrats, you unlocked a new skin"
+"en":"Congrats, you unlocked a new skin"
+"ru":"Поздравляю, вы открыли новый мяч"
+
+"key":"skinunlockedmenu_skin_btn"
+"default":"Select skin"
+"en":"Select skin"
+"ru":"Выбрать"
+
+"key":"skinunlockedmenu_ok_btn"
+"default":"Ok"
+"en":"Ok"
+"ru":"Ок"
+
+
+"key":"loadingmenu_label_1"
+"default":"Loading..."
+"en":"Loading..."
+"ru":"Загрузка..."
+
+
+"key":"tutormenu_tap_label"
+"default":"TAP TO CONTINUE"
+"en":"TAP TO CONTINUE"
+"ru":"НАЖМИТЕ ДЛЯ ПРОДОЛЖЕНИЯ"
+
+"key":"tutormenu_here_label"
+"default":"GET HERE"
+"en":"GET HERE"
+"ru":"ДОБЕРИТЕСЬ СЮДА"
+
+
+"key":"packmenu_beatpr_label"
+"default":"Beat previous pack to unlock"
+"en":"Beat previous pack to unlock"
+"ru":"Пройдите предыдущий набор уровней, что открыть"
+
+"key":"packmenu_title_label"
+"default":"LEVEL PACKS"
+"en":"LEVEL PACKS"
+"ru":"НАБОРЫ УРОВНЕЙ"
+
+"key":"packmenu_newpacks_label"
+"default":"NEW PACKS\nCOMING SOON"
+"en":"NEW PACKS\nCOMING SOON"
+"ru":"НОВЫЕ УРОВНИ БУДУТ СКОРО"
+
+"key":"packmenu_unlock_btn"
+"default":"UNLOCK"
+"en":"UNLOCK"
+"ru":"ОТКРЫТЬ"
+
+
+
+"key":"gamemenu_loading_label"
+"default":"Loading..."
+"en":"Loading..."
+"ru":"Загрузка..."
+
+
+"key":"pausemenu_paused_label"
+"default":"PAUSED"
+"en":"PAUSED"
+"ru":"ПАУЗА"
+
+"key":"pausemenu_home_btn"
+"default":"HOME"
+"en":"HOME"
+"ru":"ДОМОЙ"
+
+"key":"pausemenu_restart_btn"
+"default":"RESTART"
+"en":"RESTART"
+"ru":"РЕСТАРТ"
+
+"key":"pausemenu_continue_btn"
+"default":"CONTINUE"
+"en":"CONTINUE"
+"ru":"ПРОДОЛЖИТЬ"
+
+"key":"pausemenu_classicbg_btn"
+"default":"Classic"
+"en":"Classic"
+"ru":"Классический"
+
+"key":"pausemenu_animbg_btn"
+"default":"Theme"
+"en":"Theme"
+"ru":"Анимированный"
+
+
+"key":"gamemenu_switchart_label"
+"default":"Switch graphics?"
+"en":"Switch graphics?"
+"ru":"Переключить графику?"
+
+
+"key":"chapter2menu_rareskin_label"
+"default":"RARE SKIN"
+"en":"RARE SKIN"
+"ru":"РЕДКИЙ"
+
+"key":"chapter2menu_expired_label"
+"default":"EXPIRED"
+"en":"EXPIRED"
+"ru":"ЗАКОНЧИЛСЯ"
+
+"key":"chapter2menu_challenge2_1"
+"default":"Challenge:"
+"en":"Challenge:"
+"ru":"Испытание:"
+
+"key":"chapter2menu_challenge2_2"
+"default":"Beat within 1 Day\nto unlock skin"
+"en":"Beat within 1 Day\nto unlock skin"
+"ru":"Пройдите за 1 день\nчтобы получить награду"
+
+"key":"chapter2menu_challenge2_3"
+"default":"Hours\nLeft"
+"en":"Hours\nLeft"
+"ru":"Часов\nОсталось"
+
+"key":"chapter2menu_challenge1_1"
+"default":"Activate a section to start a challenge"
+"en":"Activate a section to start a challenge"
+"ru":"Активируйте секцию, чтобы начать испытание"
+
+"key":"chapter2menu_challenge3_1"
+"default":"No challenges"
+"en":"No challenges"
+"ru":"Нет испытаний"
+
+"key":"chapter2menu_challenge4_1"
+"default":"Challenge expired! Complete chapter to start another one"
+"en":"Challenge expired! Complete chapter to start another one"
+"ru":"Испытания закончились!"
+
+"key":"chapter2menu_rewards_btn"
+"default":"See rewards"
+"en":"See rewards"
+"ru":"Награды"
+
+
+"key":"rewardsmenu_label_1"
+"default":"All Possible Rewards"
+"en":"All Possible Rewards"
+"ru":"Все Награды"
+
+"key":"rewardsmenu_close_btn"
+"default":"Close"
+"en":"Close"
+"ru":"Закрыть"
+

@@ -1,0 +1,695 @@
+{
+	"frames": {
+		"Spark1_00000.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00001.png": {
+			"frame": {
+				"x": 203,
+				"y": 1,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00002.png": {
+			"frame": {
+				"x": 405,
+				"y": 1,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00003.png": {
+			"frame": {
+				"x": 607,
+				"y": 1,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00004.png": {
+			"frame": {
+				"x": 809,
+				"y": 1,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00005.png": {
+			"frame": {
+				"x": 1,
+				"y": 153,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00006.png": {
+			"frame": {
+				"x": 203,
+				"y": 153,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00007.png": {
+			"frame": {
+				"x": 405,
+				"y": 153,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00008.png": {
+			"frame": {
+				"x": 607,
+				"y": 153,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00009.png": {
+			"frame": {
+				"x": 809,
+				"y": 153,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00010.png": {
+			"frame": {
+				"x": 1,
+				"y": 305,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00011.png": {
+			"frame": {
+				"x": 203,
+				"y": 305,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00012.png": {
+			"frame": {
+				"x": 405,
+				"y": 305,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00013.png": {
+			"frame": {
+				"x": 607,
+				"y": 305,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00014.png": {
+			"frame": {
+				"x": 809,
+				"y": 305,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00015.png": {
+			"frame": {
+				"x": 1,
+				"y": 457,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00016.png": {
+			"frame": {
+				"x": 203,
+				"y": 457,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00017.png": {
+			"frame": {
+				"x": 405,
+				"y": 457,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00018.png": {
+			"frame": {
+				"x": 607,
+				"y": 457,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00019.png": {
+			"frame": {
+				"x": 809,
+				"y": 457,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00020.png": {
+			"frame": {
+				"x": 1,
+				"y": 609,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00021.png": {
+			"frame": {
+				"x": 203,
+				"y": 609,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00022.png": {
+			"frame": {
+				"x": 405,
+				"y": 609,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00023.png": {
+			"frame": {
+				"x": 607,
+				"y": 609,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00024.png": {
+			"frame": {
+				"x": 809,
+				"y": 609,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00025.png": {
+			"frame": {
+				"x": 1,
+				"y": 761,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00026.png": {
+			"frame": {
+				"x": 203,
+				"y": 761,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00027.png": {
+			"frame": {
+				"x": 405,
+				"y": 761,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00028.png": {
+			"frame": {
+				"x": 607,
+				"y": 761,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00029.png": {
+			"frame": {
+				"x": 809,
+				"y": 761,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00030.png": {
+			"frame": {
+				"x": 1011,
+				"y": 1,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00031.png": {
+			"frame": {
+				"x": 1011,
+				"y": 153,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00032.png": {
+			"frame": {
+				"x": 1011,
+				"y": 305,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		},
+		"Spark1_00033.png": {
+			"frame": {
+				"x": 1011,
+				"y": 457,
+				"w": 200,
+				"h": 150
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 200,
+				"h": 150
+			},
+			"sourceSize": {
+				"w": 200,
+				"h": 150
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 1212,
+			"h": 912
+		},
+		"scale": "1"
+	}
+}

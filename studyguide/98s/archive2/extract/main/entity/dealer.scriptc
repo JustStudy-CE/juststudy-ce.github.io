@@ -1,0 +1,758 @@
+
+ӻ
+��local math2 = require "main.math2"
+local data = require "main.data"
+local stats = require "main.stats"
+local camera = require "orthographic.camera"
+local jim_horne = require "main.jim_horne"
+local flow = require "ludobits.m.flow"
+local gesture = require "in.gesture"
+
+
+STOCK_ID = hash("/stock")
+WASTE_ID = hash("/waste")
+
+FOUNDATION1_ID = hash("/foundation1")
+FOUNDATION2_ID = hash("/foundation2")
+FOUNDATION3_ID = hash("/foundation3")
+FOUNDATION4_ID = hash("/foundation4")
+
+CASCADE1_ID = hash("/cascade1")
+CASCADE2_ID = hash("/cascade2")
+CASCADE3_ID = hash("/cascade3")
+CASCADE4_ID = hash("/cascade4")
+CASCADE5_ID = hash("/cascade5")
+CASCADE6_ID = hash("/cascade6")
+CASCADE7_ID = hash("/cascade7")
+
+CURSOR_ID = hash("/cursor")
+CAMERA_ID = hash("/camera")
+CURSOR_SCRIPT_URL = "/cursor#cursor"
+CURSOR_COLLISION_OBJECT_URL = "/cursor#collisionobject"
+
+DEALER_ID = hash("/dealer")
+
+function init(self)
+
+
+	math.randomseed((socket.gettime() % 1) * 100000)
+	math.random()
+	math.random()
+	math.random()
+
+
+	msg.post(msg.url(nil, nil, "sprite"), "disable")	
+
+
+	self.deal_complete = true
+	
+
+	self.clear_table = true
+
+
+	self.right_click_before = 0
+	self.right_click_after = 0
+
+
+	assert(math2.go_exists(STOCK_ID), STOCK_ID .. " нет на столе!")
+	assert(math2.go_exists(WASTE_ID), WASTE_ID .. " нет на столе!")
+	assert(math2.go_exists(CASCADE1_ID), CASCADE1_ID .. " нет на столе!")
+	assert(math2.go_exists(CASCADE2_ID), CASCADE2_ID .. " нет на столе!")
+	assert(math2.go_exists(CASCADE3_ID), CASCADE3_ID .. " нет на столе!")
+	assert(math2.go_exists(CASCADE4_ID), CASCADE4_ID .. " нет на столе!")
+	assert(math2.go_exists(CASCADE5_ID), CASCADE5_ID .. " нет на столе!")
+	assert(math2.go_exists(CASCADE6_ID), CASCADE6_ID .. " нет на столе!")
+	assert(math2.go_exists(CASCADE7_ID), CASCADE7_ID .. " нет на столе!")
+	assert(math2.go_exists(FOUNDATION1_ID), FOUNDATION1_ID .. " нет на столе!")
+	assert(math2.go_exists(FOUNDATION2_ID), FOUNDATION2_ID .. " нет на столе!")
+	assert(math2.go_exists(FOUNDATION3_ID), FOUNDATION3_ID .. " нет на столе!")
+	assert(math2.go_exists(FOUNDATION4_ID), FOUNDATION4_ID .. " нет на столе!")	
+	
+	flow.start(function()
+
+		msg.post(".", "request: load_game")
+		flow.until_message(hash("request_completed"))
+
+		msg.post(".", "request: new_deal", {deal_number = data.settings.deal_number})
+		flow.until_message(hash("request_completed"))
+	end)
+end
+
+function final(self)
+	flow.stop()
+end
+
+function update(self, dt)
+
+
+
+
+
+	
+
+end
+
+function on_message(self, message_id, message, sender)
+	flow.on_message(message_id, message, sender)
+	
+	if message_id == hash("order: enable_control") then
+		msg.post(CURSOR_COLLISION_OBJECT_URL, "enable")
+	end
+	if message_id == hash("order: disable_control") then
+		msg.post(CURSOR_COLLISION_OBJECT_URL, "disable")
+	end
+
+	if message_id == hash("order: set_card_back") then
+		for card_id, card_url in pairs(data.id_to_url) do
+			local card_type = go.get(card_url, "card_type")
+
+			if card_type == 0 then
+				msg.post(card_id, "order: update_card_back_sprite")
+			end		
+		end	
+	end
+
+
+	if message_id == hash("order: start_timer") then
+		data.timer_handle = timer.delay(1, true, function()
+
+			data.settings.time = data.settings.time + 1
+			local time_by_seconds = data.settings.time % data.scoring_rules[data.settings.scoring].timed_game_by_seconds
+
+			if data.settings.scoring == 1 and time_by_seconds == 0 then
+				local score = data.settings.score
+				score = data.settings.score + data.scoring_rules[data.settings.scoring].timed_game_penalty
+				if data.settings.scoring == 1 and score < 0 then
+					data.settings.score = 0
+				else
+					data.settings.score = score
+				end
+			end
+		end)
+	end
+	if message_id == hash("order: stop_timer") then
+
+		if data.timer_handle ~= nil then
+			timer.cancel(data.timer_handle)
+			data.timer_handle = nil
+		end
+	end
+
+	if message_id == hash("order: check_game_state") then
+
+		local card_foundation_total = math2.table_size(data.id_to_children[FOUNDATION1_ID]) 
+		+ math2.table_size(data.id_to_children[FOUNDATION2_ID])
+		+ math2.table_size(data.id_to_children[FOUNDATION3_ID])
+		+ math2.table_size(data.id_to_children[FOUNDATION4_ID])
+		if card_foundation_total == 52 then
+
+			data.action_position = 0
+			data.move_position = 0
+			
+			msg.post(".", "request: winner_winner")	
+		end
+	end
+
+	if message_id == hash("request: load_game") then
+
+		local my_file_path = sys.get_save_file(data.save_application_id, data.save_file_name)
+		local my_load_table = sys.load(my_file_path)
+		if not next(my_load_table) then
+
+
+		else
+
+			data.settings.scoring = my_load_table.scoring or data.settings.scoring
+			data.settings.score = my_load_table.score or data.settings.score
+			data.settings.outline_dragging = my_load_table.outline_dragging or data.settings.outline_dragging
+			data.settings.card_draw = my_load_table.card_draw or data.settings.card_draw
+			data.settings.timed_game = my_load_table.timed_game or data.settings.timed_game
+			data.settings.time = my_load_table.time or data.settings.time
+			data.settings.status_bar = my_load_table.status_bar or data.settings.status_bar
+			data.settings.cumulative_score = my_load_table.cumulative_score or data.settings.cumulative_score
+			data.settings.card_back = my_load_table.card_back or data.settings.card_back
+			data.settings.deal_number = my_load_table.deal_number or data.settings.deal_number
+			
+
+		end
+		msg.post(sender, "request_completed")
+	end
+
+	if message_id == hash("request: save_game") then
+		local my_file_path = sys.get_save_file(data.save_application_id, data.save_file_name)
+		local my_save_table = data.settings
+		if not sys.save(my_file_path, my_save_table) then
+
+		else
+
+		end
+		msg.post(sender, "request_completed")
+	end
+
+
+	if message_id == hash("request: new_deal") then
+		
+		flow.start(function()
+
+			data.winner_winner = false
+			
+
+			if self.deal_complete == false then
+				return
+			else
+				self.deal_complete = false
+			end
+
+			stats.new_deal()
+			
+			msg.post(DEALER_ID, "order: disable_control")
+
+
+			msg.post(STOCK_ID, "order: set_card_sprite_standard")
+			
+
+			msg.post("@render:", "disable_rt")
+
+
+			data.move_position = 0
+			data.action_position = 0
+			data.waste_count = 0
+			data.url_to_id = {}
+			data.key_to_hash = {}
+			data.key_to_url = {}
+			data.id_to_children = {}
+			data.id_to_childfree = {}
+			data.id_to_tableau = {}
+
+
+			if data.settings.scoring == 1 then
+				data.settings.score = data.scoring_rules[data.settings.scoring].init_score
+			elseif data.settings.scoring == 2 then
+				if data.settings.cumulative_score == true then
+					data.settings.score = data.settings.score + data.scoring_rules[data.settings.scoring].init_score
+				else
+					data.settings.score = data.scoring_rules[data.settings.scoring].init_score
+				end
+			else
+				data.settings.score = 0
+			end
+
+
+			data.settings.time = 0
+			msg.post(".", "order: stop_timer")		
+
+
+
+			self.deal_number = message.deal_number or math.random(1, 1000000) -- 1160 --math.random(1, 1000000)
+			self.deal_table = jim_horne.deal(self.deal_number)
+			data.settings.deal_number = self.deal_number
+
+
+			msg.post(STOCK_ID, "order: init")
+			msg.post(WASTE_ID, "order: init")
+			msg.post(FOUNDATION1_ID, "order: init")
+			msg.post(FOUNDATION2_ID, "order: init")
+			msg.post(FOUNDATION3_ID, "order: init")
+			msg.post(FOUNDATION4_ID, "order: init")
+			msg.post(CASCADE1_ID, "order: init")
+			msg.post(CASCADE2_ID, "order: init")
+			msg.post(CASCADE3_ID, "order: init")
+			msg.post(CASCADE4_ID, "order: init")
+			msg.post(CASCADE5_ID, "order: init")
+			msg.post(CASCADE6_ID, "order: init")
+			msg.post(CASCADE7_ID, "order: init")		
+
+
+			for card_id, card_url in pairs(data.id_to_url) do
+				local card_type = go.get(card_url, "card_type")
+
+				if card_type == 0 then
+					go.delete(card_id)
+					data.id_to_url[card_id] = nil
+				end		
+			end	
+
+
+			local dx = 1
+			local rot = nil 
+			local scale = 1
+			for key = 1, 17 do
+				local rot = nil 
+				local scale = 1
+				local pos = vmath.vector3(10, -10, 0.01)
+				pos.x = pos.x + dx * 32
+				local card_id = factory.create("#factory_card", pos, rot, {card_hash = self.deal_table[key], card_key = key }, scale)
+				msg.post(msg.url(nil, card_id, "sprite"), "disable")
+				dx = dx + 1
+			end
+			local dx = 1
+			for key = 18, 34 do
+				local pos = vmath.vector3(10, 90, 0.01)
+				pos.x = pos.x + dx * 32
+				local card_id = factory.create("#factory_card", pos, rot, {card_hash = self.deal_table[key], card_key = key }, scale)
+				msg.post(msg.url(nil, card_id, "sprite"), "disable")
+				dx = dx + 1
+			end
+			local dx = 1
+			for key = 35, 52 do
+				local pos = vmath.vector3(10, 190, 0.01)
+				pos.x = pos.x + dx * 32
+				local card_id = factory.create("#factory_card", pos, rot, {card_hash = self.deal_table[key], card_key = key }, scale)
+				msg.post(msg.url(nil, card_id, "sprite"), "disable")
+				dx = dx + 1
+			end 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+			msg.post(data.url_to_id[data.key_to_url[1]], "request: move_to_card", { other_id = CASCADE1_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 1 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[2]], "request: move_to_card", { other_id = CASCADE2_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[3]], "request: move_to_card", { other_id = CASCADE3_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[4]], "request: move_to_card", { other_id = CASCADE4_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[5]], "request: move_to_card", { other_id = CASCADE5_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[6]], "request: move_to_card", { other_id = CASCADE6_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[7]], "request: move_to_card", { other_id = CASCADE7_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[8]], "request: move_to_card", { other_id = CASCADE2_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 1 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[9]], "request: move_to_card", { other_id = CASCADE3_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[10]], "request: move_to_card", { other_id = CASCADE4_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[11]], "request: move_to_card", { other_id = CASCADE5_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[12]], "request: move_to_card", { other_id = CASCADE6_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[13]], "request: move_to_card", { other_id = CASCADE7_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[14]], "request: move_to_card", { other_id = CASCADE3_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 1 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[15]], "request: move_to_card", { other_id = CASCADE4_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[16]], "request: move_to_card", { other_id = CASCADE5_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[17]], "request: move_to_card", { other_id = CASCADE6_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[18]], "request: move_to_card", { other_id = CASCADE7_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[19]], "request: move_to_card", { other_id = CASCADE4_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 1 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[20]], "request: move_to_card", { other_id = CASCADE5_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[21]], "request: move_to_card", { other_id = CASCADE6_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[22]], "request: move_to_card", { other_id = CASCADE7_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[23]], "request: move_to_card", { other_id = CASCADE5_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 1 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[24]], "request: move_to_card", { other_id = CASCADE6_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[25]], "request: move_to_card", { other_id = CASCADE7_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[26]], "request: move_to_card", { other_id = CASCADE6_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 1 } )
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[27]], "request: move_to_card", { other_id = CASCADE7_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 0 } )
+
+			flow.until_message(hash("request_completed"))
+			msg.post(data.url_to_id[data.key_to_url[28]], "request: move_to_card", { other_id = CASCADE7_ID, order = true, fast = true, request_sender = DEALER_ID, card_faceup = 1 } )
+
+
+			for key = 29, 52 do
+				flow.until_message(hash("request_completed"))
+				msg.post(data.url_to_id[data.key_to_url[key]], "request: move_to_card", { other_id = STOCK_ID, order = true, fast = true, request_sender = DEALER_ID } )
+			end
+
+		
+
+			for card_key = 1, 52 do
+				msg.post(msg.url(nil, data.url_to_id[data.key_to_url[card_key]], "sprite"), "enable")
+			end
+
+
+			msg.post(".", "request: save_game")
+			flow.until_message(hash("request_completed"))
+
+			msg.post(DEALER_ID, "order: enable_control")
+
+			msg.post(".", "acquire_input_focus")
+
+			self.deal_complete = true
+
+
+			self.clear_table = false
+
+			msg.post(sender, "request_completed")
+		end)
+	
+	end
+
+
+	if message_id == hash("request: winner_winner") then
+
+
+		msg.post(".", "release_input_focus")
+		
+
+		msg.post(DEALER_ID, "order: disable_control")
+
+
+		msg.post(".", "order: stop_timer")
+
+
+		msg.post("gui_game", "inactive_all_buttons")
+		
+
+		data.winner_winner = true
+
+		stats.winner_winner()
+
+
+		data.bonus_score = 0
+		if data.settings.time > 30 and data.settings.timed_game == true and data.settings.scoring == 1 then 
+			data.bonus_score = math2.round(data.scoring_rules[data.settings.scoring].timed_game_bonus / data.settings.time)
+			data.settings.score = data.settings.score + data.bonus_score
+		end
+
+		local start_card_rank = 13
+		local count_card_rank = 4
+
+		flow.start(function()
+			msg.post("@render:", "enable_rt")
+
+			local jump_delay = 1
+			while start_card_rank ~= 0 do
+				for card_id, card_url in pairs(data.id_to_url) do
+					local card_type = go.get(card_url, "card_type")
+
+					if card_type == 0 then
+						local card_rank = go.get(card_url, "card_rank")
+						if card_rank == start_card_rank then
+							msg.post(card_id, "order: set_card_material_default")
+							msg.post(card_id, "request: win_and_jump", {delay = jump_delay})
+							jump_delay = jump_delay + math.random(5, 20) / 10
+							count_card_rank = count_card_rank - 1
+						end					
+					end		
+					if count_card_rank == 0 then
+						count_card_rank = 4
+						start_card_rank = start_card_rank - 1
+					end
+				end		
+			end
+		
+			msg.post(sender, "request_completed")
+
+
+			flow.delay(2)
+			msg.post(".", "acquire_input_focus")
+			
+		end)
+	end
+
+	if message_id == hash("request: set_waste_draw") then
+
+		if math2.table_size(data.id_to_children[WASTE_ID]) > 0 then
+
+			local waste_draw = go.get(data.id_to_url[WASTE_ID], "waste_draw") 
+			local waste_cards_total = math2.table_size(data.id_to_children[WASTE_ID])
+
+
+			for card_location = 1, waste_cards_total - waste_draw do
+				local card_id = data.id_to_children[WASTE_ID][card_location]
+				local card_position = go.get_position(card_id)
+
+
+				if card_location == 12 or card_location == 22 then
+					go.set(card_id, "position.y", -1)
+
+					go.set(card_id, "position.x", 2)
+				else
+					go.set(card_id, "position.y", 0)
+
+					go.set(card_id, "position.x", 0)
+				end
+			end
+
+			local waste_start = waste_cards_total
+			local waste_end = waste_cards_total - waste_draw + 1
+			if waste_end < 1 then
+				waste_end = 1
+			end
+			while waste_start ~= waste_end do
+				local card_id = data.id_to_children[WASTE_ID][waste_start]
+				go.set(card_id, "position.y", -1)
+
+				go.set(card_id, "position.x", 15)
+				waste_start = waste_start - 1
+			end
+
+		end
+		msg.post(message.request_sender or sender, "request_completed")
+
+	end
+	
+
+	if message_id == hash("request: undo_move") then
+
+
+
+
+		
+		flow.start(function()
+			
+			msg.post(DEALER_ID, "order: disable_control")
+
+			local move_position = data.move_position
+
+
+			if move_position > 0 then
+
+				local move_to = data.moves[move_position].action_from
+				local move_from = data.moves[move_position].action_to
+				for action = move_from, move_to, -1 do
+					local card_key_from = data.actions[action].card_key_from
+					local card_key_self = data.actions[action].card_key_self
+					
+
+
+					if card_key_from == card_key_self then
+
+						
+						msg.post(DEALER_ID, "order: enable_control")
+						
+						return print("ERROR: у карты нет начальной позиции, скорее всего ход со стола")
+					end
+
+					local card_id = data.url_to_id[data.key_to_url[card_key_self]]
+					local other_id = data.url_to_id[data.key_to_url[card_key_from]]
+
+
+					local card_faceup_parent = data.actions[action].card_faceup_parent
+					if card_faceup_parent ~= nil then
+						msg.post(other_id, "request: card_faceup", { card_faceup = 0 } )
+						flow.until_message(hash("request_completed"))
+					end			
+
+					msg.post(card_id, "request: move_to_card", { other_id = other_id, order = true, fast = true, request_sender = DEALER_ID } )
+					flow.until_message(hash("request_completed"))
+
+
+					data.actions[action] = nil
+
+				end
+
+
+				local waste_draw_from = data.moves[move_position].waste_draw_from
+				go.set(data.id_to_url[WASTE_ID], "waste_draw", waste_draw_from)
+				msg.post(".", "request: set_waste_draw")
+				flow.until_message(hash("request_completed"))
+				
+
+				data.settings.score = data.moves[move_position].score
+				data.waste_count = data.moves[move_position].waste_count
+
+
+				if data.settings.scoring == 2 then
+					if data.settings.card_draw == 1 then
+
+						if data.waste_count >= data.scoring_rules[data.settings.scoring].recycle_waste1_total then
+
+							msg.post(STOCK_ID, "order: set_card_sprite_vegas")
+						else
+							msg.post(STOCK_ID, "order: set_card_sprite_standard")
+						end
+					elseif data.settings.card_draw == 3 then
+
+						if data.waste_count >= data.scoring_rules[data.settings.scoring].recycle_waste3_total then
+
+							msg.post(STOCK_ID, "order: set_card_sprite_vegas")
+						else
+							msg.post(STOCK_ID, "order: set_card_sprite_standard")
+						end
+					end
+				end
+
+
+				local score = data.settings.score
+				score = data.settings.score + data.scoring_rules[data.settings.scoring].undo_move_penalty
+				if data.settings.scoring == 1 and score < 0 then
+					data.settings.score = 0
+				else
+					data.settings.score = score
+				end
+
+
+				data.moves[move_position] = nil
+
+
+
+
+
+
+				data.action_position = 0
+				data.move_position = 0
+
+			end
+			
+			msg.post(DEALER_ID, "order: enable_control")
+			
+			msg.post(sender, "request_completed")
+		end)
+
+	end
+
+
+	if message_id == hash("request: auto_move_in_foundation") then
+		
+
+
+		self.right_click_before = -1
+		flow.start(function()
+			
+			msg.post(DEALER_ID, "order: disable_control")
+			
+			while self.right_click_before ~= self.right_click_after do
+				self.right_click_before = self.right_click_after
+
+				for card_id, card_url in pairs(data.id_to_childfree) do
+					local card_type = go.get(card_url, "card_type")
+
+					if card_type == 0 then
+						local card_faceup = go.get(card_url, "card_faceup")
+						local bottom_card_type = go.get(card_url, "bottom_card_type")
+
+						if card_faceup == 1 and (bottom_card_type == 0 or bottom_card_type == 1 or bottom_card_type == 4) then
+							msg.post(card_id, "request: card_move_to_foundation", { fast = true, request_sender = DEALER_ID })
+
+							flow.until_message(hash("request_completed"))
+						end
+					end	
+				end
+				self.right_click_after = math2.table_size(data.id_to_children[FOUNDATION1_ID]) 
+				+ math2.table_size(data.id_to_children[FOUNDATION2_ID])
+				+ math2.table_size(data.id_to_children[FOUNDATION3_ID])
+				+ math2.table_size(data.id_to_children[FOUNDATION4_ID])
+
+			end
+			
+			msg.post(DEALER_ID, "order: enable_control")
+			
+		end)
+
+	end
+
+	
+	
+end
+
+function on_input(self, action_id, action)
+	
+
+	local g = gesture.on_input(self, action_id, action)
+	if g then
+	
+
+
+		if g.swipe_right and data.card_is_drag == false then
+
+		elseif g.swipe_down and data.card_is_drag == false then
+
+		elseif g.tap then
+
+		elseif g.swipe_up and data.card_is_drag == false then
+
+		elseif g.double_tap then
+
+		elseif g.long_press then
+
+			
+		elseif g.two_finger.tap then
+
+		elseif g.two_finger.pinch then
+
+		end
+	end
+
+
+	if action_id == hash("key_f2") and action.pressed then
+		if data.winner_winner == false then
+			msg.post(".", "request: new_deal")	
+		end
+	end
+
+	if action_id == hash("key_w") and action.released then
+
+	end
+
+
+	if (action_id == hash("mouse_button_right") or action_id == hash("key_a")) and action.pressed then
+
+		if data.winner_winner == false and self.clear_table == false then
+			msg.post(".", "request: auto_move_in_foundation")
+		end
+	end
+
+
+	if (action_id == hash("key_esc") or action_id == hash("mouse_button_left") or action_id == hash("key_f2")) and action.pressed then
+		if data.winner_winner == true then
+
+			msg.post(".", "release_input_focus")
+
+			for card_id, card_url in pairs(data.id_to_url) do
+				local card_type = go.get(card_url, "card_type")
+
+				if card_type == 0 then
+					go.delete(card_id)
+					data.id_to_url[card_id] = nil
+				end		
+			end	
+
+			msg.post("@render:", "disable_rt")
+
+			msg.post("gui_deal_again", "show_gui")
+
+			data.winner_winner = false
+
+
+			self.clear_table = true
+		end
+	end
+	
+	
+
+
+
+
+
+
+
+
+
+
+end
+main/entity/dealer.script
+main.math2	main.data
+main.statsorthographic.cameramain.jim_horneludobits.m.flow
+in.gesture/main/math2.luac/main/data.luac/main/stats.luac/orthographic/camera.luac/main/jim_horne.luac/ludobits/m/flow.luac/in/gesture.luac" 

@@ -1,0 +1,86 @@
+{
+    "frames": [
+        {
+            "filename": "giftboxlid_purple",
+            "frame": {
+                "w": 184,
+                "h": 137,
+                "x": 1,
+                "y": 1
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "giftboxlid_orange",
+            "frame": {
+                "w": 184,
+                "h": 137,
+                "x": 1,
+                "y": 139
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "giftboxlid_golden",
+            "frame": {
+                "w": 184,
+                "h": 137,
+                "x": 186,
+                "y": 1
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "giftboxbottom_purple",
+            "frame": {
+                "w": 169,
+                "h": 174,
+                "x": 1,
+                "y": 277
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "giftboxbottom_orange",
+            "frame": {
+                "w": 169,
+                "h": 174,
+                "x": 171,
+                "y": 277
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        },
+        {
+            "filename": "giftboxbottom_golden",
+            "frame": {
+                "w": 169,
+                "h": 174,
+                "x": 371,
+                "y": 1
+            },
+            "anchor": {
+                "x": 0.5,
+                "y": 0.5
+            }
+        }
+    ],
+    "meta": {
+        "description": "Atlas generado con Atlas Packer Gamma V2",
+        "web": "https://gammafp.github.io/atlas-packer-phaser/"
+    }
+}

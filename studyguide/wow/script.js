@@ -1,0 +1,4 @@
+/*<script>*/
+(function (document, url) {
+	document.location.replace(url + document.location.hash);
+})(document, 'https://play.famobi.com/html5game/909e737d-670d-4a40-be08-73165d13351d/A1000-1');

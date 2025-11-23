@@ -1,0 +1,7 @@
+{
+  "doGameToMenuInterstitial": true,
+  "doMenuToGameInterstitial": true,
+  "shopEnabled": true,
+  "showBoostChallengeViaAdBtn": false,
+  "winCermoniesPerInterstitial": 2
+}

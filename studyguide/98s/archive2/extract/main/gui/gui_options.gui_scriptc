@@ -1,0 +1,338 @@
+
+Új
+¶jlocal flow = require "ludobits.m.flow"
+local color = require "main.color"
+local math2 = require "main.math2"
+local data = require "main.data"
+
+function init(self)
+
+
+	
+	msg.post(".", "hide_gui")
+
+	self.color_select_button = "3069C4" 
+	self.color_unselect_button = "FFFFFF"
+	self.color_select_text = "FFFFFF"
+	self.color_unselect_text = "000000"
+	self.color_inactive_text = "A1A192"
+	self.color_select_radio = "E6E6E6" 
+	self.color_unselect_button_x = "FFFFFF"
+	self.color_select_button_x = "E77156"
+
+	self.window_blue = gui.get_node("window_blue")
+
+	self.button_ok = gui.get_node("button_ok")
+	self.text_button_ok = gui.get_node("text_button_ok")
+
+	self.button_x = gui.get_node("button_x")
+	self.text_button_x = gui.get_node("text_button_x")
+
+
+	self.button_draw_one = gui.get_node("button_draw_one")
+	self.button_draw_three = gui.get_node("button_draw_three")
+	self.radio_draw_one = gui.get_node("radio_draw_one")
+	self.radio_draw_three = gui.get_node("radio_draw_three")
+	self.texture_radio2_draw_1 = hash("sprite_xp_radio2_1")
+	self.texture_radio2_draw_0 = hash("sprite_xp_radio2_0")
+
+
+	self.button_scoring_standard = gui.get_node("button_scoring_standard")
+	self.button_scoring_vegas = gui.get_node("button_scoring_vegas")
+	self.button_scoring_none = gui.get_node("button_scoring_none")
+	self.radio_scoring_standard = gui.get_node("radio_scoring_standard")
+	self.radio_scoring_vegas = gui.get_node("radio_scoring_vegas")
+	self.radio_scoring_none = gui.get_node("radio_scoring_none")
+
+
+	self.button_options_timed_game = gui.get_node("button_options_timed_game")
+	self.button_options_status_bar = gui.get_node("button_options_status_bar")
+	self.button_options_outline_dragging = gui.get_node("button_options_outline_dragging")
+	self.button_options_cumulative_score = gui.get_node("button_options_cumulative_score")
+	self.text_options_cumulative_score = gui.get_node("text_options_cumulative_score")
+	self.text_options_score = gui.get_node("text_options_score")
+	self.radio_options_timed_game = gui.get_node("radio_options_timed_game")
+	self.radio_options_status_bar = gui.get_node("radio_options_status_bar")
+	self.radio_options_outline_dragging = gui.get_node("radio_options_outline_dragging")
+	self.radio_options_cumulative_score = gui.get_node("radio_options_cumulative_score")
+	self.texture_radio1_draw_1 = hash("sprite_xp_radio1_1")
+	self.texture_radio1_draw_0 = hash("sprite_xp_radio1_0")
+	self.radio_options_cumulative_score_active = true
+
+end
+
+function final(self)
+	flow.stop()
+end
+
+function update(self, dt)
+
+
+	if data.settings.card_draw == 1 then
+		gui.play_flipbook(self.radio_draw_one, self.texture_radio2_draw_1)
+		gui.play_flipbook(self.radio_draw_three, self.texture_radio2_draw_0)
+	elseif data.settings.card_draw == 3 then
+		gui.play_flipbook(self.radio_draw_one, self.texture_radio2_draw_0)
+		gui.play_flipbook(self.radio_draw_three, self.texture_radio2_draw_1)
+	end
+
+	if data.settings.scoring == 1 then
+		gui.play_flipbook(self.radio_scoring_standard, self.texture_radio2_draw_1)
+		gui.play_flipbook(self.radio_scoring_vegas, self.texture_radio2_draw_0)
+		gui.play_flipbook(self.radio_scoring_none, self.texture_radio2_draw_0)
+	elseif data.settings.scoring == 2 then
+		gui.play_flipbook(self.radio_scoring_standard, self.texture_radio2_draw_0)
+		gui.play_flipbook(self.radio_scoring_vegas, self.texture_radio2_draw_1)
+		gui.play_flipbook(self.radio_scoring_none, self.texture_radio2_draw_0)
+	elseif data.settings.scoring == 0 then
+		gui.play_flipbook(self.radio_scoring_standard, self.texture_radio2_draw_0)
+		gui.play_flipbook(self.radio_scoring_vegas, self.texture_radio2_draw_0)
+		gui.play_flipbook(self.radio_scoring_none, self.texture_radio2_draw_1)
+	end
+
+	if data.settings.timed_game == true then
+		gui.play_flipbook(self.radio_options_timed_game, self.texture_radio1_draw_1)
+	else
+		gui.play_flipbook(self.radio_options_timed_game, self.texture_radio1_draw_0)
+	end
+	if data.settings.status_bar == true then
+		gui.play_flipbook(self.radio_options_status_bar, self.texture_radio1_draw_1)
+	else
+		gui.play_flipbook(self.radio_options_status_bar, self.texture_radio1_draw_0)
+	end
+	if data.settings.outline_dragging == true then
+		gui.play_flipbook(self.radio_options_outline_dragging, self.texture_radio1_draw_1)
+	else
+		gui.play_flipbook(self.radio_options_outline_dragging, self.texture_radio1_draw_0)
+	end
+	
+	if data.settings.scoring == 2 then
+		if self.radio_options_cumulative_score_active == false then
+			gui.set_color(self.radio_options_cumulative_score, vmath.vector4(color.hex(self.color_select_text, 1)))
+		end
+		self.radio_options_cumulative_score_active = true
+		gui.set_color(self.button_options_cumulative_score, color.hex(self.color_unselect_text))
+		gui.set_color(self.text_options_cumulative_score, color.hex(self.color_unselect_text))
+		gui.set_color(self.text_options_score, color.hex(self.color_unselect_text))
+	else
+		if self.radio_options_cumulative_score_active == true then
+			gui.set_color(self.radio_options_cumulative_score, vmath.vector4(color.hex(self.color_inactive_text, 0.25)))
+			gui.set_color(self.radio_options_cumulative_score, color.hex(self.color_unselect_button))
+		end
+		self.radio_options_cumulative_score_active = false
+		gui.set_color(self.button_options_cumulative_score, color.hex(self.color_inactive_text))
+		gui.set_color(self.text_options_cumulative_score, color.hex(self.color_inactive_text))
+		gui.set_color(self.text_options_score, color.hex(self.color_inactive_text))
+	end
+	
+	if data.settings.cumulative_score == true then
+		gui.play_flipbook(self.radio_options_cumulative_score, self.texture_radio1_draw_1)
+	else
+		gui.play_flipbook(self.radio_options_cumulative_score, self.texture_radio1_draw_0)
+	end
+	
+end
+
+function on_message(self, message_id, message, sender)
+	flow.on_message(message_id, message, sender)
+
+	if message_id == hash("show_gui") then
+		msg.post(DEALER_ID, "release_input_focus")
+		msg.post(".", "enable")
+		msg.post(".", "acquire_input_focus")
+		msg.post(".", "unselect_all_buttons")
+		self.old_card_draw = data.settings.card_draw 
+		self.old_scoring = data.settings.scoring 
+		self.old_timed_game = data.settings.timed_game 
+	end
+	if message_id == hash("hide_gui") then
+		msg.post(DEALER_ID, "acquire_input_focus")
+		msg.post(".", "disable")
+		msg.post(".", "release_input_focus")
+		msg.post(".", "unselect_all_buttons")	
+	end
+
+	if message_id == hash("unselect_all_buttons") then
+		gui.set_color(self.button_ok, color.hex(self.color_unselect_button))
+		gui.set_color(self.text_button_ok, color.hex(self.color_unselect_text))
+		
+		gui.set_color(self.radio_draw_one, color.hex(self.color_unselect_button))
+		gui.set_color(self.radio_draw_three, color.hex(self.color_unselect_button))
+		
+		gui.set_color(self.radio_scoring_standard, color.hex(self.color_unselect_button))
+		gui.set_color(self.radio_scoring_vegas, color.hex(self.color_unselect_button))
+		gui.set_color(self.radio_scoring_none, color.hex(self.color_unselect_button))
+
+		gui.set_color(self.radio_options_timed_game, color.hex(self.color_unselect_button))
+		gui.set_color(self.radio_options_status_bar, color.hex(self.color_unselect_button))
+		gui.set_color(self.radio_options_outline_dragging, color.hex(self.color_unselect_button))
+		gui.set_color(self.radio_options_cumulative_score, color.hex(self.color_unselect_button))
+
+	end
+
+	if message_id == hash("exit_from_options") then
+		local reset_deal = false
+
+
+		if self.old_card_draw ~= data.settings.card_draw then
+			self.old_card_draw = data.settings.card_draw
+			reset_deal = true
+		end
+		if self.old_scoring ~= data.settings.scoring then
+			self.old_scoring = data.settings.scoring
+			reset_deal = true
+		end
+		if self.old_timed_game ~= data.settings.timed_game then
+			self.old_timed_game = data.settings.timed_game
+			reset_deal = true
+		end
+
+		if reset_deal == true then
+
+			msg.post(DEALER_ID, "request: new_deal", { deal_number = data.settings.deal_number })
+		end
+
+		msg.post(".", "hide_gui")
+		msg.post("gui_game", "active_all_buttons")
+	end
+
+end
+
+function on_input(self, action_id, action)
+
+
+	if action_id == hash("touch_multi") then
+		if action.touch[1].released == true then
+			msg.post(".", "unselect_all_buttons")
+		end
+	end
+
+	if gui.pick_node(self.button_ok, action.x, action.y) and action_id == hash("mouse_button_left") and action.released then
+		msg.post(".", "exit_from_options")
+	end
+
+
+	if not gui.pick_node(self.window_blue, action.x, action.y) and action_id == hash("mouse_button_left") and action.released 
+	or (gui.pick_node(self.button_x, action.x, action.y) and action_id == hash("mouse_button_left") and action.released)
+	or (action_id == hash("key_esc") and action.pressed) then
+		msg.post(".", "exit_from_options")
+	end
+
+
+	if gui.pick_node(self.button_draw_one, action.x, action.y) and action_id == hash("mouse_button_left") and action.pressed then
+		data.settings.card_draw = 1
+	end
+	if gui.pick_node(self.button_draw_three, action.x, action.y) and action_id == hash("mouse_button_left") and action.pressed then
+		data.settings.card_draw = 3
+	end
+
+
+	if gui.pick_node(self.button_scoring_standard, action.x, action.y) and action_id == hash("mouse_button_left") and action.pressed then
+		data.settings.scoring = 1
+	end
+	if gui.pick_node(self.button_scoring_vegas, action.x, action.y) and action_id == hash("mouse_button_left") and action.pressed then
+		data.settings.scoring = 2
+	end
+	if gui.pick_node(self.button_scoring_none, action.x, action.y) and action_id == hash("mouse_button_left") and action.pressed then
+		data.settings.scoring = 0
+	end
+
+	if gui.pick_node(self.button_options_timed_game, action.x, action.y) and action_id == hash("mouse_button_left") and action.pressed then
+		if data.settings.timed_game == true then
+			data.settings.timed_game = false
+		else
+			data.settings.timed_game = true
+		end
+	end
+	if gui.pick_node(self.button_options_status_bar, action.x, action.y) and action_id == hash("mouse_button_left") and action.pressed then
+		if data.settings.status_bar == true then
+			data.settings.status_bar = false
+		else
+			data.settings.status_bar = true
+		end
+	end
+	if gui.pick_node(self.button_options_outline_dragging, action.x, action.y) and action_id == hash("mouse_button_left") and action.pressed then
+		if data.settings.outline_dragging == true then
+			data.settings.outline_dragging = false
+		else
+			data.settings.outline_dragging = true
+		end
+	end
+	if gui.pick_node(self.button_options_cumulative_score, action.x, action.y) and self.radio_options_cumulative_score_active and action_id == hash("mouse_button_left") and action.pressed then
+		if data.settings.cumulative_score == true then
+			data.settings.cumulative_score = false
+		else
+			data.settings.cumulative_score = true
+		end
+	end
+	
+	
+	if action_id == nil then
+
+		if gui.pick_node(self.button_ok, action.x, action.y) then 
+			gui.set_color(self.button_ok, color.hex(self.color_select_button))
+			gui.set_color(self.text_button_ok, color.hex(self.color_select_text))
+		else
+			gui.set_color(self.button_ok, color.hex(self.color_unselect_button))
+			gui.set_color(self.text_button_ok, color.hex(self.color_unselect_text))
+		end
+
+		if gui.pick_node(self.button_x, action.x, action.y) then 
+			gui.set_color(self.button_x, color.hex(self.color_select_button_x))
+		else
+			gui.set_color(self.button_x, color.hex(self.color_unselect_button_x))
+		end
+
+		if gui.pick_node(self.button_draw_one, action.x, action.y) then 
+			gui.set_color(self.radio_draw_one, color.hex(self.color_select_radio))
+		else
+			gui.set_color(self.radio_draw_one, color.hex(self.color_unselect_button))
+		end
+		if gui.pick_node(self.button_draw_three, action.x, action.y) then 
+			gui.set_color(self.radio_draw_three, color.hex(self.color_select_radio))
+		else
+			gui.set_color(self.radio_draw_three, color.hex(self.color_unselect_button))
+		end
+
+		if gui.pick_node(self.button_scoring_standard, action.x, action.y) then 
+			gui.set_color(self.radio_scoring_standard, color.hex(self.color_select_radio))
+		else
+			gui.set_color(self.radio_scoring_standard, color.hex(self.color_unselect_button))
+		end
+		if gui.pick_node(self.button_scoring_vegas, action.x, action.y) then 
+			gui.set_color(self.radio_scoring_vegas, color.hex(self.color_select_radio))
+		else
+			gui.set_color(self.radio_scoring_vegas, color.hex(self.color_unselect_button))
+		end
+		if gui.pick_node(self.button_scoring_none, action.x, action.y) then 
+			gui.set_color(self.radio_scoring_none, color.hex(self.color_select_radio))
+		else
+			gui.set_color(self.radio_scoring_none, color.hex(self.color_unselect_button))
+		end
+
+		if gui.pick_node(self.button_options_timed_game, action.x, action.y) then 
+			gui.set_color(self.radio_options_timed_game, color.hex(self.color_select_radio))
+		else
+			gui.set_color(self.radio_options_timed_game, color.hex(self.color_unselect_button))
+		end
+		if gui.pick_node(self.button_options_status_bar, action.x, action.y) then 
+			gui.set_color(self.radio_options_status_bar, color.hex(self.color_select_radio))
+		else
+			gui.set_color(self.radio_options_status_bar, color.hex(self.color_unselect_button))
+		end
+		if gui.pick_node(self.button_options_outline_dragging, action.x, action.y) then 
+			gui.set_color(self.radio_options_outline_dragging, color.hex(self.color_select_radio))
+		else
+			gui.set_color(self.radio_options_outline_dragging, color.hex(self.color_unselect_button))
+		end
+		if gui.pick_node(self.button_options_cumulative_score, action.x, action.y) and self.radio_options_cumulative_score_active then 
+			gui.set_color(self.radio_options_cumulative_score, color.hex(self.color_select_radio))
+		else
+			gui.set_color(self.radio_options_cumulative_score, color.hex(self.color_unselect_button))
+		end
+	end
+
+end
+main/gui/gui_options.gui_scriptludobits.m.flow
+main.color
+main.math2	main.data/ludobits/m/flow.luac/main/color.luac/main/math2.luac/main/data.luac" 

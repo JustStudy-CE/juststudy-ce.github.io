@@ -1,0 +1,201 @@
+[
+  {
+    "allowSkipTutorialForNumGames": 0,
+    "arenas": [
+      "NAO"
+    ],
+    "autoLevelUp": false,
+    "autoPlayFirstGame": false,
+    "canChangeMobileControls": true,
+    "disabledTimestamp": 0,
+    "gameModes": [
+      -1
+    ],
+    "id": "privateGamesFirst01",
+    "inGameSettingsLockedForNumGames": 0,
+    "isControlsTutorial": false,
+    "privatePlayer": true,
+    "returnToMainMenuOnLevelUp": false,
+    "unlockCustomizeMenuLevel": "",
+    "unlockGachaPanelLevel": "",
+    "unlockPlayOptionsLevel": "",
+    "unlockSeasonsLevel": "L5",
+    "unlockXpBoostLevel": "",
+    "usePlayerBots": false,
+    "weight": 1
+  },
+  {
+    "af": [
+      45,
+      55,
+      55,
+      55,
+      55,
+      55,
+      55,
+      55
+    ],
+    "allowSkipTutorialForNumGames": 0,
+    "arenas": [
+      "Steky's Speedway",
+      "Steky's Speedway",
+      "Steky's Speedway",
+      "Steky's Speedway",
+      "Steky's Speedway",
+      "Smash Island",
+      "Smash Island",
+      "Smash Island"
+    ],
+    "audiencePlatform": "desktopweb,mobileweb",
+    "autoLevelUp": false,
+    "autoPlayFirstGame": false,
+    "botSkill": [
+      0,
+      0
+    ],
+    "canChangeMobileControls": true,
+    "disabledTimestamp": 0,
+    "gameModes": [
+      134218241,
+      134218241,
+      134218241,
+      134218241,
+      134218241,
+      134218241,
+      134218241,
+      134218241
+    ],
+    "id": "v03_web_ng8_a10_a11_controls_short_slow",
+    "inGameSettingsLockedForNumGames": 0,
+    "isControlsTutorial": false,
+    "isSinglePlayerWithMaxBotsOverride": [
+      7,
+      7
+    ],
+    "privatePlayer": false,
+    "returnToMainMenuOnLevelUp": false,
+    "unlockCustomizeMenuLevel": "L2",
+    "unlockGachaPanelLevel": "L4",
+    "unlockPlayOptionsLevel": "L5",
+    "unlockSeasonsLevel": "L5",
+    "unlockXpBoostLevel": "L5",
+    "usePlayerBots": true,
+    "weight": 100
+  },
+  {
+    "af": [
+      45,
+      55,
+      55,
+      55,
+      55,
+      55,
+      55,
+      55
+    ],
+    "allowSkipTutorialForNumGames": 1,
+    "arenas": [
+      "Steky's Speedway",
+      "Steky's Speedway",
+      "Steky's Speedway",
+      "Steky's Speedway",
+      "Steky's Speedway",
+      "Smash Island",
+      "Smash Island",
+      "Smash Island"
+    ],
+    "audiencePlatform": "mobileapp",
+    "autoLevelUp": false,
+    "autoPlayFirstGame": true,
+    "botSkill": [
+      0,
+      0
+    ],
+    "canChangeMobileControls": false,
+    "disabledTimestamp": 0,
+    "gameModes": [
+      134299653,
+      134218241,
+      134218241,
+      134218241,
+      134218241,
+      134218241,
+      134218241,
+      134218241
+    ],
+    "id": "v04_mob_ng8_a10_a11_controls_short_slow",
+    "inGameSettingsLockedForNumGames": 1,
+    "isControlsTutorial": true,
+    "isSinglePlayerWithMaxBotsOverride": [
+      7,
+      7
+    ],
+    "privatePlayer": false,
+    "returnToMainMenuOnLevelUp": false,
+    "unlockCustomizeMenuLevel": "L2",
+    "unlockGachaPanelLevel": "L4",
+    "unlockPlayOptionsLevel": "L5",
+    "unlockSeasonsLevel": "L5",
+    "unlockXpBoostLevel": "L5",
+    "usePlayerBots": true,
+    "weight": 100
+  },
+  {
+    "af": [
+      45,
+      55,
+      55,
+      55,
+      55,
+      55,
+      55,
+      55
+    ],
+    "allowSkipTutorialForNumGames": 0,
+    "arenas": [
+      "Steky's Speedway",
+      "Steky's Speedway",
+      "Steky's Speedway",
+      "Steky's Speedway",
+      "Steky's Speedway",
+      "Smash Island",
+      "Smash Island",
+      "Smash Island"
+    ],
+    "audiencePlatform": "mobileapp",
+    "autoLevelUp": false,
+    "autoPlayFirstGame": true,
+    "botSkill": [
+      0,
+      0
+    ],
+    "canChangeMobileControls": true,
+    "disabledTimestamp": 0,
+    "gameModes": [
+      134218241,
+      134218241,
+      134218241,
+      134218241,
+      134218241,
+      134218241,
+      134218241,
+      134218241
+    ],
+    "id": "v04_mob_ng8_a10_a11_short_slow",
+    "inGameSettingsLockedForNumGames": 0,
+    "isControlsTutorial": false,
+    "isSinglePlayerWithMaxBotsOverride": [
+      7,
+      7
+    ],
+    "privatePlayer": false,
+    "returnToMainMenuOnLevelUp": false,
+    "unlockCustomizeMenuLevel": "L2",
+    "unlockGachaPanelLevel": "L4",
+    "unlockPlayOptionsLevel": "L5",
+    "unlockSeasonsLevel": "L5",
+    "unlockXpBoostLevel": "L5",
+    "usePlayerBots": true,
+    "weight": 100
+  }
+]

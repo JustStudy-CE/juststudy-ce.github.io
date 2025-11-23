@@ -1,0 +1,279 @@
+
+ÝX
+¼Xlocal flow = require "ludobits.m.flow"
+local color = require "main.color"
+local math2 = require "main.math2"
+local data = require "main.data"
+
+function init(self)
+
+    msg.post(".", "acquire_input_focus")
+
+    msg.post(".", "unselect_all_buttons")
+
+
+
+    self.color_select_button = "3069C4"
+    self.color_unselect_button = "FFFFFF"
+    self.color_select_text = "FFFFFF"
+    self.color_unselect_text = "000000"
+    self.color_inactive_text = "A1A192"
+    self.color_vegas_text = "FF0000"
+
+    self.button_deal = gui.get_node("button_deal")
+    self.text_button_deal = gui.get_node("text_button_deal")
+    self.button_deal_is_over = false
+
+    self.button_deck = gui.get_node("button_deck")
+    self.text_button_deck = gui.get_node("text_button_deck")
+    self.button_deck_is_over = false
+
+    self.button_options = gui.get_node("button_options")
+    self.text_button_options = gui.get_node("text_button_options")
+    self.button_options_is_over = false
+
+    self.button_undo = gui.get_node("button_undo")
+    self.text_button_undo = gui.get_node("text_button_undo")
+    self.button_undo_is_over = false
+    self.button_undo_active = true
+
+
+    self.text_score = gui.get_node("text_score")
+    self.text_score_pos = gui.get_position(self.text_score)
+    self.text_score_count = gui.get_node("text_score_count")
+    self.text_score_count_pos = gui.get_position(self.text_score_count)
+    self.text_score_count_len = string.len(tostring(gui.get_text(self.text_score_count)))
+    self.text_time = gui.get_node("text_time")
+    self.text_time_pos = gui.get_position(self.text_time)
+    self.text_time_count = gui.get_node("text_time_count")
+    self.text_time_count_pos = gui.get_position(self.text_time_count)
+    self.text_time_count_len = string.len(tostring(gui.get_text(self.text_time_count)))
+
+
+    self.winner_winner = gui.get_node("winner_winner")
+    self.text_winner_winner = gui.get_node("text_winner_winner")
+    gui.set_position(self.winner_winner, gui.get_position(self.button_deal))
+    gui.set_enabled(self.winner_winner, false)
+end
+
+function final(self)
+    flow.stop()
+end
+
+function update(self, dt)
+
+    if data.move_position >= 1 then
+        if self.button_undo_active == false then
+            self.button_undo_active = true
+            gui.set_color(self.text_button_undo, color.hex(self.color_unselect_text))
+        end
+    else
+        if self.button_undo_active == true then
+            self.button_undo_active = false
+            gui.set_color(self.button_undo, color.hex(self.color_unselect_button))
+            gui.set_color(self.text_button_undo, color.hex(self.color_inactive_text))
+        end
+    end
+
+
+    local text_score = "Score:"
+    local text_score_count = ""
+    local text_time = "Time:"
+    local text_time_count = ""
+
+    if data.settings.status_bar == true then
+
+        if data.winner_winner == true then
+            local text_winner_winner = ""
+
+            if data.bonus_score > 0 then
+                text_winner_winner = "Bonus: " .. tostring(data.bonus_score) .. "  Press Esc or a mouse button to stop..."
+            else
+                text_winner_winner = "Press Esc or a mouse button to stop..."
+            end
+            gui.set_text(self.text_winner_winner, text_winner_winner)
+            gui.set_enabled(self.winner_winner, true)
+        else
+            gui.set_enabled(self.winner_winner, false)
+        end
+
+        local new_text_score_count_len = string.len(tostring(data.settings.score))
+        local new_text_time_count_len = string.len(tostring(data.settings.time))
+
+        local dx_text = (new_text_time_count_len - self.text_time_count_len) * 6
+        local dx_score = dx_text + (new_text_score_count_len - self.text_score_count_len) * 6
+
+        if data.settings.scoring ~= 0 then
+            text_score_count = tostring(data.settings.score)
+        else
+            text_score = ""
+        end
+
+        if data.settings.scoring == 2 then
+            text_score_count = text_score_count .. "$"
+            gui.set_color(self.text_score_count, color.hex(self.color_vegas_text))
+        else
+            gui.set_color(self.text_score_count, color.hex(self.color_unselect_text))
+        end
+
+        if data.settings.timed_game == true then
+            text_time_count = tostring(data.settings.time)
+        else
+            text_time = ""
+
+            dx_score = dx_score - 44
+        end
+
+
+        gui.set_position(self.text_score, self.text_score_pos + vmath.vector3(-dx_score, 0, 0))
+        gui.set_position(self.text_score_count, self.text_score_count_pos + vmath.vector3(-dx_score, 0, 0))
+
+        gui.set_position(self.text_time, self.text_time_pos + vmath.vector3(-dx_text, 0, 0))
+        gui.set_position(self.text_time_count, self.text_time_count_pos + vmath.vector3(-dx_text, 0, 0))
+    else
+        text_score = ""
+        text_time = ""
+    end
+
+    gui.set_text(self.text_score, text_score)
+    gui.set_text(self.text_score_count, text_score_count)
+    gui.set_text(self.text_time, text_time)
+    gui.set_text(self.text_time_count, text_time_count)
+end
+
+function on_message(self, message_id, message, sender)
+    flow.on_message(message_id, message, sender)
+
+    if message_id == hash("unselect_all_buttons") then
+        if self.button_undo_active == false then
+            gui.set_color(self.button_undo, color.hex(self.color_unselect_button))
+            gui.set_color(self.text_button_undo, color.hex(self.color_inactive_text))
+        else
+            gui.set_color(self.button_undo, color.hex(self.color_unselect_button))
+            gui.set_color(self.text_button_undo, color.hex(self.color_unselect_text))
+        end
+        gui.set_color(self.button_deal, color.hex(self.color_unselect_button))
+        gui.set_color(self.text_button_deal, color.hex(self.color_unselect_text))
+        gui.set_color(self.button_deck, color.hex(self.color_unselect_button))
+        gui.set_color(self.text_button_deck, color.hex(self.color_unselect_text))
+        gui.set_color(self.button_options, color.hex(self.color_unselect_button))
+        gui.set_color(self.text_button_options, color.hex(self.color_unselect_text))
+    end
+
+    if message_id == hash("active_all_buttons") then
+        msg.post(".", "acquire_input_focus")
+        msg.post(".", "unselect_all_buttons")
+        msg.post(DEALER_ID, "request: save_game")
+        msg.post(DEALER_ID, "order: enable_control")
+    end
+
+    if message_id == hash("inactive_all_buttons") then
+        msg.post(".", "release_input_focus")
+        msg.post(DEALER_ID, "order: disable_control")
+        gui.set_color(self.button_undo, color.hex(self.color_unselect_button))
+        gui.set_color(self.text_button_undo, color.hex(self.color_inactive_text))
+        gui.set_color(self.button_deal, color.hex(self.color_unselect_button))
+        gui.set_color(self.text_button_deal, color.hex(self.color_inactive_text))
+        gui.set_color(self.button_deck, color.hex(self.color_unselect_button))
+        gui.set_color(self.text_button_deck, color.hex(self.color_inactive_text))
+        gui.set_color(self.button_options, color.hex(self.color_unselect_button))
+        gui.set_color(self.text_button_options, color.hex(self.color_inactive_text))
+    end
+
+end
+
+function on_input(self, action_id, action)
+
+
+    if action_id == hash("touch_multi") then
+        if action.touch[1].released == true then
+            msg.post(".", "unselect_all_buttons")
+        end
+    end
+
+    if gui.pick_node(self.button_deal, action.x, action.y) and action_id == hash("mouse_button_left") and
+    action.released then
+        msg.post(DEALER_ID, "request: new_deal")
+    end
+    if gui.pick_node(self.button_deck, action.x, action.y) and action_id == hash("mouse_button_left") and
+        action.released then
+        msg.post(".", "inactive_all_buttons")
+        msg.post("gui_deck", "show_gui")
+    end
+    if gui.pick_node(self.button_options, action.x, action.y) and action_id == hash("mouse_button_left") and
+        action.released then
+        msg.post(".", "inactive_all_buttons")
+        msg.post("gui_options", "show_gui")
+    end
+    if gui.pick_node(self.button_undo, action.x, action.y) and action_id == hash("mouse_button_left") and
+        action.released and self.button_undo_active then
+        msg.post(DEALER_ID, "request: undo_move")
+    end
+
+    if action_id == nil then
+
+        if gui.pick_node(self.button_deal, action.x, action.y) then
+            if not self.button_deal_is_over then
+                gui.set_color(self.button_deal, color.hex(self.color_select_button))
+                gui.set_color(self.text_button_deal, color.hex(self.color_select_text))
+                self.button_deal_is_over = true
+            end
+        else
+            if self.button_deal_is_over then
+                gui.set_color(self.button_deal, color.hex(self.color_unselect_button))
+                gui.set_color(self.text_button_deal, color.hex(self.color_unselect_text))
+                self.button_deal_is_over = false
+            end
+        end
+
+        if gui.pick_node(self.button_deck, action.x, action.y) then
+            if not self.button_deck_is_over then
+                gui.set_color(self.button_deck, color.hex(self.color_select_button))
+                gui.set_color(self.text_button_deck, color.hex(self.color_select_text))
+                self.button_deck_is_over = true
+            end
+        else
+            if self.button_deck_is_over then
+                gui.set_color(self.button_deck, color.hex(self.color_unselect_button))
+                gui.set_color(self.text_button_deck, color.hex(self.color_unselect_text))
+                self.button_deck_is_over = false
+            end
+        end
+
+        if gui.pick_node(self.button_options, action.x, action.y) then
+            if not self.button_options_is_over then
+                gui.set_color(self.button_options, color.hex(self.color_select_button))
+                gui.set_color(self.text_button_options, color.hex(self.color_select_text))
+                self.button_options_is_over = true
+            end
+        else
+            if self.button_options_is_over then
+                gui.set_color(self.button_options, color.hex(self.color_unselect_button))
+                gui.set_color(self.text_button_options, color.hex(self.color_unselect_text))
+                self.button_options_is_over = false
+            end
+        end
+
+        if gui.pick_node(self.button_undo, action.x, action.y) and self.button_undo_active then
+            if not self.button_undo_is_over then
+                gui.set_color(self.button_undo, color.hex(self.color_select_button))
+                gui.set_color(self.text_button_undo, color.hex(self.color_select_text))
+                self.button_undo_is_over = true
+            end
+        else
+            if self.button_undo_is_over then
+                if self.button_undo_active == false then
+                    gui.set_color(self.button_undo, color.hex(self.color_unselect_button))
+                    gui.set_color(self.text_button_undo, color.hex(self.color_inactive_text))
+                else
+                    gui.set_color(self.button_undo, color.hex(self.color_unselect_button))
+                    gui.set_color(self.text_button_undo, color.hex(self.color_unselect_text))
+                end
+                self.button_undo_is_over = false
+            end
+        end
+    end
+end
+main/gui/gui_game.gui_scriptludobits.m.flow
+main.color
+main.math2	main.data/ludobits/m/flow.luac/main/color.luac/main/math2.luac/main/data.luac" 

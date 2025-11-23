@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,minimal-ui,shrink-to-fit=no"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <script type="text/javascript">
+      
+      (function (e, t) {
+        var n = e.amplitude || { _q: [], _iq: {} };
+        var r = t.createElement("script");
+        r.type = "text/javascript";
+        r.crossOrigin = "anonymous";
+        r.async = true;
+        r.src = "amplitude-8.5.0-min.gz.js";
+        r.onload = function () {
+          if (!e.amplitude.runQueuedFunctions) {
+            console.log("[Amplitude] Error: could not load SDK");
+          }
+        };
+        var i = t.getElementsByTagName("script")[0];
+        i.parentNode.insertBefore(r, i);
+        function s(e, t) {
+          e.prototype[t] = function () {
+            this._q.push([t].concat(Array.prototype.slice.call(arguments, 0)));
+            return this;
+          };
+        }
+        var o = function () {
+          this._q = [];
+          return this;
+        };
+        var a = [
+          "add",
+          "append",
+          "clearAll",
+          "prepend",
+          "set",
+          "setOnce",
+          "unset",
+          "preInsert",
+          "postInsert",
+          "remove",
+        ];
+        for (var c = 0; c < a.length; c++) {
+          s(o, a[c]);
+        }
+        n.Identify = o;
+        var u = function () {
+          this._q = [];
+          return this;
+        };
+        var l = [
+          "setProductId",
+          "setQuantity",
+          "setPrice",
+          "setRevenueType",
+          "setEventProperties",
+        ];
+        for (var p = 0; p < l.length; p++) {
+          s(u, l[p]);
+        }
+        n.Revenue = u;
+        var d = [
+          "init",
+          "logEvent",
+          "logRevenue",
+          "setUserId",
+          "setUserProperties",
+          "setOptOut",
+          "setVersionName",
+          "setDomain",
+          "setDeviceId",
+          "enableTracking",
+          "setGlobalUserProperties",
+          "identify",
+          "clearUserProperties",
+          "setGroup",
+          "logRevenueV2",
+          "regenerateDeviceId",
+          "groupIdentify",
+          "onInit",
+          "logEventWithTimestamp",
+          "logEventWithGroups",
+          "setSessionId",
+          "resetSessionId",
+        ];
+        function v(e) {
+          function t(t) {
+            e[t] = function () {
+              e._q.push([t].concat(Array.prototype.slice.call(arguments, 0)));
+            };
+          }
+          for (var n = 0; n < d.length; n++) {
+            t(d[n]);
+          }
+        }
+        v(n);
+        n.getInstance = function (e) {
+          e = (!e || e.length === 0 ? "$default_instance" : e).toLowerCase();
+          if (!Object.prototype.hasOwnProperty.call(n._iq, e)) {
+            n._iq[e] = { _q: [] };
+            v(n._iq[e]);
+          }
+          return n._iq[e];
+        };
+        e.amplitude = n;
+      })(window, document);
+
+      amplitude.getInstance().init("c211f643b07378a1fd38fd89ac1f1004");
+    </script>
+    <style type="text/css">
+      body {
+        position: fixed;
+        margin: 0;
+        padding: 0;
+      }
+      .canvas-app-container {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .canvas-app-container:-webkit-full-screen {
+        width: auto;
+        height: auto;
+      }
+      #canvas {
+        outline: 0;
+        border: 0;
+        width: 100%;
+        vertical-align: bottom;
+      }
+      #canvas-container {
+        position: relative;
+      }
+      canvas:active,
+      canvas:focus {
+        outline: 0;
+        border: 0;
+        ie-dummy: expression(this.hideFocus=true);
+        -moz-outline-style: none;
+      }
+      div {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      .canvas-app-progress {
+        position: absolute;
+        background-color: #394046;
+        height: 6px;
+        margin-top: -6px;
+        width: 100%;
+      }
+      .canvas-app-progress-bar {
+        font-size: 12px;
+        height: 6px;
+        color: #fff;
+        background-color: #1a72eb;
+        text-align: center;
+        line-height: 20px;
+      }
+      .button,
+      .link {
+        font-family: sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: normal;
+        letter-spacing: 0;
+        padding-top: 12px;
+      }
+      .buttons-background {
+        background-color: #1e2226;
+        width: 100%;
+        height: 42px;
+      }
+      body {
+        background-color: #1e2226;
+      }
+      .canvas-app-container {
+        background: #24292e;
+        background: -moz-linear-gradient(
+          -45deg,
+          #24292e 0,
+          #24292e 49%,
+          #262b31 50%,
+          #262b31 100%
+        );
+        background: -webkit-gradient(
+          left top,
+          right bottom,
+          color-stop(0, #24292e),
+          color-stop(49%, #24292e),
+          color-stop(50%, #262b31),
+          color-stop(100%, #262b31)
+        );
+        background: -webkit-linear-gradient(
+          -45deg,
+          #24292e 0,
+          #24292e 49%,
+          #262b31 50%,
+          #262b31 100%
+        );
+        background: -o-linear-gradient(
+          -45deg,
+          #24292e 0,
+          #24292e 49%,
+          #262b31 50%,
+          #262b31 100%
+        );
+        background: -ms-linear-gradient(
+          -45deg,
+          #24292e 0,
+          #24292e 49%,
+          #262b31 50%,
+          #262b31 100%
+        );
+        background: linear-gradient(
+          135deg,
+          #24292e 0,
+          #24292e 49%,
+          #262b31 50%,
+          #262b31 100%
+        );
+      }
+      .canvas-app-canvas {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 70%;
+        background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 19.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' width='300px' height='64px' viewBox='-2467.5 2469 300 64' style='enable-background:new -2467.5 2469 300 64;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%23fafcff;%7D .st1%7Bfill:url(%23SVGID_1_);%7D .st2%7Bfill:url(%23SVGID_2_);%7D .st3%7Bfill:%2315244A;%7D%0A%3C/style%3E%3Ctitle%3Edefold-logo-html5-splash%3C/title%3E%3Cpolygon class='st0' points='-2177,2482.9 -2175.5,2482.9 -2175.5,2486.7 -2174.4,2486.7 -2174.4,2482.9 -2173.2,2482.9 -2173.2,2481.9 -2177,2481.9 '/%3E%3Cpolygon class='st0' points='-2169.8,2484.1 -2171,2482.1 -2172.1,2482.1 -2172.1,2486.7 -2171,2486.7 -2171,2483.5 -2169.7,2485.6 -2169.7,2485.6 -2168.5,2483.5 -2168.5,2486.7 -2167.5,2486.7 -2167.5,2482.1 -2168.6,2482.1 '/%3E%3Cpath class='st0' d='M-2376,2482h-13.8v38h13.6c6.6,0,12.2-1.9,16.1-5.5c3.8-3.5,5.8-8.5,5.7-13.7v-0.1 C-2354.5,2489.3-2362.9,2482-2376,2482z M-2364,2501.2c0,6.7-4.5,10.9-11.8,10.9h-4.7v-22h4.7c7.3,0,11.8,4.2,11.8,10.9 L-2364,2501.2z'/%3E%3Cpolygon class='st0' points='-2340.9,2505 -2325.1,2505 -2325.1,2497.4 -2340.9,2497.4 -2340.9,2489.6 -2322.4,2489.6 -2322.4,2481.9 -2350.1,2481.9 -2350.1,2520 -2322.2,2520 -2322.2,2512.4 -2340.9,2512.4 '/%3E%3Cpolygon class='st0' points='-2317.1,2481.9 -2317.1,2520 -2307.9,2520 -2307.9,2505.9 -2293,2505.9 -2293,2498.4 -2307.9,2498.4 -2307.9,2489.9 -2289.6,2489.9 -2289.6,2481.9 '/%3E%3Cpolygon class='st0' points='-2233,2482.1 -2242.2,2482.1 -2242.2,2520 -2216.3,2520 -2216.3,2512.2 -2233,2512.2 '/%3E%3Cpath class='st0' d='M-2197.1,2482h-13.7v38h13.5c6.7,0,12.2-1.9,16.1-5.5c3.8-3.5,5.8-8.5,5.7-13.7v-0.1 C-2175.5,2489.3-2184,2482-2197.1,2482z M-2185.1,2501.2c0,6.7-4.5,10.9-11.8,10.9h-4.7v-22h4.7c7.3,0,11.8,4.2,11.8,10.9V2501.2z' /%3E%3Cpath class='st0' d='M-2267.5,2481.7c-10.8,0-19.6,8.8-19.6,19.7c0,10.8,8.8,19.6,19.7,19.6c10.8,0,19.6-8.8,19.6-19.6l0,0 C-2247.8,2490.5-2256.6,2481.7-2267.5,2481.7C-2267.5,2481.7-2267.5,2481.7-2267.5,2481.7z M-2258,2507.9l-8.8,5.1 c-0.5,0.3-1.2,0.3-1.8,0l-8.8-5.1c-0.5-0.3-0.9-0.9-0.9-1.5v-10.2c0-0.6,0.3-1.2,0.9-1.5l8.8-5.1c0.5-0.3,1.2-0.3,1.8,0l8.8,5.1 c0.5,0.3,0.9,0.9,0.9,1.5v10.2C-2257.1,2507-2257.4,2507.6-2258,2507.9z'/%3E%3Cpath class='st3' d='M-2423.2,2494.6l-11.1,6.4l-11.1-6.4l11.1-6.4L-2423.2,2494.6z M-2412.1,2501v12.8l11.1-6.4L-2412.1,2501z M-2467.5,2507.4l11.1,6.4V2501L-2467.5,2507.4z M-2434.3,2526.6l11.1,6.4l11.1-6.4l-11.1-6.4l11.1-6.4l-11.1-6.4l-11.1,6.4 l-11.1-6.4l-11.1,6.4l11.1,6.4l-11.1,6.4l11.1,6.4L-2434.3,2526.6z'/%3E%3ClinearGradient id='SVGID_1_' gradientUnits='userSpaceOnUse' x1='-2451.2178' y1='2525.4604' x2='-2406.2178' y2='2499.6304' gradientTransform='matrix(1 0 0 -1 0 5004)'%3E%3Cstop offset='0' style='stop-color:%231C68EC'/%3E%3Cstop offset='1' style='stop-color:%2300E9DF'/%3E%3C/linearGradient%3E%3Cpath class='st1' d='M-2412.1,2513.8v12.8l-11.1-6.4L-2412.1,2513.8z M-2434.3,2513.8V2501l-11.1-6.4v12.8L-2434.3,2513.8z M-2445.4,2469v12.8l11.1-6.4L-2445.4,2469z M-2412.1,2488.2L-2412.1,2488.2 M-2423.2,2507.4l11.1,6.4V2501l11.1,6.4v-12.8 l-11.1-6.4v-12.8l0,0l-11.1-6.4v12.8l-11.1-6.4v12.8l11.1,6.4V2507.4z'/%3E%3ClinearGradient id='SVGID_2_' gradientUnits='userSpaceOnUse' x1='-2465.9385' y1='2521.2493' x2='-2423.5085' y2='2496.7893' gradientTransform='matrix(1 0 0 -1 0 5004)'%3E%3Cstop offset='0' style='stop-color:%23FF3C2A'/%3E%3Cstop offset='1' style='stop-color:%23FFD215'/%3E%3C/linearGradient%3E%3Cpath class='st2' d='M-2434.3,2513.8V2501l11.1-6.4v12.8L-2434.3,2513.8z M-2434.3,2475.4l11.1,6.4V2469L-2434.3,2475.4z M-2456.5,2488.2L-2456.5,2488.2 M-2445.4,2494.6l11.1-6.4v-12.8l-11.1,6.4V2469l-11.1,6.4l0,0v12.8l-11.1,6.4v12.8l11.1-6.4v12.8 l11.1-6.4V2494.6z M-2456.5,2513.8v12.8l11.1-6.4L-2456.5,2513.8z'/%3E%3C/svg%3E%0A");
+      }
+    </style>
+    <style type="text/css">
+      .canvas-app-progress {
+        background-color: #86d0b7;
+      }
+      .canvas-app-progress-bar {
+        background-color: #1e7aa1;
+      }
+      body {
+        background-color: #000;
+      }
+      .canvas-app-container {
+        background: #24292e !important;
+      }
+      .canvas-app-canvas {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 70%;
+        background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8' standalone='no'%3F%3E%3C!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 1.1//EN' 'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'%3E%3Csvg width='100%25' height='100%25' viewBox='0 0 300 200' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xml:space='preserve' xmlns:serif='http://www.serif.com/' style='fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;'%3E%3Crect id='splash' x='0' y='0' width='300' height='200' style='fill:none;'/%3E%3Cg%3E%3Cg%3E%3Cpath d='M217.115,83.352c0,2.064 0.04,2.793 0.175,2.874c0.081,0.054 0.527,0.134 0.972,0.175l0.809,0.067l0.041,10.727c0.013,5.896 0,10.861 -0.041,11.023c-0.067,0.283 -0.162,0.31 -0.85,0.31c-0.418,0 -0.85,0.054 -0.944,0.108c-0.122,0.095 -0.162,0.769 -0.135,2.942l0.04,2.82l13.088,0l0.04,-2.82c0.027,-2.173 -0.013,-2.847 -0.134,-2.942c-0.095,-0.054 -0.702,-0.108 -1.35,-0.108l-1.187,0l0,-27.929l-5.262,0l-5.262,0l0,2.753Z' style='fill:%23eeeeee;fill-rule:nonzero;'/%3E%3Cpath d='M232.226,83.419c0,3.184 -0.081,2.982 1.161,2.982l0.728,0l0,11.064l0,11.063l-0.728,0c-1.242,0 -1.161,-0.215 -1.161,3.05l0,2.887l13.088,0l-0.027,-2.941l-0.04,-2.928l-1.242,-0.041l-1.255,-0.04l0,-27.916l-5.262,0l-5.262,0l0,2.82Z' style='fill:%23eeeeee;fill-rule:nonzero;'/%3E%3Cpath d='M264.136,80.721c-1.471,0.175 -2.753,1.133 -3.549,2.644c-0.296,0.58 -0.35,0.85 -0.35,1.822c0,0.971 0.054,1.241 0.35,1.821c1.066,2.024 3.104,3.022 5.37,2.645c1.646,-0.27 2.78,-1.039 3.481,-2.375c0.311,-0.594 0.365,-0.837 0.365,-1.956c0,-1.458 -0.23,-2.078 -1.107,-3.05c-1.174,-1.268 -2.685,-1.781 -4.56,-1.551Z' style='fill:%23eeeeee;fill-rule:nonzero;'/%3E%3Cpath d='M172.793,82.475c-3.846,0.985 -7.448,3.872 -9.337,7.501c-1.538,2.982 -2.186,5.586 -2.199,8.851c0,4.008 0.89,7.246 2.739,9.958c0.566,0.836 2.172,2.496 3.089,3.197c1.592,1.228 3.859,2.227 6.18,2.712c1.646,0.338 5.977,0.338 7.488,0c0.594,-0.134 1.228,-0.296 1.417,-0.364c2.334,-0.796 3.859,-1.578 5.491,-2.793c1.255,-0.931 3.009,-2.577 3.009,-2.806c0,-0.176 -0.459,-0.702 -3.076,-3.535c-0.702,-0.769 -1.39,-1.538 -1.538,-1.727c-0.149,-0.189 -0.324,-0.338 -0.405,-0.338c-0.081,0 -0.607,0.459 -1.174,1.026c-1.336,1.349 -2.172,1.97 -3.4,2.523c-2.051,0.944 -3.751,0.931 -5.572,-0.014c-1.727,-0.904 -3.036,-2.941 -3.576,-5.531c-0.216,-1.012 -0.189,-3.954 0.041,-5.168c0.553,-2.833 1.875,-4.992 3.535,-5.775c0.957,-0.458 2.59,-0.431 3.615,0.054c1.377,0.648 2.335,2.119 2.739,4.183l0.23,1.147l3.913,-0.027l3.926,-0.041l0.04,-6.382l0.027,-6.368l-3.508,0l-3.521,0l-0.203,0.499c-0.121,0.284 -0.35,0.837 -0.539,1.242l-0.324,0.715l-0.904,-0.837c-1.066,-0.998 -2.307,-1.632 -3.845,-1.943c-1.35,-0.283 -3.158,-0.256 -4.358,0.041Z' style='fill:%23eeeeee;fill-rule:nonzero;'/%3E%3Cpath d='M65.191,85.794l0,2.901l1.282,0c1.12,0 1.295,0.027 1.416,0.256c0.149,0.283 0.203,18.97 0.054,19.362c-0.067,0.175 -0.323,0.215 -1.416,0.215l-1.336,0l0,2.969l0,2.968l8.338,-0.027l8.325,-0.04l0.041,-2.928l0.027,-2.942l-2.254,-0.027l-2.266,-0.04l-0.041,-2.86l-0.027,-2.874l4.21,-0.027l4.223,-0.041l0.04,-2.941l0.027,-2.928l-4.034,0c-2.226,0 -4.129,-0.04 -4.25,-0.081c-0.189,-0.067 -0.216,-0.553 -0.216,-3.98l0,-3.899l0.31,-0.068c0.162,-0.04 1.7,-0.054 3.401,-0.04l3.103,0.04l0.04,1.984l0.041,1.996l7.947,0l0,-9.849l-13.493,0l-13.492,0l0,2.901Z' style='fill:%23eeeeee;fill-rule:nonzero;'/%3E%3Cpath d='M107.962,90.934c-0.405,0.108 -0.931,0.284 -1.174,0.392c-0.688,0.323 -1.902,1.524 -2.375,2.347c-0.256,0.419 -0.512,0.756 -0.58,0.742c-0.067,0 -0.405,-0.593 -0.755,-1.308l-0.648,-1.309l-4.21,0.027l-4.223,0.04l-0.04,2.793l-0.027,2.807l0.297,0.067c0.175,0.027 0.62,0.081 0.985,0.095l0.674,0.04l0,5.33l0,5.329l-0.674,0.041c-0.365,0.013 -0.81,0.067 -0.985,0.094l-0.297,0.067l0.027,2.874l0.04,2.861l12.548,0l0,-5.802l-1.052,-0.041l-1.053,-0.04l0.041,-3.265c0.04,-3.09 0.054,-3.306 0.351,-3.886c0.769,-1.538 2.226,-2.294 4.857,-2.496l1.106,-0.094l0,-7.92l-1.039,0.013c-0.58,0 -1.389,0.094 -1.794,0.202Z' style='fill:%23eeeeee;fill-rule:nonzero;'/%3E%3Cpath d='M121.252,91.326c-3.103,0.566 -5.977,2.361 -7.596,4.749c-2.321,3.4 -2.55,9.04 -0.54,13.061c0.607,1.227 1.417,2.199 2.671,3.211c3.252,2.631 7.232,3.359 12.413,2.307c2.159,-0.445 4.615,-1.525 6.166,-2.739l0.837,-0.648l-0.297,-0.404c-0.162,-0.23 -0.985,-1.215 -1.821,-2.186l-1.539,-1.768l-0.553,0.392c-1.214,0.823 -2.307,1.268 -3.872,1.578c-2.024,0.378 -3.994,0.122 -5.033,-0.674c-0.58,-0.446 -1.362,-1.727 -1.497,-2.483l-0.068,-0.432l14.154,0l0.162,-0.378c0.296,-0.755 0.485,-3.143 0.35,-4.546c-0.256,-2.847 -1.268,-4.871 -3.224,-6.531c-2.119,-1.781 -5.019,-2.725 -8.217,-2.698c-0.85,0.013 -1.984,0.094 -2.496,0.189Zm4.56,6.125c0.945,0.405 1.511,1.295 1.66,2.658l0.094,0.729l-3.4,0c-3.845,0 -3.697,0.054 -3.319,-1.08c0.337,-1.039 0.985,-1.889 1.687,-2.253c0.809,-0.405 2.388,-0.432 3.278,-0.054Z' style='fill:%23eeeeee;fill-rule:nonzero;'/%3E%3Cpath d='M145.862,91.326c-4.655,0.836 -8.015,3.805 -9.175,8.109c-0.432,1.578 -0.499,4.776 -0.148,6.543c0.512,2.483 1.497,4.318 3.17,5.87c3.657,3.386 8.77,4.169 14.923,2.28c1.754,-0.54 5.006,-2.456 5.006,-2.942c0,-0.094 -0.162,-0.35 -0.378,-0.566c-0.203,-0.23 -0.972,-1.107 -1.714,-1.957c-0.728,-0.85 -1.39,-1.592 -1.457,-1.632c-0.081,-0.054 -0.418,0.108 -0.756,0.351c-1.038,0.742 -2.172,1.187 -3.723,1.484c-1.795,0.337 -3.495,0.202 -4.601,-0.378c-0.823,-0.418 -1.673,-1.66 -1.862,-2.685l-0.095,-0.513l7.124,-0.027l7.111,-0.04l0.256,-1.147c0.405,-1.929 0.202,-4.763 -0.486,-6.719c-0.85,-2.415 -3.481,-4.682 -6.57,-5.654c-1.781,-0.553 -4.723,-0.728 -6.625,-0.377Zm4.601,6.193c0.931,0.458 1.443,1.403 1.524,2.739l0.027,0.512l-3.4,0.041l-3.413,0.027l0,-0.405c0,-0.526 0.593,-1.862 1.052,-2.348c0.594,-0.62 1.309,-0.877 2.523,-0.877c0.864,0 1.201,0.054 1.687,0.311Z' style='fill:%23eeeeee;fill-rule:nonzero;'/%3E%3Cpath d='M201.599,91.272c-2.213,0.431 -3.306,0.85 -4.804,1.821c-2.131,1.363 -3.683,3.346 -4.425,5.626c-0.472,1.431 -0.553,2.092 -0.54,4.345c0,2.672 0.27,3.98 1.147,5.815c1.498,3.09 4.749,5.397 8.5,6.058c2.442,0.432 5.964,0.095 8.743,-0.836c1.012,-0.338 3.266,-1.511 4.062,-2.105c0.404,-0.31 0.782,-0.607 0.863,-0.661c0.175,-0.122 -3.427,-4.291 -3.71,-4.291c-0.135,0 -0.284,0.054 -0.324,0.135c-0.135,0.216 -1.727,1.066 -2.51,1.322c-1.808,0.621 -3.966,0.702 -5.518,0.23c-1.147,-0.351 -2.213,-1.633 -2.496,-3.009l-0.095,-0.432l7.097,0c3.886,0 7.111,-0.054 7.151,-0.108c0.216,-0.364 0.486,-2.32 0.486,-3.602c0,-4.25 -1.633,-7.124 -5.114,-8.986c-1.011,-0.54 -2.55,-1.039 -4.007,-1.322c-0.944,-0.176 -3.616,-0.176 -4.506,0Zm4.317,6.233c0.338,0.162 0.742,0.499 0.918,0.756c0.364,0.553 0.742,1.781 0.674,2.199l-0.04,0.31l-3.427,0.041l-3.427,0.027l0.094,-0.513c0.189,-1.214 0.972,-2.402 1.849,-2.833c0.85,-0.405 2.509,-0.405 3.359,0.013Z' style='fill:%23eeeeee;fill-rule:nonzero;'/%3E%3Cpath d='M283.902,91.326c-2.995,0.377 -5.235,1.43 -7.34,3.427c-2.266,2.172 -3.319,4.817 -3.319,8.378c0,4.183 1.43,7.138 4.534,9.351c1.308,0.931 2.995,1.673 4.911,2.145c1.012,0.243 5.208,0.243 6.206,-0.014c4.777,-1.173 7.718,-3.912 8.851,-8.243c0.338,-1.242 0.338,-4.817 0.014,-6.166c-0.864,-3.616 -3.022,-6.261 -6.355,-7.785c-1.039,-0.473 -2.995,-0.985 -4.196,-1.093c-0.513,-0.041 -1.161,-0.095 -1.417,-0.122c-0.256,-0.04 -1.106,0.027 -1.889,0.122Zm2.645,5.95c0.782,0.378 1.254,1.025 1.929,2.671c0.081,0.203 0.229,1.012 0.31,1.781c0.351,3.198 -0.485,6.274 -1.943,7.124c-0.647,0.392 -1.686,0.338 -2.374,-0.121c-1.322,-0.877 -2.051,-2.915 -2.051,-5.707c0,-1.714 0.256,-3.009 0.81,-4.116c0.337,-0.674 1.119,-1.551 1.551,-1.727c0.445,-0.175 1.282,-0.135 1.768,0.095Z' style='fill:%23eeeeee;fill-rule:nonzero;'/%3E%3Cpath d='M259.049,91.892c-0.216,0.054 -0.243,0.297 -0.243,2.739c0,1.471 0.041,2.766 0.081,2.888c0.068,0.162 0.284,0.216 0.945,0.216l0.863,0l0,5.396l0,5.397l-0.769,0c-0.432,0 -0.863,0.054 -0.958,0.108c-0.121,0.095 -0.162,0.769 -0.135,2.942l0.041,2.82l12.548,0l0.04,-2.861l0.027,-2.874l-0.297,-0.067c-0.175,-0.041 -0.674,-0.081 -1.12,-0.095l-0.809,-0.04l-0.068,-8.298l-0.067,-8.298l-4.925,-0.013c-2.712,-0.014 -5.032,0 -5.154,0.04Z' style='fill:%23eeeeee;fill-rule:nonzero;'/%3E%3Cpath d='M249.699,104.993c-0.985,0.473 -1.889,1.417 -2.442,2.524c-0.351,0.728 -0.391,0.944 -0.391,2.091c0,1.511 0.229,2.118 1.214,3.211c0.931,1.039 2.091,1.565 3.575,1.619c2.496,0.108 4.304,-0.998 5.047,-3.09c0.364,-0.998 0.256,-2.779 -0.216,-3.791c-0.473,-1.025 -1.404,-1.997 -2.361,-2.483c-0.689,-0.35 -0.945,-0.391 -2.2,-0.431c-1.322,-0.041 -1.47,-0.014 -2.226,0.35Z' style='fill:%23eeeeee;fill-rule:nonzero;'/%3E%3C/g%3E%3Cg%3E%3Cpath d='M53.629,80.807l-10.717,-2.837l0,4.703l9.551,2.527c1.214,0.323 1.936,1.571 1.616,2.78l-9.301,35.159c-0.323,1.207 -1.57,1.937 -2.784,1.616l-7.335,-1.941c-0.279,0.028 -0.55,0.084 -0.838,0.084l-16.115,0c0.368,0.173 0.75,0.328 1.157,0.434l21.972,5.817c3.641,0.966 7.373,-1.207 8.337,-4.848l9.303,-35.155c0.961,-3.639 -1.207,-7.376 -4.846,-8.339Z' style='fill:%23eeeeee;fill-rule:nonzero;'/%3E%3Cpath d='M33.821,70.622l-25.002,0c-3.764,0 -6.819,3.054 -6.819,6.818l0,36.367c0,3.764 3.055,6.818 6.819,6.818l25.002,0c3.763,0 6.818,-3.054 6.818,-6.818l0,-36.367c0,-3.764 -3.055,-6.818 -6.818,-6.818Zm2.272,43.185c0,1.252 -1.02,2.273 -2.272,2.273l-25.002,0c-1.253,0 -2.273,-1.021 -2.273,-2.273l0,-36.367c0,-1.252 1.02,-2.272 2.273,-2.272l25.002,0c1.252,0 2.272,1.02 2.272,2.272l0,36.367Zm-4.798,-17.242c0,3.148 -2.107,5.148 -5.116,5.155c-1.557,0 -3.132,-1.053 -4.025,-1.926c0,0 0.836,3.871 2.361,6.799c0.198,0.379 -6.5,0.388 -6.321,0.004c1.485,-3.173 2.316,-6.803 2.316,-6.803c-0.895,0.832 -2.613,1.937 -4.052,1.939c-3.003,0.002 -5.123,-1.993 -5.128,-5.137c-0.004,-5.268 9.937,-12.176 9.937,-12.176l0.055,0c0,0 9.964,6.881 9.973,12.145Zm0.125,-18.815c-0.038,-0.096 -0.072,-0.173 -0.118,-0.228c-0.045,-0.054 -0.138,-0.082 -0.279,-0.082l-1.294,0c-0.138,0 -0.231,0.028 -0.277,0.078c-0.048,0.047 -0.089,0.122 -0.123,0.218l-1.977,6.257c-0.039,0.118 -0.041,0.189 -0.014,0.221c0.028,0.031 0.082,0.045 0.157,0.045l1.137,0c0.1,0 0.172,-0.025 0.229,-0.064c0.052,-0.04 0.098,-0.111 0.132,-0.222l0.368,-1.253l2.041,0l0.339,1.221c0.034,0.107 0.068,0.191 0.109,0.239c0.039,0.052 0.12,0.079 0.236,0.079l1.273,0c0.075,0 0.121,-0.025 0.134,-0.064c0.014,-0.038 0.014,-0.097 -0.011,-0.181l-2.062,-6.264Zm-1.711,3.732l0.307,-1.146l0.338,-1.245l0.048,0l0.332,1.254l0.307,1.137l-1.332,0Zm-15.806,25.506c-0.118,0 -0.198,0.027 -0.236,0.077c-0.041,0.05 -0.075,0.134 -0.109,0.241l-0.339,1.221l-2.043,0l-0.369,-1.253c-0.034,-0.111 -0.077,-0.181 -0.131,-0.222c-0.055,-0.039 -0.128,-0.064 -0.228,-0.064l-1.136,0c-0.075,0 -0.13,0.016 -0.155,0.048c-0.025,0.032 -0.025,0.102 0.014,0.22l1.977,6.258c0.035,0.095 0.075,0.168 0.123,0.218c0.046,0.047 0.139,0.075 0.275,0.075l1.291,0c0.143,0 0.237,-0.028 0.282,-0.082c0.045,-0.052 0.08,-0.132 0.118,-0.227l2.059,-6.264c0.025,-0.085 0.025,-0.144 0.012,-0.182c-0.014,-0.039 -0.057,-0.064 -0.132,-0.064l-1.273,0Zm-1.35,3.914l-0.332,1.255l-0.048,0l-0.338,-1.246l-0.307,-1.145l1.332,0l-0.307,1.136Z' style='fill:%23eeeeee;fill-rule:nonzero;'/%3E%3Cpath d='M49.485,87.121c-0.009,-0.103 -0.027,-0.184 -0.052,-0.248c-0.032,-0.066 -0.116,-0.116 -0.252,-0.15l-1.248,-0.336c-0.13,-0.037 -0.227,-0.037 -0.284,0c-0.062,0.038 -0.121,0.097 -0.175,0.179l-3.541,5.523c-0.071,0.107 -0.089,0.171 -0.071,0.212c0.016,0.036 0.062,0.063 0.137,0.084l1.097,0.297c0.096,0.025 0.173,0.023 0.237,-0.004c0.061,-0.023 0.125,-0.08 0.186,-0.177l0.682,-1.114l1.971,0.532l0.011,1.268c0,0.111 0.016,0.202 0.041,0.259c0.027,0.062 0.095,0.107 0.211,0.139l1.228,0.332c0.072,0.02 0.122,0.011 0.145,-0.028c0.023,-0.034 0.036,-0.091 0.036,-0.177l-0.359,-6.591Zm-2.625,3.159l0.596,-1.03l0.652,-1.111l0.045,0.014l-0.006,1.295l-0.003,1.18l-1.284,-0.348Z' style='fill:%23eeeeee;fill-rule:nonzero;'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      }
+      #webgl-not-supported {
+        font-size: 3vh !important;
+      }
+    </style>
+    <meta name="robots" content="noindex" />
+    <style type="text/css">
+      #webgl-not-supported {
+        color: #fafcff;
+        display: none;
+        font-family: sans-serif;
+        font-size: 18px;
+        font-size: 2vw;
+        line-height: 1.5em;
+        padding: 0 20% 0 20%;
+        position: absolute;
+        text-align: center;
+        text-shadow: 0 0 2px #000, 0 0 2px #000, 0 0 2px #000, 0 0 2px #000,
+          0 0 2px #000, 0 0 2px #000, 0 0 2px #000, 0 0 2px #000, 0 0 2px #000,
+          0 0 2px #000, 0 0 2px #000, 0 0 2px #000, 0 0 2px #000, 0 0 2px #000,
+          0 0 2px #000, 0 0 2px #000, 0 0 2px #000, 0 0 2px #000, 0 0 2px #000,
+          0 0 2px #000;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      #webgl-not-supported .i18n-ru {
+        display: none;
+      }
+      #debug-log {
+        position: absolute;
+        z-index: 1000;
+        top: 0;
+        width: 100%;
+        height: 20vh;
+        font-size: 10px;
+        background-color: #000;
+        color: #fff;
+        font-family: monospace;
+        white-space: pre-wrap;
+        overflow: scroll;
+      }
+    </style>
+    <script type="text/javascript">
+      navigator.getGamepads ||
+        navigator.webkitGetGamepads ||
+        (navigator.getGamepads = function () {
+          return [];
+        }),
+        window.AudioContext ||
+          window.webkitAudioContext ||
+          ((window.AudioContext = function () {
+            (this.sampleRate = 44100),
+              (this.destination = 0),
+              (this.currentTime = 0),
+              (this.state = "running");
+          }),
+          (window.AudioContext.prototype.createBuffer = function () {
+            return {
+              getChannelData: function () {
+                return [];
+              },
+            };
+          }),
+          (window.AudioContext.prototype.createBufferSource = function () {
+            return { connect: function () {}, start: function () {} };
+          }));
+      var nowOffset,
+        audioContext = window.AudioContext || window.webkitAudioContext;
+      audioContext.prototype.resume ||
+        (audioContext.prototype.resume = function () {}),
+        window.msCrypto && (window.crypto = window.msCrypto),
+        [
+          Int8Array,
+          Uint8Array,
+          Int16Array,
+          Uint16Array,
+          Int32Array,
+          Uint32Array,
+          Float32Array,
+          Float64Array,
+        ].forEach(function (o) {
+          o.prototype.slice ||
+            Object.defineProperty(o.prototype, "slice", {
+              value: function (t, n) {
+                return new o(this.subarray(t, n));
+              },
+            });
+        }),
+        "performance" in window == 0 && (window.performance = {}),
+        (Date.now =
+          Date.now ||
+          function () {
+            return new Date().getTime();
+          }),
+        "now" in window.performance == 0 &&
+          ((nowOffset = Date.now()),
+          performance.timing &&
+            performance.timing.navigationStart &&
+            (nowOffset = performance.timing.navigationStart),
+          (window.performance.now = function () {
+            return Date.now() - nowOffset;
+          }));
+    </script>
+  </head>
+  <body>
+    <div id="app-container" class="canvas-app-container">
+      <div id="canvas-container" class="canvas-app-canvas-container">
+        <canvas
+          id="canvas"
+          class="canvas-app-canvas"
+          tabindex="1"
+          width="584"
+          height="438"
+        ></canvas>
+      </div>
+      <div class="buttons-background"></div>
+      <div id="webgl-not-supported">
+        <span class="i18n-en"
+          >Oooops 😞😞😢! Your browser does not support this game. Use the
+          latest version of Chrome or Firefox.</span
+        >
+        <span class="i18n-ru"
+          >Упс 😞😞😢! Ваш браузер не поддерживает эту игру. Используйте
+          последнюю версию браузера Chrome или Firefox.</span
+        >
+      </div>
+      <script id="webgl-detect" type="text/javascript">
+        var detectWebGLRenderer;
+        !(function () {
+          var r, e, t;
+          (detectWebGLRenderer = function () {
+            if (void 0 !== r) return r;
+            var e = !1;
+            try {
+              var t = document.createElement("canvas"),
+                n = t.getContext("webgl") || t.getContext("experimental-webgl");
+              n &&
+                n instanceof WebGLRenderingContext &&
+                ((e = n.getParameter(n.RENDERER)),
+                (e =
+                  (e = (t = n.getExtension("WEBGL_debug_renderer_info"))
+                    ? n.getParameter(t.UNMASKED_RENDERER_WEBGL) || e
+                    : e) || "Unknown WebGL 1.0"));
+            } catch (e) {
+              console.log(
+                "An error occurred while detecting WebGL support: " + e
+              );
+            }
+            return (r = e);
+          })() ||
+            (((e = document.getElementById(
+              "webgl-not-supported"
+            )).style.display = "block"),
+            (document.getElementById("canvas").style.display = "none"),
+            Array.prototype.forEach.call(
+              document.getElementsByClassName("buttons-background"),
+              function (e) {
+                e.style.display = "none";
+              }
+            ),
+            "en" !=
+              (t = (navigator.language || navigator.userLanguage || "en")
+                .substr(0, 2)
+                .toLowerCase()) &&
+              Array.prototype.forEach.call(
+                e.getElementsByClassName("i18n-" + t),
+                function (e) {
+                  e.style.display = "block";
+                }
+              ));
+        })();
+      </script>
+    </div>
+    <script
+      id="engine-loader"
+      type="text/javascript"
+      src="dmloader.js?v=7"
+    ></script>
+    <script id="engine-setup" type="text/javascript">
+      var extra_params = {
+        archive_location_filter: function (e) {
+          return "archive" + e;
+        },
+        engine_arguments: ["--verify-graphics-calls=false"],
+        custom_heap_size: 67108864,
+        full_screen_container: "#canvas-container",
+        disable_context_menu: !0,
+      };
+      (Module.INITIAL_MEMORY = extra_params.custom_heap_size),
+        (Module.onRuntimeInitialized = function () {
+          Module.runApp("canvas", extra_params);
+        }),
+        (Module.locateFile = function (e, n) {
+          return (
+            n +
+            (e =
+              "dmengine.wasm" == e ||
+              "dmengine_release.wasm" == e ||
+              "dmengine_headless.wasm" == e
+                ? "solitaire_windows_xp.wasm"
+                : e)
+          );
+        });
+      var is_iOS =
+          /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream,
+        buttonHeight = 0;
+      function resize_game_canvas() {
+        is_iOS && window.scrollTo(0, 0);
+        var e = document.getElementById("app-container"),
+          n = document.getElementById("canvas"),
+          i = window.innerWidth,
+          a = window.innerHeight - buttonHeight,
+          t = 584,
+          r = 438,
+          o = t / r;
+        o < i / a
+          ? ((t = a * o),
+            (r = a),
+            (e.style.marginLeft = (i - t) / 2 + "px"),
+            (e.style.marginTop = "0px"))
+          : ((r = (t = i) / o),
+            (e.style.marginLeft = "0px"),
+            (e.style.marginTop = (a - r) / 2 + "px")),
+          (e.style.width = t + "px"),
+          (e.style.height = r + buttonHeight + "px"),
+          (n.width = t),
+          (n.height = r);
+      }
+      resize_game_canvas(),
+        window.addEventListener("resize", resize_game_canvas, !1),
+        window.addEventListener("orientationchange", resize_game_canvas, !1),
+        (function (e) {
+          var n,
+            i = e.sentry_onerror;
+          i &&
+            i != e.onerror &&
+            ((n = e.onerror),
+            (e.onerror = function () {
+              i.apply(this, arguments), n.apply(this, arguments);
+            }));
+        })(window);
+    </script>
+    <script id="engine-start" type="text/javascript" merge="keep">
+      "undefined" != typeof FileLoader &&
+        (FileLoader.load = function (o, t, r, i, a, s) {
+          var e = FileLoader.request(o, "GET", t);
+          (e.onprogress = function (e, n) {
+            n.lengthComputable
+              ? i(n.loaded, n.total)
+              : ((e =
+                  null != (e = e.getResponseHeader("content-length")) ? e : r),
+                i(n.loaded, e || n.loaded));
+          }),
+            (e.onerror = function (e, n) {
+              a("Error loading '" + o + "' (" + n + ")");
+            }),
+            (e.onload = function (e, n) {
+              4 === e.readyState &&
+                (200 === e.status
+                  ? ((e = e.response),
+                    s("json" == t && "string" == typeof e ? JSON.parse(e) : e))
+                  : a("Error loading '" + o + "' (" + n + ")"));
+            }),
+            e.send();
+        }),
+        (function () {
+          function i(e, n) {
+            "undefined" != typeof Sentry &&
+              Sentry.addBreadcrumb({
+                category: e,
+                message: n,
+                level: Sentry.Severity.Info,
+              });
+          }
+          function a(e, o) {
+            "undefined" != typeof Sentry &&
+              Sentry.withScope(function (n) {
+                Object.keys(o).forEach(function (e) {
+                  n.setExtra(e, o[e]);
+                }),
+                  Sentry.captureMessage(e, "info");
+              }),
+              console.error(e, JSON.stringify(o));
+          }
+          function e(n, o) {
+            "undefined" != typeof Sentry &&
+              Sentry.configureScope(function (e) {
+                e.setTag(n, o);
+              });
+          }
+          var n,
+            o,
+            t,
+            s,
+            d,
+            c,
+            l,
+            r = detectWebGLRenderer();
+          function u(n, o) {
+            o &&
+              (Module.instantiateWasm = function (n, o) {
+                var t = "solitaire_windows_xp.wasm",
+                  r = new XMLHttpRequest();
+                return (
+                  r.open("GET", t, !0),
+                  (r.responseType = "arraybuffer"),
+                  (r.onload = function (e) {
+                    4 === r.readyState &&
+                      (200 === r.status
+                        ? (i("async", "Loaded binary " + t),
+                          WebAssembly.instantiate(new Uint8Array(r.response), n)
+                            .then(function (e) {
+                              o(e.instance);
+                            })
+                            .catch(function (e) {
+                              a("Error instantiating wasm", {
+                                error: e.toString(),
+                              });
+                            }))
+                        : a("Error loading binary", {
+                            src: t,
+                            resp: r.response.toString(),
+                          }));
+                  }),
+                  (r.onprogress = function (e) {
+                    0 < e.total && s(c + (e.loaded / e.total) * l);
+                  }),
+                  (r.onerror = function (e) {
+                    a("Error loading binary", { src: t, evt: e.toString() });
+                  }),
+                  r.send(),
+                  {}
+                );
+              });
+            var t = new XMLHttpRequest(),
+              r = document.createElement("script");
+            t.open("GET", n, !0),
+              (t.onload = function (e) {
+                4 === t.readyState &&
+                  (200 === t.status
+                    ? (i("async", "Loaded script " + n),
+                      (r.text = t.response),
+                      setTimeout(function () {
+                        document.head.appendChild(r);
+                      }, 100))
+                    : a("Error loading script", {
+                        src: n,
+                        resp: t.response.toString(),
+                      }));
+              }),
+              (t.onprogress = function (e) {
+                0 < e.total && s((e.loaded / e.total) * (o ? c : d));
+              }),
+              (t.onerror = function (e) {
+                a("Error loading script", { src: n, evt: e.toString() });
+              }),
+              t.send();
+          }
+          r &&
+            (e("gl_info.renderer", r),
+            e("screen.pixel_ratio", window.devicePixelRatio),
+            e("screen.width", window.screen.width),
+            e("screen.height", window.screen.height),
+            (Module.__debugInfoWebGLRenderer = r),
+            (n = !(Module.hasWebGLSupport = function () {
+              return !0;
+            })),
+            (o = !1),
+            (-1 < r.indexOf("SwiftShader") ||
+              -1 < r.indexOf("Microsoft Basic Render Driver") ||
+              -1 < r.indexOf("Software Adapter") ||
+              -1 < r.indexOf("Mali-400 MP") ||
+              -1 < r.indexOf("Mali-450 MP") ||
+              -1 < (navigator.userAgent || "").indexOf("Android") ||
+              -1 < (navigator.userAgent || "").indexOf("SMART-TV") ||
+              window.msCrypto) &&
+              (o = n = !0),
+            Math.max(
+              window.screen.width * (window.devicePixelRatio || 1),
+              window.screen.height * (window.devicePixelRatio || 1)
+            ) < 1e3 && (o = !0),
+            (Module.__debugInfoDisableRGSS = n),
+            (Module.__debugInfoDownscaleTextures = o),
+            (t = extra_params.can_not_download_file_callback),
+            (extra_params.can_not_download_file_callback = function (e) {
+              a("Can't download file", { file: e }),
+                "function" == typeof t && t.call(this, e);
+            }),
+            extra_params.custom_heap_size &&
+              (Module.INITIAL_MEMORY = extra_params.custom_heap_size),
+            "undefined" != typeof EngineLoader
+              ? EngineLoader.load("canvas", "solitaire_windows_xp")
+              : ((s = Progress.updateProgress),
+                (d = 50),
+                (c = 10),
+                (l = 40),
+                (Progress.updateProgress = function (e, n) {
+                  s(d + (e / 100) * (100 - d), n);
+                }),
+                Progress.addProgress(document.getElementById("canvas")),
+                (Progress.addProgress = function () {}),
+                -1 < navigator.userAgent.indexOf("KAIOS")
+                  ? load_engine()
+                  : Module.isWASMSupported
+                  ? u("solitaire_windows_xp_wasm.js", !0)
+                  : u("solitaire_windows_xp_asmjs.js", !1)));
+        })();
+
+    </script>
+    <script type="text/javascript" src="GameAnalytics.js"></script>
+  </body>
+</html>

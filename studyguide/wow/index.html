@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" style="overflow: hidden">
+  <script src="4638e320-4444-4514-81c4-d80a8c662371.js"></script>
+  <head>
+    <link rel="shortcut icon" id="favi" href="">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KW15Q1QG97"></script>
+    <!--<script type="text/javascript" src="/assets/js/LoadData.js"></script>-->
+    <meta
+      name="viewport"
+      id="viewPort"
+      content="width=device-width,initial-scale=1,maximum-scale=1"
+    />
+    <meta charset="utf-8" />
+    <script>
+      window.famobi_gameID = "words-of-wonders";
+      window.famobi_gameJS = ["game.js"];
+      (function (document, url, fgJS, firstJS) {
+        fgJS = document.createElement("script");
+        firstJS = document.getElementsByTagName("script")[0];
+        fgJS.src = url + encodeURIComponent(document.location.href);
+        firstJS.parentNode.insertBefore(fgJS, firstJS);
+      })(document, "gameapi/v1.js?e=");
+    </script>
+    <style>
+      body {
+        touch-action: none;
+      }
+
+      @keyframes fadeOut {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body id="body1" style="margin: 0; padding: 0; overflow: hidden">
+    <div
+      id="loading"
+      style="
+        opacity: 1;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 100;
+        width: 100vw;
+        height: 100vh;
+        background-color: #000000;
+        background-repeat: no-repeat;
+        background-position: center;
+      "
+    >
+      <img
+        src="./assets/companyLogos/fugo_logo.png"
+        style="
+          position: absolute;
+          top: 35%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: calc(0.44 * min(100vw, 100vh));
+          height: calc(0.22 * min(100vw, 100vh));
+        "
+      />
+      <img
+        src="./assets/companyLogos/famobi_logo.png"
+        style="
+          position: absolute;
+          top: 54%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: calc(0.25 * min(100vw, 100vh));
+          height: calc(0.1 * min(100vw, 100vh));
+        "
+      />
+      <div
+        id="loading-bar"
+        style="
+          visibility: hidden;
+          font-size: 1vw;
+          position: absolute;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          left: calc(50% - min(25vw, 25vh));
+          top: 80%;
+          width: min(50vw, 50vh);
+          height: min(2.5vw, 2.5vh);
+          border: 2px solid white;
+          border-radius: min(2vh, 2vw);
+          background-color: transparent;
+        "
+      >
+        <div
+          id="fill-bar"
+          style="
+            position: absolute;
+            left: 3px;
+            height: calc(100% - 6px);
+            max-width: calc(min(50vw, 50vh) - 8px);
+            background-color: white;
+            border-radius: min(1.4vh, 1.4vw);
+          "
+        ></div>
+      </div>
+    </div>
+  </body>
+</html>

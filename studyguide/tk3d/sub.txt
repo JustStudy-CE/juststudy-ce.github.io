@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="user-scalable=no,width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1"
+    />
+    <link rel="shortcut icon" id="favi" href="">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KW15Q1QG97"></script>
+    <script type="text/javascript" src="/assets/js/LoadData.js"></script>
+    <style>
+      @keyframes tanks3d-loading {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      .tanks3d-title {
+        font-size: 30px;
+        @media (max-width: 600px), (max-height: 600px) {
+          font-size: 20px;
+        }
+      }
+
+      .tanks3d-small-text {
+        font-size: 17px;
+        @media (max-width: 600px), (max-height: 600px) {
+          font-size: 13px;
+        }
+      }
+
+      .tanks3d-country-picker {
+        width: 300px;
+        @media (max-width: 600px), (max-height: 600px) {
+          width: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body style="background: black; margin: 0 0 0 0">
+    <script>
+      const tanks3dLoadingErrorHandler = (e) => {
+//         const loadingElement = document.getElementById("loadingtext");
+//         loadingElement.textContent = `An error occurred while loading the game.
+// Check your internet connection.
+// Retrying in 5 seconds...`;
+//         setTimeout(() => location.reload(), 5000);
+      };
+
+      const tanks3dLoadScriptAsync = (src, onError, onLoad) => {
+        const script = document.createElement("script");
+        script.defer = true;
+        script.src = src;
+        script.type = "text/javascript";
+        if (onLoad) {
+          script.onload = onLoad;
+        }
+        script.onerror = onError;
+        document.head.append(script);
+      };
+
+      if (
+        ![...document.querySelectorAll("script")].find((s) =>
+          s.src.match(
+            "^https?://*main.js$"
+          )
+        )
+      ) {
+        tanks3dLoadScriptAsync("vendors.js", tanks3dLoadingErrorHandler, () =>
+          tanks3dLoadScriptAsync(
+            "main.js",
+            tanks3dLoadingErrorHandler,
+            undefined
+          )
+        );
+      }
+    </script>
+    <div id="root"></div>
+    <div
+      id="loadingtext"
+      class="tanks3d-title"
+      style="color: white; margin: 20px"
+    >
+      Tanks 3D IO is loading...
+      <p class="tanks3d-small-text">
+        For the best experience, use the latest Google Chrome Browser
+      </p>
+      <div
+        style="
+          background-color: white;
+          height: 30px;
+          margin-top: 10px;
+          border-radius: 10px;
+          animation: tanks3d-loading 120s forwards
+            cubic-bezier(0.12, 0.9, 0, 0.88);
+        "
+      ></div>
+    </div>
+  </body>
+</html>

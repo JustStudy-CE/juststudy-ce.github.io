@@ -1,0 +1,823 @@
+id,"Key","Value",Used
+1,"ExpeditionText","VOYAGE",1
+2,"PlayText","PLAY",1
+3,"ExploreText","EXPLORE",1
+4,"DailyPuzzleText","DAILY PUZZLE",1
+5,"SettingsText","SETTINGS",1
+6,"SoundText","Sound",1
+7,"NotificationText","Black / White",0
+10,"ShopText","SHOP",1
+11,"SupportText","SUPPORT",0
+12,"RestorePurchasesText","Restore Purchases",1
+13,"BuildText","Build",1
+14,"RemoveAdsText","Remove Ads",1
+15,"MostPopularText","<size=23>Most</size>
+Popular",0
+16,"BestValueText","<size=24>Best</size>
+Value",0
+17,"DiscountText","%@% Bonus",0
+18,"WatchText","WATCH",1
+19,"FreeCoinText","Gain 25 gems by watching a video!",0
+20,"DailyRewardTitleText","DAILY REWARD",0
+21,"DailyRewardContentText","Pick your daily gift!",0
+22,"CongratulationsText","Congrats!",1
+23,"CollectText","COLLECT",1
+24,"MonthNames","JANUARY,FEBRUARY,MARCH,APRIL,MAY,JUNE,JULY,AUGUST,SEPTEMBER,OCTOBER,NOVEMBER,DECEMBER",1
+25,"NextText","NEXT",0
+26,"ComeLaterText","Come back tomorrow to play the next daily puzzle!",0
+27,"OKText","OK",1
+28,"CompletedText","COMPLETED",1
+29,"UnexploredText","UNEXPLORED",1
+30,"ExtraWordsHeader","EXTRA WORDS",0
+31,"ExtraWordsDescription","Valid words found that aren't in the puzzle",1
+32,"SetCompleteText","LEVEL COMPLETED!",0
+33,"Tutorial1","Swipe the letters of the word <color=#21365aff><b>%@</b></color>.",1
+34,"Tutorial2","For a different perspective, try tapping the <color=#21365aff><b>SHUFFLE</b></color> button ",1
+35,"GotIt","GOT IT",1
+36,"Tutorial3","Use a hint to reveal a random letter on the board!",1
+37,"TutorialExtra","You found a word that isn’t in the puzzle, you can see these words here.",0
+38,"TutorialDaily","Complete Daily Puzzles, collect the sun to progress and win wonderful prizes! Swipe the word <color=#21365aff><b>%@</b></color>",1
+39,"TutorialShop","You can buy <color=#c8f7fdff><b>REMOVE ADS</b></color> and enjoy the game without ads.",0
+40,"Ribbon1","PERFECT",1
+41,"Ribbon2","GREAT",1
+42,"Ribbon3","EXCELLENT",1
+43,"Ribbon4","SUPER",1
+44,"Ribbon5","WONDERFUL",1
+45,"Ribbon6","WOW",0
+46,"Ribbon7","AMAZING",1
+47,"DailyPuzzleGalleryHeader","COLLECTION",0
+48,"SelectLanguageText","SELECT LANGUAGE",1
+49,"LanguageText","Language",1
+50,"TutorialBonus","Find the word with gems and collect them!",0
+51,"YesText","YES",1
+52,"NoText","NO",1
+53,"LaterText","LATER",1
+54,"RateUsHeaderText","Did you like the game?",1
+55,"RateUsContextText","Support us by rating the game!",1
+56,"DailyGiftNotification","Double the fun with your daily gift! Come get it now",1
+57,"DailyPuzzleNotification","New Daily Puzzle is ready and waiting to be played!",0
+58,"DailyGiftHalfPriceHint","Half price hints for 1 hour!",1
+59,"SetCompletedTutorial","Awesome! Keep finding words to discover the wonders of the world!",1
+60,"NewText","NEW",1
+61,"LoginText","Login",1
+62,"LogoutText","Logout",1
+63,"AdventureTitleText","ADVENTURE",0
+64,"AdventureQuestText","Can you finish all @% levels in %@ day?/Can you finish all @% levels in %@ days?",0
+65,"AdventureGiftText","A little gift to help you in this adventure:",0
+66,"AdventureRemainingText","Levels Remaining:
+<color=#c8f7fdff><b>%@</b></color>",0
+67,"AdventureRemainingTimeText","Time Remaining:
+<color=#c8f7fdff><b>%@</b></color>",0
+68,"DayHourText","%@ days-@% hours-#@minutes",0
+69,"DHText","%@d @%h #@m",0
+70,"AdventureRewardText","You've successfully completed this adventure, here's your reward:",0
+71,"SorryText","TIME'S UP",0
+72,"AdventureFailText","You couldn't complete this adventure on time!",0
+73,"AdventureHintDiscountText","Hints %@% off during the adventure",0
+74,"AdventureNotificationText","A new adventure awaits!",0
+75,"AdventureNotifictionText2","Adventure ends in 2 hours!",0
+76,"MusicText","Music",1
+77,"BecomeProText","PRO",0
+78,"WeeklyText","Weekly",1
+79,"ProNoAdText","Play without Ads",1
+80,"ProDoubleDailyText","Double Daily Gifts",1
+81,"ProFreeHintText","x2 Free Hints on every level",1
+82,"ProContentText","Pro Membership offers a weekly subscription, you will be charged %@ per week. After buying this subscription, you will get Double Daily Gift, 2 free hints per level and Remove Ads. This is an Auto-renewable subscription. The payment is charged to your account after confirmation. The subscription is renewed unless you turn it off 24 hours before the period ends. ",0
+83,"PrivacyPolicyText","Privacy Policy",1
+84,"ProDescriptionText","Free Hints + No Ads + Double Daily Gifts + More Frequent Butterflies",0
+85,"AlreadyPurchasedText","Already Purchased",0
+86,"RedeemHeader","COUPON",0
+87,"RedeemInstruction","Enter the code below",1
+88,"RedeemPlaceholder","Enter the code",1
+89,"RedeemErrorAlreadyUsed","This code has been used before.",1
+90,"RedeemErrorInvalid","You entered an invalid code.",1
+91,"RedeemSucceedCoin","Redeemed Gems:",1
+92,"RedeemSucceedLevel","Your level has been updated.",1
+93,"GeneralErrorText","An error occurred. Please try again.",1
+94,"RedeemNoAdText","Play without ads for %@ days!",1
+95,"HiddenLevelHeaderText","HIDDEN LEVELS",0
+96,"HiddenLevelContentText","Do you want to unlock hidden levels?",0
+97,"SpecialOfferText","SPECIAL OFFER",0
+98,"StartText","Start",1
+99,"FreeTrialText","3 days free then %@ / week",1
+100,"PlayTextFixed","PLAY",0
+101,"WheelSpinText","SPIN",1
+102,"WheelNoThanksText","NO, THANKS",1
+103,"WheelHintText","Half price hints for %@ hours",0
+104,"HintNotificationText","One of the hidden words is “%@” ;)",0
+105,"ProOneTimeOfferText","ONE TIME SPECIAL OFFER!",0
+106,"GDPRTexts","{\"Page1Header\":\"Thanks for downloading our game!\",\"Page1Desc1\":\"Fugo Games continues to place great emphasis to respect for privacy and the use of your personal data.\",\"Page1Desc2\":\"With your consent, we collect data via this application including your advertising identifiers and your IP address, data is only used during gameplay and is never stored.\",\"Page1Desc3\":\"This data is collected with external tools (SDK) implemented by our partners, as detailed in our Privacy Policy, which are an integral part of the application.\",\"Page1SliderDesc1\":\"I have read, understood and accepted Fugo Games Privacy Policy.\",\"Page1SliderDesc2\":\"I agree to play for free and that my data is collected via the SDK tools built into the application.\",\"Page1StartPlaying\":\"START PLAYING\",\"Page1LearnMore\":\"LEARN MORE\",\"Page2HeaderPart1\":\"Make Our Game Better & Keep It Free!\",\"Page2HeaderPart2\":\"better and keep it free!\",\"Page2Desc1\":\"Thank you for downloading our game! Did you know that sharing your data is the best way for you to enjoy a unique gaming experience and help us improve? You can decide at any time to remove your consent via this or any Fugo Games application.\",\"Page2Desc2\":\"Here's why data is collected by this application:\",\"Page2StatsDesc\":\"To generate statistics about your game usage, including the number of games played and game length, which allow us to optimize your gaming experience for maximum enjoyment.\",\"Page2InterestsDesc\":\"To understand your interests and to offer you targeted advertisements that are more relevant to you.\",\"Page2TechDesc\":\"To solve technical issues.\",\"Page2Support\":\"I SUPPORT THAT!\",\"Page2Settings\":\"PRIVACY SETTINGS\",\"Page3Header\":\"Setting up information sharing\",\"Page3Desc1\":\"You can choose the data you wish to share:\",\"Page3SliderAd\":\"Advertising\",\"Page3SliderAnalytics\":\"Support and Analytics\",\"Page3Desc3\":\"Privacy Policy links of our Partners:\",\"Page3Save\":\"SAVE MY CHOICES\",\"Page3Back\":\"BACK\",\"Page3Delete\":\"Delete All My Data\",\"Page4header\":\"Are you sure?\",\"Page4Desc1\":\"If you do not wish to share your data to be used as described in our Privacy Policy, you will continue to access an alternate version of the game including:\",\"Page4Desc2\":\"- High volume of non-targeted random advertising\",\"Page4Desc3\":\"- An information banner informing you of your consent decision\",\"Page4Desc4\":\"You can change this setting via the application at any time.\",\"Page4GoBack\":\"GO BACK AND CHANGE MY SETTINGS\",\"Page4IUnderstand\":\"I understand and confirm\",\"Page5Header\":\"You have decided not to share your data.\",\"Page5Desc1\":\"Since you do not wish to share your data to be used as described in our Privacy Policy, you will continue to access an alternate version of the game including:\",\"Page6Header\":\"Delete All My Data\",\"Page6Desc1\":\"By law you are entitled to access or modify any data that we store.\",\"Page6Name\":\"Name\",\"Page6ResetIDFA\":\"You can also reset your IDFA:\",\"Page6SendRequest\":\"SEND REQUEST\",\"Page6Back\":\"BACK\",\"LearnMore\":\"LEARN MORE\",\"SupportThat\":\"I SUPPORT THAT!\",\"PrivacySettings\":\"PRIVACY SETTINGS\"}",0
+109,"RateUsHeaderText2","Tell us why?",0
+110,"RateUsContextText2","Write here",0
+111,"RateUsSendText","SEND",0
+112,"ForceUpdateHeader","UPDATE AVAILABLE",1
+113,"ForceUpdateContent","The latest version of Words of Wonders is ready.
+Update now to enjoy the new features!",1
+114,"UpdateGameText","Update now",0
+115,"HammerHintTutorial","To reveal a letter, tap a tile",1
+116,"ValentinePopupHeader","Valentine's day",0
+117,"ValentinePopupSubHeader","Limited time offer",0
+118,"ValentinePopupValue","%@x Value",1
+119,"ProButterflyString","More frequent Rewards and Butterfly",1
+120,"NoConnectionWheelText","Please turn on your internet connection to spin the wheel for free!",1
+121,"NoConnectionText","NO CONNECTION",1
+122,"NoConnectionCountdownText","Internet connection is suggested for an enriched gaming experience!",1
+123,"NoConnectionButterflyText","Please turn on your internet connection to receive your Butterfly Reward!",1
+124,"NoConnectionHiddenUnlockText","Please turn on your internet connection to unlock the hidden levels.",0
+125,"NoConnectionShopWarningText","Please turn on your internet connection to purchase this item.",1
+126,"NoConnectionContentWarningText","Connect to the internet to download content",1
+127,"HiddenLevelsLockedText","The hidden wonders of the world will be unlocked when you complete all the levels.",0
+128,"ProGiftText","%@ days free Pro",1
+129,"InviteFriendHeader","INVITE FRIENDS",1
+130,"InviteFriendExplanation","You will gain your gifts when your friend reaches level %@.",1
+131,"InviteFriendSuccessfulInvites","Total Successful Invites",1
+132,"InviteText","INVITE!",1
+133,"InviteFriendFriendCount","%@ Friend",1
+134,"InviteFriendFriendDayText","%@ Day",1
+135,"ClaimText","CLAIM",1
+136,"InviteFriendMessageText","Join me in playing WoW: Crossword! Use the link to download the game for free!",1
+137,"ScrollerVoyageButtonText","JOURNEY",0
+138,"ScrollerHiddenButtonText","HIDDEN",0
+139,"LockedHiddenDescription","Let's discover this hidden place!",0
+140,"HiddenLevelsComingSoonText","To unlock the Wonder, beat the previous levels",1
+141,"HiddenLevelsUnlockAfterText","The hidden wonders of the world will be unlocked when you reach level %@.",0
+142,"InviteFriendFriendDayTextPlural","%@ Days",1
+143,"InviteFriendFriendCountPlural","%@ Friends",1
+144,"GetText","GET",0
+145,"JoinText","JOIN",1
+146,"JoinRequestText","JOIN REQUEST",0
+147,"JoinRequestContentText","A friend wants to join",0
+148,"AcceptText","ACCEPT",0
+149,"DeclineText","DECLINE",0
+150,"CurrentGamesText","ACTIVE GAMES",0
+151,"CurrentGamesContentText","Select a game to join",0
+152,"WordCountText","%@ word",0
+153,"AcceptAllRequestsHeader","Would you like to always allow join requests?",0
+155,"WaitingForHostHeader","WAITING FOR GAME HOST",0
+156,"WaitingHostContent","Waiting for game host to accept your request",0
+158,"FullText","FULL",0
+159,"JoinRequestDeclinedHeader","The host has declined your request",0
+160,"JoinRequestDeclinedConent","",0
+163,"AcceptAllRequestContent","You may always change it from Settings.",0
+164,"ONText","ON",0
+165,"OFFText","OFF",0
+166,"AskText","ASK",0
+167,"MultiplayerModeText","Multiplayer",0
+168,"WordCountTextPlural","%@ words",0
+169,"MultiplayerTutorialContent","Start playing together with your friends on the same WiFi. Press \"JOIN\" when your friends are playing!",0
+172,"WaitingForHostInGameText","Waiting for the host to start the next level",0
+173,"CancelText","CANCEL",1
+174,"GemsText","GEMS",1
+175,"OffersText","OFFERS",1
+176,"RemoveAdsDescriptionText","Enjoy the game without watching ads!",1
+177,"InviteFriendDescriptionText","Invite your friends to gain wonderful gifts!",1
+178,"BonusText","BONUS",1
+179,"FreeText","FREE",1
+180,"RateUsText","RATE US",1
+181,"StarterPackText","STARTER BUNDLE",1
+182,"OneTimeOfferText","One Time Offer",1
+183,"HippoText","Hippo Bank",0
+184,"HippoUnlockText","You have unlocked a Hippo Bank!",0
+185,"HippoBreakText","Fill your Hippo Bank and break it anytime!",0
+186,"BreakText","Break ",0
+187,"NoConnectionHippoText","Please check your internet connection to break the Hippo Bank!",0
+188,"HippoFullText","Hippo Bank Full!",0
+189,"DailyGiftNotification2","Spin the wheel for amazing gifts!",0
+190,"DailyPuzzleUnlocked","Congratulations! You have unlocked the Daily Puzzle. Solve them every day for wonderful prizes!",0
+191,"ContinueText","CONTINUE",1
+192,"FireworksText","FIREWORKS",1
+193,"RocketsText","ROCKETS",0
+195,"DailyUnlockText","You can unlock this level for %@ coins or by watching a video.",0
+196,"RewardText","REWARD",1
+197,"EventText","EVENT",1
+198,"MultiplayerEventInfoText","Earn %@ coins by playing 10 multiplayer levels with your friends through the JOIN button in the main menu.",0
+199,"InviteFriendPopupText","Would you like to share the fun you’re having? Invite your friends now and receive wonderful gifts!",1
+200,"FireworkTutorialText","Here are %@ free fireworks for you. Fireworks reveal letters at each level.",1
+201,"FireworksRefillText","You used all your fireworks. Refill from the Shop to use them in the next level!",0
+202,"ExtrasText","EXTRAS",1
+203,"NotificationsDailyTop","It's a new day!",1
+204,"NotificationsDailyBottom","[U+2600] WoW offers new challenges and prizes everyday! [U+1F9E9] ",1
+205,"NotificationsProgressTop","@% levels to finish the trip in %@!",1
+206,"NotificationsProgressBottom","Tap to start exploring. [U+1F30E] ",1
+207,"NotificationsDailyGiftTop","LUCKY WHEEL READY",1
+208,"NotificationsDailyGiftBottom","Let's see what awaits you today at WoW! [U+1F381]",1
+209,"NotificationsDailyGift2Top","[U+1F340] Feeling lucky today? [U+1F340]",1
+210,"NotificationsDailyGift2Bottom","Spin the Lucky Wheel now!",1
+211,"NotificationsMissed1Top","Psst! Return to WoW today.",1
+212,"NotificationsMissed1Bottom","Let's continue our journey!",1
+213,"NotificationsMissed2Top","Have you seen the wonders of %@? ",1
+214,"NotificationsMissed2Bottom","Complete the levels of @% to start your %@ trip. [U+1F60E]",1
+215,"NotificationsHintTopText","Type the word \"%@\" ",1
+216,"NotificationsHintBottomText","Tap to complete the level yourself. Train your brain now!",1
+217,"NotificationsPopUpInfoText","Enable your notifications to earn %@ gems!",0
+218,"LevelPricePopUpInfoText","Wonderful! You have reached Level %@. Here is your gift.",0
+219,"NotificationsPopUpHeaderText","Allow Notifications",0
+220,"AccentInfoText ","",0
+221,"RateText","RATE",1
+222,"RateUsProgressText","Can’t see my progress",0
+223,"RateUsCommonText","Uncommon words",0
+224,"RateUsPerformanceText","Performance issues",0
+225,"RateUsFriendsText","No multiplayer",0
+226,"RateUsAnimationText","Bad animations",0
+227,"RateUsAdsText","Improper ads",0
+228,"RateUsFreezeText","Stuck of frozen",0
+229,"RateUsSlowText","It slows down my phone",0
+230,"RateUsTimeText","Slow progression",0
+231,"RateUsEasyText","Too easy to play",0
+232,"RateUsHardText","Too hard to play",0
+233,"RateUsHintText","Expensive hints",0
+234,"RateUsGemsText","Not enough gems from the wheel",0
+235,"RateUsOthersText","Others",0
+236,"RateUsSorryText","Sorry to hear that",0
+237,"RateUsWrongText","What went wrong?",0
+238,"BundleText","SUPER BUNDLE",1
+239,"BundleText2","MEGA BUNDLE",1
+240,"BundleText3","GIGA BUNDLE",1
+241,"GoToShopText","Go to Shop",0
+242,"GiftText","GIFT",1
+243,"AmountText","AMOUNT",1
+244,"ChanceText","CHANCE",1
+245,"ForText","For",1
+246,"HapticText","Haptic",1
+247,"DailyLevelsUnlockedText","Daily Levels will be unlocked at Level %@.",0
+248,"DailyLevelsUnlockedText2","Daily Levels will be unlocked in the upcoming levels.",0
+249,"NewLevelsComingText","NEW LEVELS SOON!",0
+250,"CheckStoreText ","CHECK FOR UPDATES",0
+251,"NewLevelsInfoText","You finished all levels. 
+Do you want more levels? ",0
+252,"NextButtonInfoText","You can see the next question for %@ <sprite=0>",0
+253,"RateUsSpellingText","Incorrect spellings",0
+254,"RateUsIrrelevantText","Irrelevant clues",0
+255,"RateUsOffensiveText","Offensive words",0
+256,"RateUsBoringText","Boring gameplay",0
+257,"RateUsPowerText ","Useless power-ups",0
+258,"WeMissedYouText","We Missed You",1
+259,"WelcomeBackGiftText","Here is your welcome back gift. Enjoy the game!",1
+260,"OtherLanguagesText","Other Languages",1
+261,"DailyPuzzlePopupText","Play a new puzzle each day to earn rewards!",1
+262,"DailyPuzzleMissedText","Keep playing the puzzles you missed.",1
+263,"CollectionText","COLLECTION",1
+264,"ClaimedText","CLAIMED",1
+265,"CollectionInfoText","Build up your collection by completing daily puzzles",1
+266,"DailyCompleted1Header","Well done! You got a star.",0
+267,"DailyCompleted1Text","Try getting more stars next time.",0
+268,"DailyCompleted2Header","Congratulations! You got two stars.",0
+269,"DailyCompleted2Text","You are now closer to your gift.",0
+270,"DailyCompleted3Header","Fantastic! You got all of the stars!",0
+271,"DailyCompleted3Text","Great game! continue playing for more gifts.",0
+272,"YourRewardsText","Your Rewards",1
+273,"CollectionCardUnlockedText","New Card Unlocked!",0
+275,"GuruBoringText","Boring",0
+276,"GuruFunText","Fun",0
+277,"DayNamesShort","M,T,W,T,F,S,S",1
+278,"GuruDailyThemeText","Choose the theme you want to play",0
+279,"GuruDailyContinueText","You can continue playing by watching a video.",0
+280,"GuruDailyStarsText","Continue playing for more gifts!",0
+281,"GuruCongratsText","CONGRATS!",0
+282,"GuruDailyWellText","You played well!",0
+283,"GuruDailyGreatText","Great Game",0
+284,"DailyCompleted0Header","Great! You completed the puzzle.",0
+285,"DailyCompleted0Text","Collect stars for fantastic gifts!",0
+286,"BundleText4","EXTREME BUNDLE",1
+287,"TryAgainText","TRY AGAIN",0
+288,"ReplayText","REPLAY",0
+289,"InfoMessageInvalidLetterCountWarning","There are no %@ letter words in this level.",0
+290,"InfoMessageSameWordFoundWarning","%@ is already found",0
+291,"InfoMessageInvalidWordWarning","%@ is not a valid word",0
+292,"InfoMessageButterflyWarning","Wait for timer to finish to get your prize",0
+293,"LetsGoText","Let's Go",1
+294,"EventPopUp","Weekend Event",0
+295,"EventPopUpHeader","Weekend Event Has Started",0
+296,"EventPopUpText","Collect the clovers this weekend and get incredible rewards in Weekend Event!",0
+297,"EventNotificationHeader","Join Us On The Weekend Event!",0
+298,"EventNotificationText","[U+1F340] Tune in for the Weekend Event and collect the clovers for great gifts.",0
+299,"EventIngamePopUpText","The Weekend Event Is On!",0
+300,"EventRewardPopUpText","During this weekend, collect the clovers that show up and progress on the event for incredible rewards! ",0
+301,"EventProgressText","Section %@ Complete!",0
+302,"EventCompleteText","You Completed The Event!",1
+303,"EventCollectText","Collect %@ more clover(s) to win the prize!",0
+304,"EventPrizeText","You can collect your prize now!",1
+305,"InvalidWordToastText","You found an invalid word.",1
+306,"AlreadyFoundToastText","This word has already been found.",1
+307,"TwoLetterToastText","This word is too short.",1
+308,"ButterflyTimeToastText","The Butterfly still has time.",1
+309,"ProText","Subscribe and become a member of the WoW Club to unlock in-game features such as;",1
+311,"CloseText","CLOSE",1
+312,"SoonText","SOON",0
+313,"ComingSoonText","COMING SOON",1
+314,"DailyProGiftText","Your daily WoW Club delivery is here!",1
+315,"EventSoonText","The Weekend Event is coming soon and it's bringing the most amazing gifts! Join us this weekend, collect the clovers and claim your rewards.",0
+316,"BenefitsText","Benefits",1
+317,"DailyText","Daily",1
+318,"BadgeText","Badge",1
+319,"SpecialBackgroundText","Special Background",1
+320,"ProMembershipText","The WoW Club offers a weekly subscription, you will be charged %@ per week. The payment is charged to your account after confirmation. The subscription is renewed unless you turn it off 24 hours before the period ends.",1
+321,"EventSoonHeader","The Weekend Event is Almost Here!",0
+322,"StartFreeTrialText","START FREE TRIAL",1
+323,"ProText1","Ad-free game experience",1
+324,"ProText2","Daily free coins and fireworks",1
+325,"ProText3","WoW Club exclusive badge",1
+326,"ProText4","Special background design",1
+327,"GemText","Gem",1
+328,"GemRefillHeader","GEM REFILL",1
+329,"GemRefillText","Do you need more hints? Enjoy this one-time gem refill!",1
+330,"WelcomeGiftText1","Enjoy the game with a welcome gift of free gems!",1
+331,"WelcomeGiftText2","Use the gems to buy more hints.",1
+332,"MonthAbrText","Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec",1
+333,"SolvedText","Solved",1
+334,"UnsolvedText","Unsolved",1
+335,"PreviousMonthText","Play the previous months and expand your collection.",1
+336,"MissingDayText","Complete the missing days and expand your collection.",1
+337,"SeeYouTomorrowText","See you tomorrow!",1
+338,"LoadingText","LOADING...",1
+339,"OneTimeOfferHeader","ONE TIME OFFER",1
+340,"RewardedGiftCount","Watch %@ more videos to reach the ultimate bonus!",1
+341,"FreeGiftsHeader","FREE GIFTS",1
+342,"RemoveAdsDiscountText","For a one time offer, you can buy <b>REMOVE ADS</b> from the shop for a fraction of the price and play without ads.",1
+343,"RemoveAdsText2","To play without ads, you can buy REMOVE ADS from the shop.",0
+344,"XLetterToastText","This level does not contain %@ letter words.",1
+345,"XLetterToastHeader","No %@ Letter Words",1
+346,"LevelText","Level",1
+347,"FireworkText","Firework",1
+349,"Ribbon8","NICE",1
+350,"FireworksEmptyText","You've run out of fireworks. Get more for the upcoming levels!",1
+351,"HammerTutorialText","HAMMER lets you choose which letter to reveal",1
+352,"ShopUnlockText","Reach Level %@ to unlock the shop",1
+353,"ExtraWords","You found an extra word. Extra words are listed here.",1
+354,"ChapterRewardText","CHAPTER REWARD",0
+355,"CompletedText2","COMPLETED",0
+356,"LevelCompleteText","LEVEL %@ COMPLETE",1
+357,"ContactUsText","Contact Us",1
+358,"RedeemCodeText","Redeem Code",1
+359,"SaveText","SAVE",0
+360,"NoPurchaseRestoreHeader","No purchases to restore.",0
+361,"NoPurchaseRestoreText","Please make sure to sign in to the correct account that you purchased in the Store.",0
+362,"GotItText","GOT IT",0
+363,"Get2Text","GET X2",1
+364,"FeedbackText","Feedback",1
+365,"AllowNotificationsText","ALLOW NOTIFICATIONS",1
+366,"EnableNotificationsText","Enable notifications and earn %@ gems!",1
+367,"NotifyText","NOTIFY ME!",1
+368,"ExitHeader","EXIT THE GAME",1
+369,"ExitText","Do you want to quit?",1
+370,"SignFacebook","Sign in with Facebook",1
+371,"SignApple","Sign in with Apple",0
+372,"HomeText","Home",1
+373,"GuruHippoText","Keep finding starred words to get more rewards!",0
+374,"StarfishPopUpText","Collect the starfish this weekend and get incredible rewards in Weekend Event!",0
+375,"StarfishNotificationText","Tune in for the Weekend Event and collect the starfish for great gifts.",0
+376,"StarfishRewardPopUpText","During this weekend, collect the starfish that show up and progress on the event for incredible rewards!",0
+377,"StarfishCollectText","Collect %@ more starfish to win the prize!",0
+378,"StarfishSoonText","The Weekend Event is coming soon and it's bringing the most amazing gifts! Join us this weekend, collect the starfish and claim your rewards.",0
+379,"EventGenericNotification","Weekend Event is starting soon!",0
+380,"MoreGamesText","More Games",1
+381,"MondayRibbon1","Wonderful Monday",1
+382,"TuesdayRibbon1","Wonderful Tuesday",1
+383,"WednesdayRibbon1","Wonderful Wednesday",1
+384,"ThursdayRibbon1","Wonderful Thursday",1
+385,"FridayRibbon1","Wonderful Friday",0
+386,"QuestButterflyText","Catch the butterflies on the puzzle all day long and earn great gifts",1
+387,"QuestButterflyCount","You need to collect %@ more butterflies to earn the gift",1
+388,"QuestWordText","Find more words all day long and earn great gifts!",1
+389,"QuestWordCount","You need to find %@ more words to earn the gift",1
+390,"QuestLevelText","Complete more levels all day long and earn great gifts!",1
+391,"QuestLevelCount","You need to complete %@ more levels to earn the gift",1
+392,"QuestCrownText","Find words with medallion letter all day long and earn great gifts!",1
+393,"QuestCrownCount","You need to use a medallion letter %@ more times to earn the gift",1
+394,"EventFinishText","The event is over, see you next week!",0
+395,"EventFinishReward","Thank you for taking part, here's your reward:",0
+396,"ViewText","VIEW",1
+397,"BundleStarfish","STARFISH PACK",0
+398,"QuestFinishText","Bravo! You’ve completed the Daily Quest!",1
+400,"UnlimitedFireworksText","Enjoy free unlimited fireworks for %@ minutes. [U+1F680]",0
+401,"UpdateNewLevelsText","Wanna play new levels? Update the game now!",1
+402,"UpdateText","UPDATE",1
+403,"DailyPuzzleTryText","Would you like a challenge? Take a peek at today's Daily Puzzle!",1
+404,"GoText","GO",1
+405,"WheelUntilText","You can spin the lucky wheel for free in:",1
+406,"FreeSpinCounterText","@% spins for %@",1
+407,"BuySpinText","BUY SPIN",1
+411,"PercentOffText","%@% OFF",1
+412,"AutumnPopUpText","Find words and collect leaves to get incredible rewards.",1
+413,"AutumnNotificationText","Come join the Weekly Event for great rewards!",1
+414,"AutumnRewardPopUpText","Find words and collect leaves for incredible rewards!",1
+415,"AutumnCollectText","Collect %@ more leaves to win the reward!",1
+416,"AutumnSoonText","The Weekly Event is coming soon and it's bringing some amazing surprises! Join the event, collect leaves, and receive rewards.",1
+417,"BundleAutumn","AUTUMN PACK",1
+418,"EventGenericNotification2","Weekend Event is starting soon! Get ready for great rewards.",0
+419,"YourNameText","NICKNAME",1
+420,"ConfirmText","CONFIRM",1
+421,"UnlockAvatarHeader","UNLOCK AVATAR",1
+422,"PremiumAvatarText","PREMIUM AVATARS",1
+423,"SaveProgressText","SAVE PROGRESS",1
+424,"UserIDText","User ID: %@",1
+425,"ProgressDescText","Sign in with Facebook to save your progress.",1
+426,"ButterflyText","Butterfly",0
+427,"GoldenButterflyText","Golden Butterfly",0
+428,"VoyageText","Voyage",1
+429,"CountriesText","Country",1
+430,"WonderText","Wonder",1
+431,"DayText","Day",1
+435,"StarText","Star",0
+436,"CardText","Card",1
+437,"GuestText","Guest",1
+454,"DaysText","Days",1
+455,"StarsText","Stars",1
+456,"CardsText","Cards",1
+457,"DHMSText","d:h:m:s",1
+458,"LimitedTimeText","Limited Time Offer",1
+459,"DailyPuzzleUnlock","Reach level %@ to unlock Daily Puzzle",1
+460,"StreakCountText","Beat %@ more level(s) in a row!",1
+461,"StreakPopupText","Complete %@ levels in a row to earn unlimited rockets for @% minutes",1
+462,"StreakGiftText","STREAK GIFT",1
+463,"ExtraWordsCountText","Words not included in this level",1
+464,"ExtraWordsText","EXTRA WORDS",1
+465,"QuestEndlessText","You completed the quest, keep going for more rewards!",1
+467,"OffDiscountText","OFF",1
+468,"BoardCompleteText","YOU DID IT!",1
+469,"BoardHeader","MAGNET BOARD",0
+470,"CollectionTitle","WORLD TOUR",1
+472,"CompleteRewardText","You've completed the board and earned the grand prize. Bravo!",1
+473,"ConsolationPrizeText","You may have missed the grand prize but here's a small gift for your participation. Enjoy!",0
+474,"EndgameClaimButton","OPEN",1
+475,"EndgameCongratsHeader","CONGRATS!",1
+476,"EventEndText","This route is no longer available. Stay tuned for the upcoming routes!",1
+478,"GetRewardButton","COLLECT",1
+479,"GiftboxOpenText","TAP TO CLAIM",1
+480,"HowToText1","Collect common, rare, and legendary magnets",1
+481,"HowToText2","Complete the magnet board",1
+482,"HowToText3","Earn the Grand Prize",1
+483,"MagnetCompleteText","You've earned this magnet and received %@ gems!",1
+484,"MagnetIncompleteText","Find more of the same magnet to earn it!",0
+485,"NewTextExc","NEW!",0
+486,"OverText","OVER",1
+487,"ProfileText","PROFILE",1
+488,"RouteIntroText","Get your kicks on Route 66 where you'll collect special magnets!",1
+489,"RouteHeader","ROUTE 66",1
+491,"ToursText","TOURS",0
+492,"HowToHeader","HOW IT WORKS",1
+493,"EventOverText","The event is over, see you next week!",0
+494,"BoardBanner","Collect all the magnets available for the <color=#86ABEA><b>Route 66</b></color> collection and earn the Grand Prize!",1
+495,"CollectMoreText","Collect %@ more gas can(s) to get the reward",1
+496,"RewardEarnedText","You can claim your reward now!",1
+497,"RewardAllEarnedText","You've received all the rewards, bravo!",1
+498,"CloseButton","TAP TO CLOSE",1
+499,"GrandPrizeText","You've collected all the magnets of Route 66 and received %@ gems and a special avatar reminiscent of the route!",0
+500,"CollectionAvailableText","New Collection Here!",0
+502,"FreeTrial3Text","Three days free, then %@ / week",0
+503,"WelcomeGiftHeader","WELCOME GIFT",1
+504,"WelcomeGiftText","Gems and sapphires help you buy hints, hammers, and more. Enjoy!",1
+505,"CreditGiftTitle","NEW CURRENCY!",0
+506,"CreditGiftText","Here’s a gift of sapphires that you can use through brand new adventures. Enjoy!",1
+507,"JourneyBonus","JOURNEY BONUS",1
+508,"PickText","Pick",1
+509,"PickCardText","Pick Card",0
+510,"PickMoreText","Pick One More",1
+511,"PickAnotherText","Pick Another",0
+512,"ComboGiftText","Enjoy your gifts!",1
+513,"AvatarText","AVATAR",1
+514,"YouWonText","YOU WON",1
+515,"CreditText","Sapphire",0
+516,"CreditsText","Sapphires",1
+517,"LegendaryText","Legendary",1
+518,"InProgressText","IN PROGRESS",1
+519,"LevelsText","Levels",1
+520,"ComboText","COMBO",1
+521,"StreakText","STREAK",0
+522,"ReadyButtonText","READY",0
+523,"OpenForText","OPEN NOW %@",1
+524,"GiftCreditText","Here's a gift for you. Claim your gift with sapphires without wait!",1
+525,"CollectedText","COLLECTED",0
+526,"TutorialDaily2","Solve Daily Puzzles, collect suns to progress and get awesome rewards. Type the word <color=#21365aff><b>%@</b></color>",1
+527,"DefaultAvatarsText","DEFAULT AVATARS",1
+528,"ButterfliesText","BUTTERFLIES",1
+529,"CardsUpText","CARDS",1
+530,"YourRewardText","YOUR REWARD",0
+531,"EngineText","START YOUR ENGINE",0
+532,"MagnetNotificationText","Collect all the magnets of the Route 66 collection and earn the grand prize!",1
+533,"SunText","Sun",1
+535,"GoldenText","Golden",1
+536,"CommonText","Common",1
+538,"Route2Header","TRANS-SIBERIAN RAILWAY",1
+539,"TournamentTitle","BUTTERFLY TOURNAMENT",1
+540,"TournamentTitleAlt","TOURNAMENT",0
+541,"IntroductionPopUpAlt","The Butterfly Tournament is here! Pass one level to join tournament, catch butterflies and compete for the grand prize!",0
+542,"IntroductionPopUp","The Butterfly Tournament is here! Catch butterflies, beat others, and compete for the grand prize!",1
+543,"HowItWorksTitle","HOW IT WORKS",1
+544,"HowItWorksTourn1","Beat levels and catch as many butterflies as you can",1
+545,"HowItWorksTourn2","Butterflies turn into boxes, boxes bring tournament points",1
+546,"HowItWorksTourn3","Score higher than other players to get rewards",1
+547,"CollectRewardText","COLLECT YOUR REWARD",1
+549,"ResultsText","RESULTS",1
+550,"TournamentStartNotification","Compete with others and win the grand prize. Join the tournament right now! [U+1F381]",1
+551,"TournamentStartNotificationTitle","[U+1F98B] The Butterfly Tournament has started! [U+1F389]",1
+552,"TournamentStartNotificationAlt","Join the tournament right now to win the grand prize! [U+1F381]",0
+553,"TournamentLiveNotification","Finish the tournament before others to win the grand prize!",0
+554,"TournamentLiveNotificationTitle","Not much time left, hurry! [U+23F0] ",1
+555,"TournamentEndNotificationTitle","TOURNAMENT OVER",1
+556,"TournamentEndNotification","Come and check your results.",1
+557,"NonEligiblePlayer","Reach level @% to join the tournament!",1
+558,"NonEligiblePlayerAlt","Beat @% more level(s) to join the tournament!",0
+559,"LevelPriortoTournament","Beat this level and join the tournament!",0
+560,"OkayButtonText","OKAY",0
+561,"SetYourNamePopup","TYPE YOUR NAME",0
+564,"UnlockAvatarText","Personalize your profile!",1
+566,"Claim1stText","First place in the Butterfly Tournament!",1
+567,"Claim2ndText","Second place in the Butterfly Tournament!",1
+568,"Claim3rdText","Third place in the Butterfly Tournament!",1
+570,"Claim4th30thText","Here’s a gift for your participation. See you next time!",1
+571,"Claim4th30thTitle","NICE JOB!",1
+572,"LeaderboardTitle","LEADERBOARD",0
+573,"LiveNotificationLastHours","The tournament ends in %@ hour(s), hurry!",1
+574,"LiveNotificationLastDay","[U+23F0] The tournament ends in a day, hurry!",1
+575,"LiveNotificationLastDayAlt","[U+23F0] The tournament ends tomorrow, hurry!",0
+576,"ForAmountText","FOR %@",0
+578,"OpenFor2Text","OPEN FOR",1
+579,"OpenNowText","Use sapphires to claim your reward now!",0
+580,"ConnectionRequiredTextAlt","An internet connection is required to play the rest of the levels.",0
+581,"ConnectionRequiredText","Please make sure you're connected to the internet to play the rest of the levels.",1
+582,"LevelLoadingSuccessText","SUCCESS",0
+583,"ButterflyGiftReadyNotif","Your butterfly gift is ready to be collected!",0
+584,"TransSiberianRailwayMainInfo","The queen of railways is here to take you from Western Russia through Siberia to the Russian Far East!",1
+585,"MondayRibbon2","Wonderful Monday",0
+587,"TuesdayRibbon2","Spectacular Tuesday",0
+588,"WednesdayRibbon2","Magnificient Wednesday",0
+589,"ThursdayRibbon2","Amazing Thursday",0
+591,"FridayRibbon2","Super Friday",0
+595,"BoardBannerTransSiberian","Collect all the magnets available for the <color=#040433><b>Trans-Siberian Railway</b></color> collection and earn the Grand Prize!",1
+597,"ChooseAvatarText","CHOOSE AVATAR",1
+598,"SafariText","SAFARI",1
+599,"MagnetNotificationText2","Collect all the magnets of the Trans-Siberian Railway collection and earn the grand prize!",1
+600,"CollectMoreText2","Collect %@ more ticket(s) to get the reward",1
+601,"GrandPrizeText2","You've collected all the magnets of Trans-Siberian Railway and received %@ gems and a special avatar reminiscent of the route!",0
+602,"BalloonRaceTitle","HOT-AIR BALLOON RACE",1
+603,"BalloonRaceHowtoVarA","Hop in the hot-air balloon and be the first to collect %@@% to get amazing rewards!",1
+604,"BalloonRaceHowtoVarB","Hop in the hot-air balloon and be the first to collect %@@% to get amazing rewards!",1
+605,"BalloonRaceHowtoVarC","Hop in the hot-air balloon and be the first to reach Level %@ to get amazing rewards!",1
+606,"BalloonRaceIntroPopupGeneral","Ready to fly? The Hot-Air Balloon Race is here! You'll need to beat levels to be the one flying farthest to get amazing rewards!",1
+607,"BalloonRaceIntroPopupVarA","Ready to fly? The Hot-Air Balloon Race is here! You'll need to collect @% to get ahead of other racers and earn amazing rewards!",1
+608,"BalloonRaceIntroPopupVarB","Ready to fly? The Hot-Air Balloon Race is here! You'll need to collect @% to get ahead of other players and earn amazing rewards!",1
+609,"BalloonRaceIntroPopupVarC","Ready to fly? The Hot-Air Balloon Race is here!  You'll need to beat levels to cross the finish line before other racers to get amazing rewards!",1
+610,"RaceGoldenWinText","What a race! You have won the first prize, bravo!",1
+611,"RaceSilverWinText","What a race! You have won the second prize, bravo!",1
+612,"RaceBronzeWinText","What a race! You have won the third prize, bravo!",1
+613,"CappadociaInfo1","The region is a popular tourism spot as it has many areas with unique geological, historic, and cultural features. It is home for sedimentary rocks formed in lakes and streams, and ignimbrite deposits that erupted from ancient volcanoes.",0
+614,"CappadociaInfo2","This region is known for its distinctive ‘fairy chimneys’, cone-shaped rock formations clustered in Monks Valley, Göreme, and elsewhere. It contains Bronze-Age homes carved into valley walls and later used as refuges by early Christians.",0
+615,"CappadociaInfo3","Natural cone-shaped rock formations called ‘fairy chimneys’ are what make this place unique. You might not find anything like it somewhere else. Taking a hot-air balloon is a great way to view the magical scenery that is too beautiful for words.",1
+616,"RaceInfoText","Beat levels to get ahead of other racers. If you end up in top 3, you’ll receive a prize!",0
+617,"RaceEndText","The race is over. See you in the next one!",0
+618,"HurryUpVarA","Hurry up! %@@% to go",1
+619,"HurryUpVarB","Hurry up! %@@% to go",1
+620,"HurryUpVarC","Hurry up! %@ levels to go",1
+621,"RaceNotificationStartTop","The Hot-Air Balloon Race is here!",1
+622,"RaceNotificationStartBottom","Come participate in the race now!",1
+623,"RaceNotificationOneHourTop","The race ends soon! [U+23F0] ",1
+624,"RaceNotificationOneHourBottom","[U+23F0]  Last %@ hour, hurry!",1
+625,"RaceNotificationEndTop","RACE OVER",1
+626,"RaceNotificationEndBottom","Come and see the results now!",1
+627,"PlayLeveltoParticipate","Play this level to participate in the race!",0
+628,"HurryGeneralText","Hurry up!",1
+629,"CappadociaTopText","CAPPADOCIA",1
+630,"CappadociaBottomText","Central Anatolia / TURKEY",1
+631,"NextRaceSuccessVarA","Bravo! Are you ready for the next race?",1
+632,"NextRaceSuccessVarB","Are you ready for the next race?",1
+633,"NextRaceSuccessVarC","Bravo! Reach Level %@ to start the next race!",0
+634,"NextRaceFailVarA","Don't worry! You can participate in the next race!",1
+635,"NextRaceFailVarB","You can participate in the next race!",0
+636,"NextRaceFailVarC","Don't worry! You can participate in the next race! Reach level %@ first.",0
+637,"TournamentAwardsText","TOURNAMENT AWARDS",0
+638,"RaceAwardsText","RACE AWARDS",0
+639,"AchievementsText","ACHIEVEMENTS",0
+642,"ComboBarTutorial","Find words to fill the combo bar!",1
+643,"ComboBarTutorial2","You made a combo! Keep finding words to hit the stars to win!",1
+644,"RaceNonEligiblePlayer","Reach level @% to join the Hot-Air Balloon Race!",0
+645,"GeneralInfoSafari","Your 4x4 is here, are you ready for a safari? We'll be your guide through some places in Africa where you'll get to know about wildlife, get in!",1
+646,"BoardBannerSafari","Collect all the magnets available for the <color=#E9C10C><b>Safari</b></color> collection and earn the Grand Prize!",1
+647,"GrandPrizeSafari","You've collected all the magnets of Safari and received %@ gems and a special avatar reminiscent of the route!",0
+648,"MagnetNotificationSafari","Collect all the magnets of the Safari collection and earn the grand prize!",1
+649,"TournamentAchievementsText","TOURNAMENT ACHIEVEMENTS",1
+650,"RaceAchievementsText","RACE ACHIEVEMENTS",1
+651,"CollectMoreSafari","Collect %@ more binoculars to get the reward!",1
+652,"SouthEastAsiaText","S. ASIA BACKPACKING",1
+662,"HintText","HINT",1
+663,"HammerText","HAMMER",1
+664,"HintInfoText","Use a hint to reveal a random letter on the board!",1
+665,"HammerInfoText","Break a tile with the hammer to reveal a letter!",1
+666,"SEATWeeklyEventIntro","Find words and collect lotuses for amazing rewards.",1
+667,"WeeklyEventTitle","WEEKLY EVENT",1
+668,"ForcedUpdateBottom","Update the game and get a reward!",1
+669,"ForcedUpdateTop","Update required!",1
+670,"SEATTitleText","SOUTHEAST ASIA TRIP",1
+671,"SEATTitleText2","ASIA TRIP",0
+672,"SEATTitleText3","S.EAST ASIA TRIP",0
+673,"CollectMoreSEAT","Collect %@ more lotus(es) to get the reward",1
+674,"GeneralInfoSEAT","Your tuk-tuk is ready to take you on a journey in Southeast Asia. Immerse yourself in diverse cultures, beautiful landscapes, and iconic places now!",1
+675,"GrandPrizeSEAT","You've completed the magnet board of the collection and received %@ gems and a special avatar!",1
+676,"MagnetNotificationSEAT","Collect all the magnets of the Southeast Asia Trip collection and earn the grand prize!",1
+677,"BoardBannerSEAT","Collect all the magnets of the <color=#FFDE0A><b> Southeast Asian Trip </b></color> collection and earn the Grand Prize!",1
+678,"BonusTutorialLast","There is one last word here and it will give you bonus gems!",1
+679,"BonusTutorialText1","Look, an extra word! It will give you bonus gems!",1
+680,"BonusTutorialText2","Some levels have a bonus word like this!",1
+681,"BonusTutorialText3","Some levels have bonus words like this. Let's find out what it is.",1
+682,"FaqLongText","FREQUENTLY ASKED QUESTIONS",1
+683,"FaqText","FAQ",1
+685,"HelpSupportText","HELP & SUPPORT",1
+686,"HelpText","Help",1
+687,"HintPopupText","It looks like you've run out of hints. Here's a gift of gems that you can use to get more.",1
+688,"HintTutorialNew","If you get stuck, you can use a <color=#21365aff><b>HINT</b></color>.",1
+690,"NextGiftText","Next gift:",1
+691,"NoAdsHeader","NO ADS",1
+692,"NoAdsMainText","Make this purchase to permanently remove ads!",1
+693,"NoAdsSubText","You may still watch videos at your will to receive rewards.",1
+694,"NotNowText","NOT NOW",1
+695,"RateNowText","RATE NOW",1
+696,"RateUsTop","Are you enjoying Words of Wonders?",1
+698,"SEATWeeklyEventIntro2","Find words and collect %@ for amazing rewards.",1
+699,"ShuffleTutorialText","The <color=#21365aff><b>SHUFFLE</b></color> button can help you find words faster.",1
+700,"StoreDailyRewardNotif2Bottom","Don't miss your FREE reward! [U+1F381] ",1
+701,"StoreDailyRewardNotif2Top","[U+23F0] [U+23F0] Time is running out! [U+23F0] [U+23F0] ",1
+702,"StoreDailyRewardNotifBottom","Come claim it now!",1
+703,"StoreDailyRewardNotifTop","FREE DAILY REWARD HERE",1
+704,"StoreDailyRewardText","Your daily reward is here!",1
+705,"StoreViewMoreText","View more",1
+706,"SwipeFirstWordTutorial","Swipe the letters of the word <color=#21365aff><b>%@</b></color>.",1
+707,"SwipeSecondWordTutorial","Now swipe the letters of the word <color=#21365aff><b>%@</b></color>.",1
+708,"TournamentInfoText","Collect %@, get to the top, and win the grand prize!",1
+709,"TournamentInfoText2","Play levels and collect wooden butterflies to take part in the Butterfly Tournament! ",1
+710,"TournamentInfoText3","Pass levels, collect %@ to earn rewards from the Butterfly Tournament!",1
+711,"TournamentIntroPopupText","The Butterfly Tournament is here! Catch %@, beat others, and compete for the grand prize!",1
+712,"WeeklyEventText","Collect lotuses on the puzzles and receive amazing rewards!",1
+713,"HammerTutorialNew","The <color=#21365aff><b>HAMMER</b></color> reveals any letter you want.",1
+714,"SEATWeeklyEventIntroold","Find words and collect lotuses for amazing rewards, including gems, magnets, and more!",1
+716,"StoreDailyRewardText2","Claim your daily gift now!",1
+717,"StoreDailyRewardText3","Come back everyday to get your reward!",1
+718,"RateUsTop2","Are you enjoying the game?",1
+719,"ShuffleTutorialText2","You can <color=#21365aff><b>SHUFFLE</b></color> the letters on the wheel.",1
+720,"ShuffleTutorialText3","You can <color=#21365aff><b>SHUFFLE</b></color> the letters on the wheel for another perspective.",1
+721,"TournamentText","Play levels and collect %@ to take part in the Butterfly Tournament! ",1
+722,"MoreOfferText","More offers",1
+723,"MoreOptionsText","More options",1
+724,"ViewAllText","View all",1
+725,"NoAdsMainText2","Tired of ads? You can remove them by accepting this offer!",1
+726,"NoAdsMainText3","Buy this no-ads offer and enjoy uninterrupted gaming!",1
+727,"HardLevelText","HARD",1
+728,"DeleteAccountButton","Delete Account",1
+729,"AreYouSureText","ARE YOU SURE?",1
+730,"DeleteAccountPopUp","Deleting your account will reset the game and remove your current level progress as well as all items you earned or purchased (including gems, sapphires, cards, etc.).",1
+731,"AccountDeletionTop","ACCOUNT DELETION",1
+732,"AccountDeletionBottom","Type DELETE MY ACCOUNT below and then press DELETE.",1
+733,"AccountDeletedTop","ACCOUNT DELETED",1
+734,"AccountDeletedBottom","Your account has been deleted. You can quit the game now and reopen it to play from the very beginning.",1
+735,"DeleteText","DELETE",1
+736,"QuitText","QUIT",1
+737,"NoConnectionAccountDeletion","Your account could not be deleted. Please make sure you have an active internet connection and try again.",1
+738,"IncorrectInputText","Incorrect or missing input. Please try again.",1
+739,"PleaseWaitText","Processing, please wait...",1
+740,"OpenInText","Open in:",1
+742,"MoreLanguagesText","More Languages",1
+743,"SwipeSecondWordTutorial2","Great! Now swipe the letters of the word <color=#21365aff><b>%@</b></color>.",1
+744,"CatchButterflyText","Catch the butterfly by finding the word it landed on.",1
+745,"CatchButterflyText2","Find the word with the butterfly to catch it.",1
+746,"ButterflyBoxText","The butterfly you caught turned into a box.",1
+747,"ExtraWords2","You found a word not included in the puzzle. Extra words are here.",1
+748,"RateUsTop3","If you enjoy Words of Wonders, please take a moment to rate it.",1
+749,"RateUsTop4","If you enjoy our game, please take a moment to rate it.",1
+750,"WriteMessageText","Please write your message below.",1
+751,"Day1NotificationText","Thousands of words await you. Come back to Words of Wonders!",1
+752,"Day1NotificationText2","It's time to relax. Play Words of Wonders now.",1
+753,"Day1NotificationText3","It is the time when your brain is most active. Come and play Words of Wonders now!",1
+754,"Day1NotificationText4","There are many more words to discover. Come back to Words of Wonders!",1
+755,"Day1NotificationText5","Words of Wonders & chill. Play it and calm your nerves.",1
+756,"Day1NotificationText6","Scientists say this is the best time to play Words of Wonders. Come back now!",1
+757,"Day1NotificationText7","Train your brain & improve your memory. Come back to Words of Wonders now!",1
+758,"Day1NotificationText8","Are you the smartest player? See for yourself! Play Words of Wonders now.",1
+759,"Day1NotificationText9","Daily surprises await you. Come back and play Words of Wonders!",1
+760,"Day1NotificationText10","We already missed you. Continue playing Words of Wonders now!",1
+761,"Day1NotificationText11","Millions of people are playing Words of Wonders right now. Why not join them?",1
+762,"Day1NotificationText12","Knowledge is of no value unless you put it into practice. Play Words of Wonders.",1
+763,"MagnetsText","Magnets",1
+764,"3DaysFreeText","3 days free",1
+765,"ThreeDaysFreeText","3 days free",1
+766,"MagnetText","Magnet",1
+767,"NoPurchaseRestoredText","No purchase to be restored",1
+768,"NoPurchaseRestoredText2","There are no purchases to be restored at the moment.",1
+769,"ATTDescription","This permission is required to prevent junk ads.",1
+770,"NoAdsAvailableText","No rewarded ads available. Please try again.",1
+771,"NoAdsAvailableText2","There are no rewarded ads available at the moment.",1
+772,"SignInWithAppleButton","Sign in with Apple",1
+773,"SignInWithFacebookButton","Sign in with Facebook",1
+774,"SignInWithGoogleButton","Sign in with Google",1
+775,"SignOutFromAppleButton","Sign out from Apple",1
+776,"SignOutFromFacebookButton","Sign out from Facebook",1
+777,"SignOutFromGoogleButton","Sign out from Google",1
+778,"SignOutPopUpApple","Do you want to sign out from your Apple account? You won't be able to save your progress.",1
+779,"SignOutPopUpFacebook","Do you want to sign out from your Facebook account? You won't be able to save your progress.",1
+780,"SignOutPopUpGoogle","Do you want to sign out from your Google account? You won't be able to save your progress.",1
+781,"SignedInPopUpTitle","SUCCESS",1
+782,"SignedInPopUpTextApple","You have signed in with your Apple account.",1
+783,"SignedInPopUpTextFacebook","You have signed in with your Facebook account.",1
+784,"SignedInPopUpTextGoogle","You have signed in with your Google account.",1
+785,"SignedOutPopUpTitle","DISCONNECTED",1
+786,"SignedOutPopUpTextApple","You have signed out from your Apple account.",1
+787,"SignedOutPopUpTextFacebook","You have signed out from your Facebook account.",1
+788,"SignedOutPopUpTextGoogle","You have signed out from your Google account.",1
+789,"SaveProgressDescGeneral","Saving your progress through an account enables you to play the game on multiple devices.",1
+790,"SaveProgressDescApple","Saving your progress through your Apple account enables you to play the game on multiple devices.",1
+791,"SaveProgressDescFacebook","Saving your progress through your Facebook account enables you to play the game on multiple devices.",1
+792,"SaveProgressDescGoogle","Saving your progress through your Google account enables you to play the game on multiple devices.",1
+793,"SignInText","SIGN IN",1
+794,"FreeSpinText","FREE SPIN",1
+795,"ConnectToInternetText","Please make sure you have an active internet connection and try again.",1
+796,"DeleteMyAccountText","DELETE MY ACCOUNT",1
+797,"FireworkTutorialTextNew","Fireworks reveal letters at each level.",1
+798,"TermsOfUseText","Terms of Use",1
+799,"VideoLoadingText","Video Loading...",1
+800,"ProMemberVIPText","WOW-VIP",1
+801,"ProMemberPremiumText","WOW PREMIUM",1
+802,"ProMemberPrimeText","WOW PRIME",1
+803,"ProMemberProText","WOW-PRO",1
+804,"ProMemberGoldText","WOW GOLD",1
+805,"ProMemberPlatinumText","WOW PLATINUM",1
+806,"ProTextVIP","Subscribe and become a VIP member of WoW to unlock in-game features such as;",1
+807,"DailyProGiftTextVIP","Your daily WoW-VIP delivery is here!",1
+808,"ProMembershipTextVIP","WoW - VIP offers a weekly subscription, you will be charged %@ per week. The payment is charged to your account after confirmation. The subscription is renewed unless you turn it off 24 hours before the period ends.",1
+809,"ProText3VIP","WoW-VIP exclusive badge",1
+810,"ProTextPremium","Subscribe and become a premium member of WoW to unlock in-game features such as;	",1
+811,"DailyProGiftTextPremium","Your daily WoW Premium delivery is here!",1
+812,"ProMembershipTextPremium","WoW Premium offers a weekly subscription, you will be charged %@ per week. The payment is charged to your account after confirmation. The subscription is renewed unless you turn it off 24 hours before the period ends.",1
+813,"ProText3Premium","WoW Premium exclusive badge",1
+814,"ProTextPrime","Subscribe and become a member of WoW Prime to unlock in-game features such as;",1
+815,"DailyProGiftTextPrime","Your daily WoW Prime delivery is here!",1
+816,"ProMembershipTextPrime","WoW Prime offers a weekly subscription, you will be charged %@ per week. The payment is charged to your account after confirmation. The subscription is renewed unless you turn it off 24 hours before the period ends.",1
+817,"ProText3Prime","WoW Prime exclusive badge",1
+818,"ProTextPro","Subscribe and become a pro member of WoW to unlock in-game features such as;",1
+819,"DailyProGiftTextPro","Your daily WoW-Pro delivery is here!",1
+820,"ProMembershipTextPro","WoW-Pro offers a weekly subscription, you will be charged %@ per week. The payment is charged to your account after confirmation. The subscription is renewed unless you turn it off 24 hours before the period ends.",1
+821,"ProText3Pro","WoW-Pro exclusive badge",1
+822,"ProTextGold","Subscribe and become a gold member of WoW to unlock in-game features such as;	",1
+823,"DailyProGiftTextGold","Your daily WoW Gold delivery is here!",1
+824,"ProMembershipTextGold","WOW Gold offers a weekly subscription, you will be charged %@ per week. The payment is charged to your account after confirmation. The subscription is renewed unless you turn it off 24 hours before the period ends.",1
+825,"ProText3Gold","WoW Gold exclusive badge",1
+826,"ProTextPlatinum","Subscribe and become a member of the WoW Platinum to unlock in-game features such as;",1
+827,"DailyProGiftTextPlatinum","Your daily WoW Platinum delivery is here!",1
+828,"ProMembershipTextPlatinum","WOW Platinum offers a weekly subscription, you will be charged %@ per week. The payment is charged to your account after confirmation. The subscription is renewed unless you turn it off 24 hours before the period ends.",1
+829,"ProText3Platinum","WoW Platinum exclusive badge",1
+830,"SwipeToastMessage1","Swipe the letters.",1
+831,"SwipeToastMessage2","Swipe the letters rather than tap.",1
+832,"GDPRTopText","Notice",1
+833,"GDPRBottomText1","<p>By tapping &quot;CONTINUE&quot; you accept the <a href=\"#1\"><strong><u>Terms of Use</u></strong></a> and confirm that you have read the <a href=\"#2\"><strong><u>Privacy Policy.</u></strong><a/></p>",1
+834,"GDPRBottomText2","By tapping \"OKAY\", you accept the Terms of Use and confirm that you have read the Privacy Policy.",1
+835,"BonusLevelReach","Congrats, you have unlocked bonus words!",1
+836,"InGameRewardedPopUp","Watch a video to get a reward!",1
+837,"InGameRewardedPopUp2","Would you like to watch a short video and get a reward?",1
+838,"InGameRewardedTitle","WATCH AND WIN",1
+839,"InGameRewardedTitle2","REWARDED VIDEO",1
+840,"InGameRewardedTitle3","FREE REWARD",1
+841,"InGameRewardedTitle4","GET REWARD",1
+842,"PurchaseFailTopText","Purchase Failed",1
+843,"PurchaseFailBottomText","Your account was not charged. Please try again.",1
+844,"PurchaseProcessText","Your purchase is being processed. Please wait.",1
+845,"PurchaseCancelTopText","Purchase Canceled",1
+846,"PurchaseCancelBottomText","Your purchase was not completed. Your account was not charged.",1
+847,"WeeklyEventProgressTutorial","Collect pine cones to progress in the Weekly Event.",1
+848,"ButterflyTutorialText","Swipe the word <color=#21365aff><b>%@</b></color> to catch the butterfly.",1
+849,"WoodenButterflyTutorialText","Find the word to collect the wooden butterfly.",1
+850,"WoodenButterfliesTutorialText","Find the words to collect the wooden butterflies.",1
+851,"TournamentLeaderboardPopOver","Check out the tournament leaderboard.",1
+852,"TournamentHowToTutorial","Find out how you can collect more %@ to get to the top!",1
+853,"HowToGetMoreTitle","HOW TO GET MORE",1
+854,"HowToGetMore1","Find words",1
+855,"HowToGetMore2","Catch butterflies",1
+856,"HowToGetMore3","Open boxes in globes",1
+857,"NameAvatarChangeTournament","Tap to change your nickname and avatar.",1
+858,"EditProfileText","EDIT PROFILE",1
+859,"WinterPopUpText","Find words and collect pine cones to get incredible rewards.",1
+860,"WinterNotificationText","Come join the Weekly Event for great rewards!",1
+861,"WinterRewardPopUpText","Find words and collect pine cones for incredible rewards!",1
+862,"WinterCollectText","Collect %@ more pine cones to win the reward!",1
+863,"WinterSoonText","The Weekly Event is coming soon and it's bringing some amazing surprises! Join the event, collect pine cones, and receive rewards.",1
+864,"BonusTutorialTextNoGem","Here's a word to challenge yourself!",1
+865,"BonusTutorialLastNoGem","There is one last word here!",1
+866,"MoreText","More!",1
+867,"EvenMoreText","Even more!",1
+868,"GlobePopOver","Open and get more %@",1
+869,"FirstTimeFreeText","First-Time Free",1
+870,"Claim1st3rdTitle","CONGRATS!",1
+871,"ClaimRankingText","Your ranking: #%@
+See you next time!",1
+872,"NewYearGiftTitle","NEW YEAR GIFT",1
+873,"NewYearGiftBottomText","We hope you have a fantastic new year and a word journey filled with joy!",1
+874,"DailyPuzzlePopupText2","Challenge yourself with a new puzzle every day!",1
+875,"TutorialDaily3","Swipe the word %@ to collect the sun!",1
+876,"FollowCollectibleTutorial","To collect more suns, find words with a sun first.",1
+877,"CollectMoreDailyText","Collect %@ more suns to receive the country card!",1
+878,"WellDoneText","WELL DONE!",1
+879,"CardCollectedText","You collected the card of the month. Keep it going!",1
+880,"PremiumBenefitsText","Premium Benefits",1
+881,"EveryDayText","Every Day",1
+882,"ExclusiveItemsText","Exclusive Items",1
+883,"JustForYouText","Just For You",1
+884,"StartFreeTrialText2","START 3-DAY FREE TRIAL",1
+885,"PerWeekText","Per Week",1
+886,"ProText5","Free daily gems",1
+887,"ProText6","Free daily fireworks",1

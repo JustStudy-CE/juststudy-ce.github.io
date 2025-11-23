@@ -1,0 +1,19 @@
+{
+    "features": {
+    "highscores": 1,
+    "rewarded": 1,
+    "home":0
+    },
+  "version": "02535f97",
+  "interstitial": {
+    "eventIds": ["button:main:start", "button:result:next", "button:result:restart"],
+    "blocklist": ["*"],
+    "allowlist": ["button.levelsscreen.start", "button:result:next"]
+  },
+  "rewarded": {
+    "allowEmpty": true,
+    "eventIds": [],
+    "blocklist": [],
+    "allowlist": ["*"]
+  }
+}
