@@ -1418,28 +1418,28 @@
   {
     "name": "Bloons Player Pack 1",
     "img": "/assets/icons/209.png",
-    "url": "https://juststudy.uk/ruf.html?p=studyguide/m-g/bloonspp1.swf",
+    "url": "/ruf.html?p=studyguide/m-g/bloonspp1.swf",
     "desc": "Classic Bloons challenge pack #1 — pop them all!",
     "category": "Pen & Paper"
   },
   {
     "name": "Bloons Player Pack 2",
     "img": "/assets/icons/210.png",
-    "url": "https://juststudy.uk/ruf.html?p=studyguide/m-g/bloonspp2.swf",
+    "url": "/ruf.html?p=studyguide/m-g/bloonspp2.swf",
     "desc": "More user-made madness in pack #2!",
     "category": "Pen & Paper"
   },
   {
     "name": "Bloons Player Pack 3",
     "img": "/assets/icons/211.png",
-    "url": "https://juststudy.uk/ruf.html?p=studyguide/m-g/bloonspp3.swf",
+    "url": "/ruf.html?p=studyguide/m-g/bloonspp3.swf",
     "desc": "Third round of balloon-bursting brilliance.",
     "category": "Pen & Paper"
   },
   {
     "name": "Bloons Player Pack 4",
     "img": "/assets/icons/212.png",
-    "url": "https://juststudy.uk/ruf.html?p=studyguide/m-g/bloonspp4.swf",
+    "url": "/ruf.html?p=studyguide/m-g/bloonspp4.swf",
     "desc": "Even harder, even better — player pack 4 delivers.",
     "category": "Pen & Paper"
   },
@@ -1478,6 +1478,220 @@
     "url": "/studyguide/p-u/index.html",
     "desc": "Pokémon Unbound is a dark, story-rich fan-made Pokémon game set in the Borrius region",
     "category": "Pen & Paper"
+  },
+  {
+    "name": "Unmatched ego",
+    "img": "/assets/icons/248.jpg",
+    "url": "/studyguide/um-e/index(1).html",
+    "desc": "cool football game",
+    "category": "Sports Club"
+  },
+  {
+    "name": "Swords and souls",
+    "img": "/assets/icons/218.webp",
+    "url": "ruf.html?p=/studyguide/sas/file.swf",
+    "desc": "A classic flash turn based type and rpg game",
+    "category": "Pen & Paper"
+  },
+  {
+    "name": "Burrito Bison",
+    "img": "/assets/icons/219.png",
+    "url": "ruf.html?p=/studyguide/bb/file.swf",
+    "desc": "The first installment of the Burrito Bison series",
+    "category": "Gym Class"
+  },
+  {
+    "name": "The binding of issac Wrath of the Lamb",
+    "img": "/assets/icons/220.png",
+    "url": "ruf.html?p=/studyguide/tboiwotl/file.swf",
+    "desc": "The binding of isaac Wrath of the Lamb. what else do you need to know",
+    "category": "Gym Class"
+  },
+  {
+    "name": "Ultrakill",
+    "img": "/assets/icons/221.png",
+    "url": "/studyguide/uk/index.html",
+    "desc": "",
+    "category": "Gym Class"
+  },
+  {
+    "name": "People playground",
+    "img": "/assets/icons/222.png",
+    "url": "/studyguide/pl-pg/index.html",
+    "desc": "",
+    "category": "Science Lab"
+  },
+  {
+    "name": "Undertale",
+    "img": "/assets/icons/223.png",
+    "url": "/studyguide/un-tl/index.html",
+    "desc": "",
+    "category": "Pen & Paper"
+  },
+  {
+    "name": "Bendy and the ink machine",
+    "img": "/assets/icons/224.png",
+    "url": "/studyguide/bnim/index.html",
+    "desc": "",
+    "category": "Gym Class"
+  },
+  {
+    "name": "Tomb of the mask",
+    "img": "/assets/icons/225.png",
+    "url": "/studyguide/tftm/index.html",
+    "desc": "",
+    "category": "Pen & Paper"
+  },
+  {
+    "name": "Wall of Doom",
+    "img": "/assets/icons/226.png",
+    "url": "/studyguide/wod/index.html",
+    "desc": "",
+    "category": "Pen & Paper"
+  },
+  {
+    "name": "Mekorama",
+    "img": "/assets/icons/227.png",
+    "url": "/studyguide/mkr/index.html",
+    "desc": "",
+    "category": "Pen & Paper"
+  },
+  {
+    "name": "Recoil",
+    "img": "/assets/icons/228.png",
+    "url": "/studyguide/re-c/index.html",
+    "desc": "",
+    "category": "Gym Class"
+  },
+  {
+    "name": "Jumping Shell",
+    "img": "/assets/icons/229.png",
+    "url": "/studyguide/jm-s/index.html",
+    "desc": "",
+    "category": "Pen & Paper"
+  },
+  {
+    "name": "Words of wisdom",
+    "img": "/assets/icons/230.webp",
+    "url": "/studyguide/wow/index.html",
+    "desc": "",
+    "category": "Pen & Paper",
+    "hidden": true
+  },
+  {
+    "name": "Smash Karts",
+    "img": "/assets/icons/231.png",
+    "url": "/studyguide/re-c/index.html",
+    "desc": "",
+    "category": "Gym Class"
+  },
+  {
+    "name": "Crazy flip 3D",
+    "img": "/assets/icons/232.avif",
+    "url": "/studyguide/crf/index.html",
+    "desc": "",
+    "category": "Gym Class"
+  },
+  {
+    "name": "Tanks 3D",
+    "img": "/assets/icons/233.avif",
+    "url": "/studyguide/tk3d/index.html",
+    "desc": "",
+    "category": "Gym Class"
+  },
+  {
+    "name": "Stickman Clash",
+    "img": "/assets/icons/234.png",
+    "url": "/studyguide/st-c/index.html",
+    "desc": "",
+    "category": "Gym Class"
+  },
+  {
+    "name": "Go Escape",
+    "img": "/assets/icons/235.avif",
+    "url": "/studyguide/go-e/index.html",
+    "desc": "",
+    "category": "Pen & Paper"
+  },
+  {
+    "name": "CrossSection",
+    "img": "/assets/icons/236.avif",
+    "url": "/studyguide/cs/index.html",
+    "desc": "",
+    "category": "Gym Class"
+  },
+  {
+    "name": "Hyperball Tachyon",
+    "img": "/assets/icons/237.avif",
+    "url": "/studyguide/hb-t/index.html",
+    "desc": "",
+    "category": "Gym Class"
+  },
+  {
+    "name": "OvO Dimensions",
+    "img": "/assets/icons/238.png",
+    "url": "/studyguide/ovd/index.html",
+    "desc": "",
+    "category": "Gym Class"
+  },
+  {
+    "name": "Rise up",
+    "img": "/assets/icons/239.jpg",
+    "url": "/studyguide/rs-u/index.html",
+    "desc": "",
+    "category": "Pen & Paper"
+  },
+  {
+    "name": "O-VOID",
+    "img": "/assets/icons/240.avif",
+    "url": "/studyguide/o-v/index.html",
+    "desc": "",
+    "category": "Gym Class"
+  },
+  {
+    "name": "OvO 1",
+    "img": "/assets/icons/241.avif",
+    "url": "/studyguide/ov1/index.html",
+    "desc": "",
+    "category": "Gym Class"
+  },
+  {
+    "name": "Balatro",
+    "img": "/assets/icons/242.png",
+    "url": "/studyguide/bal/index.html",
+    "desc": "",
+    "category": "Gym Class"
+  },
+  {
+    "name": "Magic tiles 3",
+    "img": "/assets/icons/243.webp",
+    "url": "/studyguide/mt3/index.html",
+    "desc": "",
+    "category": "Pen & Paper",
+    "hidden": true
+  },
+  {
+    "name": "Amaze!",
+    "img": "/assets/icons/244.jpg",
+    "url": "/studyguide/cm-p/index.html",
+    "desc": "",
+    "category": "Pen & Paper",
+    "hidden": true
+  },
+  {
+    "name": "Bottle Flip 3D",
+    "img": "/assets/icons/245.jpg",
+    "url": "/studyguide/btj3/index.html",
+    "desc": "",
+    "category": "Pen & Paper",
+    "hidden": true
+  },
+  {
+    "name": "Big Neon Tower Tiny Square",
+    "img": "/assets/icons/246.jpg",
+    "url": "/studyguide/bntts/index.html",
+    "desc": "",
+    "category": "Gym Class"
   }
 
 ]
