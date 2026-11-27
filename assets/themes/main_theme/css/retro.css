@@ -1,0 +1,526 @@
+/* =====================================================================
+   RETRO MODE: 8-bit arcade / CRT skin for main_theme
+   Every rule is scoped to html[data-retro="true"], so this file does
+   nothing while Retro Mode is off. Toggled by js/retro.js.
+   ===================================================================== */
+
+@font-face {
+    font-family: "RetroVGA";
+    src: url(/assets/themes/win_theme/fonts/WebPlus_IBM_VGA_8x16.woff) format("woff");
+    font-display: block;
+}
+
+/* ---------- Palette + existing theme variables ---------- */
+html[data-retro="true"] {
+    --retro-bg: #120a2a;
+    --retro-grid: #22175a;
+    --retro-panel: #1d1450;
+    --retro-panel-2: #2b1f73;
+    --retro-ink: #000;
+    --retro-text: #f4f4ff;
+    --retro-dim: #9b93d6;
+    --retro-pink: #ff2e88;
+    --retro-cyan: #00e5ff;
+    --retro-yellow: #ffd400;
+    --retro-green: #39ff14;
+    --retro-px: 4px;
+
+    --retro-bevel: inset 3px 3px 0 rgba(255, 255, 255, 0.45), inset -3px -3px 0 rgba(0, 0, 0, 0.35);
+    --retro-shadow: 6px 6px 0 var(--retro-ink);
+
+    /* Point the theme's own variables at the palette */
+    --main-primary-color: var(--retro-panel);
+    --main-primary-color-no-opacity: var(--retro-panel);
+    --main-secondary-color: var(--retro-panel-2);
+    --main-secondary-color-no-opacity: var(--retro-panel-2);
+    --main-border: var(--retro-ink);
+    --main-border-width: var(--retro-px);
+    --border-radius: 0;
+    --popularity-background: var(--retro-yellow);
+    --reduced-effects-enabled-colour: var(--retro-dim);
+    --article-main: var(--retro-panel);
+    --sb-track-color: var(--retro-ink);
+    --sb-thumb-color: var(--retro-cyan);
+    --sb-size: 18px;
+
+    /* Pixel cursors: 2x scaled pixel art, crispEdges */
+    --retro-cursor-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='38' viewBox='0 0 12 19' shape-rendering='crispEdges'%3E%3Cpath fill='%23000' d='M0 0h1v1h-1zM0 1h2v1h-2zM0 2h1v1h-1zM2 2h1v1h-1zM0 3h1v1h-1zM3 3h1v1h-1zM0 4h1v1h-1zM4 4h1v1h-1zM0 5h1v1h-1zM5 5h1v1h-1zM0 6h1v1h-1zM6 6h1v1h-1zM0 7h1v1h-1zM7 7h1v1h-1zM0 8h1v1h-1zM8 8h1v1h-1zM0 9h1v1h-1zM9 9h1v1h-1zM0 10h1v1h-1zM10 10h1v1h-1zM0 11h1v1h-1zM7 11h5v1h-5zM0 12h1v1h-1zM4 12h1v1h-1zM7 12h1v1h-1zM0 13h1v1h-1zM3 13h1v1h-1zM5 13h1v1h-1zM8 13h1v1h-1zM0 14h1v1h-1zM2 14h1v1h-1zM5 14h1v1h-1zM8 14h1v1h-1zM0 15h2v1h-2zM6 15h1v1h-1zM9 15h1v1h-1zM0 16h1v1h-1zM6 16h1v1h-1zM9 16h1v1h-1zM7 17h1v1h-1zM10 17h1v1h-1zM7 18h3v1h-3z'/%3E%3Cpath fill='%23fff' d='M1 2h1v1h-1zM1 3h2v1h-2zM1 4h3v1h-3zM1 5h4v1h-4zM1 6h5v1h-5zM1 7h6v1h-6zM1 8h7v1h-7zM1 9h8v1h-8zM1 10h9v1h-9zM1 11h6v1h-6zM1 12h3v1h-3zM5 12h2v1h-2zM1 13h2v1h-2zM6 13h2v1h-2zM1 14h1v1h-1zM6 14h2v1h-2zM7 15h2v1h-2zM7 16h2v1h-2zM8 17h2v1h-2z'/%3E%3C/svg%3E") 0 0, auto;
+    --retro-cursor-hand: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='34' viewBox='0 0 16 17' shape-rendering='crispEdges'%3E%3Cpath fill='%23000' d='M5 0h2v1h-2zM4 1h1v1h-1zM7 1h1v1h-1zM4 2h1v1h-1zM7 2h1v1h-1zM4 3h1v1h-1zM7 3h1v1h-1zM4 4h1v1h-1zM7 4h3v1h-3zM4 5h1v1h-1zM7 5h1v1h-1zM10 5h3v1h-3zM4 6h1v1h-1zM7 6h1v1h-1zM10 6h1v1h-1zM13 6h2v1h-2zM1 7h2v1h-2zM4 7h1v1h-1zM7 7h1v1h-1zM10 7h1v1h-1zM13 7h1v1h-1zM15 7h1v1h-1zM0 8h1v1h-1zM3 8h2v1h-2zM13 8h1v1h-1zM15 8h1v1h-1zM0 9h1v1h-1zM4 9h1v1h-1zM15 9h1v1h-1zM1 10h1v1h-1zM15 10h1v1h-1zM2 11h1v1h-1zM15 11h1v1h-1zM2 12h1v1h-1zM14 12h1v1h-1zM3 13h1v1h-1zM14 13h1v1h-1zM3 14h1v1h-1zM13 14h1v1h-1zM4 15h1v1h-1zM13 15h1v1h-1zM4 16h10v1h-10z'/%3E%3Cpath fill='%23ffd400' d='M5 1h2v1h-2zM5 2h2v1h-2zM5 3h2v1h-2zM5 4h2v1h-2zM5 5h2v1h-2zM8 5h2v1h-2zM5 6h2v1h-2zM8 6h2v1h-2zM11 6h2v1h-2zM5 7h2v1h-2zM8 7h2v1h-2zM11 7h2v1h-2zM14 7h1v1h-1zM1 8h2v1h-2zM5 8h8v1h-8zM14 8h1v1h-1zM1 9h3v1h-3zM5 9h10v1h-10zM2 10h13v1h-13zM3 11h12v1h-12zM3 12h11v1h-11zM4 13h10v1h-10zM4 14h9v1h-9zM5 15h8v1h-8z'/%3E%3C/svg%3E") 11 1, pointer;
+
+    background-color: var(--retro-bg);
+}
+
+/* ---------- Global: pixel font, square corners, no smoothing ---------- */
+html[data-retro="true"] *,
+html[data-retro="true"] *::before,
+html[data-retro="true"] *::after {
+    font-family: "RetroVGA", "Courier New", monospace !important;
+    border-radius: 0 !important;
+    -webkit-font-smoothing: none !important;
+    -moz-osx-font-smoothing: grayscale !important;
+    font-smooth: never;
+    font-weight: normal !important;
+}
+html[data-retro="true"] body {
+    color: var(--retro-text);
+    text-rendering: optimizeSpeed;
+}
+
+/* ---------- Cursors ---------- */
+html[data-retro="true"],
+html[data-retro="true"] * {
+    cursor: var(--retro-cursor-arrow) !important;
+}
+html[data-retro="true"] a,
+html[data-retro="true"] a *,
+html[data-retro="true"] button,
+html[data-retro="true"] button *,
+html[data-retro="true"] .top-real-button,
+html[data-retro="true"] .top-real-button *,
+html[data-retro="true"] .item-container,
+html[data-retro="true"] .item-container *,
+html[data-retro="true"] .settings-panel-arrow,
+html[data-retro="true"] .settings-slider,
+html[data-retro="true"] .switch,
+html[data-retro="true"] .switch *,
+html[data-retro="true"] .settings-option-dropdown-button,
+html[data-retro="true"] .settings-option-dropdown-content-item,
+html[data-retro="true"] .settings-option-element,
+html[data-retro="true"] .settings-option-input-bt,
+html[data-retro="true"] .close-news-button {
+    cursor: var(--retro-cursor-hand) !important;
+}
+html[data-retro="true"] input[type="text"],
+html[data-retro="true"] input:not([type]),
+html[data-retro="true"] textarea {
+    cursor: text !important;
+}
+
+/* ---------- Background: pixel grid over a dusk gradient ---------- */
+html[data-retro="true"] #gradient {
+    width: 100vw !important;
+    background:
+        linear-gradient(var(--retro-grid) 2px, transparent 2px) 0 0 / 32px 32px,
+        linear-gradient(90deg, var(--retro-grid) 2px, transparent 2px) 0 0 / 32px 32px,
+        linear-gradient(180deg, #0a0620 0%, var(--retro-bg) 55%, #2a0d3d 100%) 0 0 / 100% 100% !important;
+    animation: none !important;
+    filter: none !important;
+}
+
+/* ---------- CRT overlay: scanlines + vignette ---------- */
+html[data-retro="true"] body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2147483647;
+    background:
+        repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.22) 0 1px, transparent 1px 3px),
+        radial-gradient(ellipse at center, transparent 58%, rgba(0, 0, 0, 0.55) 100%);
+}
+html[data-retro="true"] body[data-reduced-effects="false"]::after {
+    animation: retro-flicker 5s steps(1) infinite;
+}
+@keyframes retro-flicker {
+    0%, 100% { opacity: 1; }
+    37% { opacity: 0.92; }
+    38% { opacity: 1; }
+    71% { opacity: 0.95; }
+    72% { opacity: 1; }
+}
+
+/* ---------- Title ---------- */
+html[data-retro="true"] .main-title {
+    color: var(--retro-yellow);
+    text-transform: uppercase;
+    white-space: nowrap;
+    font-size: 3.6vw;
+    letter-spacing: 0.04em;
+    text-shadow: 0.25vw 0.25vw 0 var(--retro-pink), 0.5vw 0.5vw 0 var(--retro-ink);
+}
+html[data-retro="true"] .main-title::after {
+    content: "_";
+    color: var(--retro-cyan);
+    text-shadow: 0.25vw 0.25vw 0 var(--retro-ink);
+}
+html[data-retro="true"] body[data-reduced-effects="false"] .main-title::after {
+    animation: retro-blink 1s steps(1) infinite;
+}
+@keyframes retro-blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+/* ---------- Top bar buttons ---------- */
+html[data-retro="true"] .top-real-button,
+html[data-retro="true"] body .top-real-button.current,
+html[data-retro="true"] body .top-real-button:hover {
+    transform: none !important;
+    transition: none !important;
+}
+html[data-retro="true"] .top-bar-button {
+    border: var(--retro-px) solid var(--retro-ink);
+    box-shadow: var(--retro-bevel), var(--retro-shadow);
+    transform: none !important;
+    transition: transform 0.12s steps(2), box-shadow 0.12s steps(2), filter 0.12s steps(2) !important;
+    box-sizing: border-box;
+}
+html[data-retro="true"] .top-real-button:nth-child(1) .top-bar-button { background: var(--retro-pink); }
+html[data-retro="true"] .top-real-button:nth-child(2) .top-bar-button { background: var(--retro-cyan); }
+html[data-retro="true"] .top-real-button:nth-child(3) .top-bar-button { background: var(--retro-green); }
+html[data-retro="true"] .top-real-button:nth-child(4) .top-bar-button { background: var(--retro-yellow); }
+html[data-retro="true"] .top-bar-button img {
+    image-rendering: pixelated;
+    filter: drop-shadow(2px 2px 0 var(--retro-ink));
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 12%;
+}
+html[data-retro="true"] .spin-click {
+    transform: none !important;
+    transition: none !important;
+}
+html[data-retro="true"] .flash-slide::before {
+    display: none !important;
+}
+html[data-retro="true"] .top-real-button:hover .top-bar-button {
+    transform: translate(-2px, -2px) !important;
+    box-shadow: var(--retro-bevel), 8px 8px 0 var(--retro-ink);
+}
+html[data-retro="true"] .top-real-button:active .top-bar-button,
+html[data-retro="true"] .top-real-button.current .top-bar-button {
+    transform: translate(6px, 6px) !important;
+    box-shadow: inset 3px 3px 0 rgba(0, 0, 0, 0.35), inset -3px -3px 0 rgba(255, 255, 255, 0.25);
+    filter: brightness(0.82);
+}
+
+/* ---------- Search ---------- */
+html[data-retro="true"] .search-bar {
+    background: var(--retro-ink) !important;
+    color: var(--retro-green);
+    caret-color: var(--retro-green);
+    border: var(--retro-px) solid var(--retro-cyan);
+    box-shadow: 4px 4px 0 var(--retro-ink);
+    text-shadow: 0 0 4px rgba(57, 255, 20, 0.5);
+}
+html[data-retro="true"] body[data-reduced-effects="false"] .search-bar {
+    transition: width 0.2s steps(4);
+}
+html[data-retro="true"] .search-text {
+    color: var(--retro-cyan);
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 var(--retro-ink);
+    font-size: 1.8vw;
+}
+html[data-retro="true"] body[data-reduced-effects="false"] .search-text {
+    transition: width 0.2s steps(4);
+}
+
+/* ---------- Main content frame + scrollbar ---------- */
+html[data-retro="true"] .main-content {
+    background-color: rgba(10, 6, 32, 0.72);
+    border: var(--retro-px) solid var(--retro-cyan);
+    box-shadow: 0 0 0 var(--retro-px) var(--retro-ink), 10px 10px 0 var(--retro-px) rgba(0, 0, 0, 0.85);
+}
+html[data-retro="true"] .main-selector-container::-webkit-scrollbar,
+html[data-retro="true"] .news-container::-webkit-scrollbar {
+    width: 18px;
+}
+html[data-retro="true"] .main-selector-container::-webkit-scrollbar-track,
+html[data-retro="true"] .news-container::-webkit-scrollbar-track {
+    background: var(--retro-ink);
+}
+html[data-retro="true"] .main-selector-container::-webkit-scrollbar-thumb,
+html[data-retro="true"] .news-container::-webkit-scrollbar-thumb {
+    background-color: var(--retro-cyan);
+    background-image: conic-gradient(#008a99 25%, var(--retro-cyan) 0 50%, #008a99 0 75%, var(--retro-cyan) 0);
+    background-size: 6px 6px;
+    border: 3px solid var(--retro-ink);
+}
+@supports not selector(::-webkit-scrollbar) {
+    html[data-retro="true"] .main-selector-container,
+    html[data-retro="true"] .news-container,
+    html[data-retro="true"] body {
+        scrollbar-color: var(--retro-cyan) var(--retro-ink);
+        scrollbar-width: auto;
+    }
+}
+
+/* ---------- Game cards ---------- */
+html[data-retro="true"] .item-container-icon-wrapper {
+    box-sizing: border-box;
+    border: var(--retro-px) solid var(--retro-ink);
+    box-shadow: var(--retro-shadow);
+    transition: transform 0.1s steps(2), box-shadow 0.1s steps(2) !important;
+}
+html[data-retro="true"] .item-container:hover .item-container-icon-wrapper {
+    scale: none !important;
+    transform: translate(-3px, -3px);
+    box-shadow: 9px 9px 0 var(--retro-pink);
+    outline: var(--retro-px) solid var(--retro-yellow);
+    outline-offset: 0;
+}
+html[data-retro="true"] .item-container:active .item-container-icon-wrapper {
+    transform: translate(5px, 5px);
+    box-shadow: 0 0 0 var(--retro-ink);
+}
+html[data-retro="true"] .item-container span,
+html[data-retro="true"] body[data-reduced-effects="false"] .item-container:hover span {
+    text-transform: uppercase;
+    font-size: 1.45vw;
+    line-height: 1.25;
+    color: var(--retro-text);
+    text-shadow: 2px 2px 0 var(--retro-ink);
+    margin-top: 1vw;
+    padding: 0.15vw 0.5vw;
+    border: none;
+    transition: none;
+}
+html[data-retro="true"] .item-container:hover span,
+html[data-retro="true"] body[data-reduced-effects="false"] .item-container:hover span {
+    color: var(--retro-yellow);
+    background: var(--retro-ink);
+    text-shadow: none;
+}
+html[data-retro="true"] .item-container-popularity-container {
+    background-color: var(--retro-yellow);
+    border-top: var(--retro-px) solid var(--retro-ink);
+    border-left: var(--retro-px) solid var(--retro-ink);
+    box-shadow: none;
+}
+html[data-retro="true"] .item-container-popularity-container-text,
+html[data-retro="true"] body[data-reduced-effects="false"] .item-container:hover .item-container-popularity-container-text {
+    color: var(--retro-ink);
+    font-size: 1.6vw;
+    transition: none;
+}
+html[data-retro="true"] .category-text {
+    color: var(--retro-yellow);
+    text-transform: uppercase;
+    font-size: 2.4vw;
+    text-shadow: 3px 3px 0 var(--retro-pink);
+}
+
+/* ---------- Settings ---------- */
+html[data-retro="true"] .settings-container {
+    background: var(--retro-panel);
+}
+html[data-retro="true"] .settings-title {
+    color: var(--retro-yellow);
+    text-transform: uppercase;
+    font-size: 2vw;
+    letter-spacing: 0.1em;
+    text-shadow: 3px 3px 0 var(--retro-pink);
+}
+/* Arrow columns become full-height opaque strips: they hide the cyan edges
+   of the neighbouring (off-screen) panels and fit inside the frame
+   (5% + 90% + 5% instead of the original 6% + 90% + 6%). */
+html[data-retro="true"] .settings-arrow-container {
+    align-self: stretch;
+    height: auto;
+    display: flex;
+    align-items: center;
+    width: 3.4%;
+    margin: 0;
+    padding: 0 0.8%;
+    background: var(--retro-panel);
+    box-shadow: 0 10px 0 var(--retro-panel), 0 -10px 0 var(--retro-panel);
+    position: relative;
+    z-index: 5;
+}
+html[data-retro="true"] .settings-panel {
+    box-sizing: border-box;
+    background-color: var(--retro-panel-2);
+    border: var(--retro-px) solid var(--retro-cyan);
+    box-shadow: var(--retro-shadow);
+}
+html[data-retro="true"] .settings-option-title {
+    color: var(--retro-text);
+    text-shadow: 2px 2px 0 var(--retro-ink);
+}
+html[data-retro="true"] .settings-option-title-extra {
+    color: var(--retro-dim);
+    text-shadow: none;
+}
+html[data-retro="true"] .settings-option-title-extra-header {
+    color: var(--retro-yellow);
+    text-shadow: 2px 2px 0 var(--retro-ink);
+}
+
+/* Bevel buttons */
+html[data-retro="true"] .settings-panel-arrow,
+html[data-retro="true"] .settings-option-dropdown-button,
+html[data-retro="true"] .settings-option-element,
+html[data-retro="true"] .settings-option-input-bt,
+html[data-retro="true"] .close-news-button {
+    background-color: var(--retro-pink) !important;
+    color: var(--retro-text);
+    border: var(--retro-px) solid var(--retro-ink);
+    box-shadow: var(--retro-bevel), 4px 4px 0 var(--retro-ink);
+    text-shadow: 2px 2px 0 var(--retro-ink);
+    scale: none !important;
+    transition: transform 0.08s steps(2), box-shadow 0.08s steps(2), opacity 0.2s steps(3) !important;
+}
+html[data-retro="true"] .settings-option-dropdown-button {
+    font-size: 1.8vw !important;
+}
+html[data-retro="true"] .settings-option-element {
+    font-size: 1.4vw;
+}
+html[data-retro="true"] .settings-panel-arrow:hover,
+html[data-retro="true"] .settings-option-dropdown-button:hover,
+html[data-retro="true"] .settings-option-element:hover,
+html[data-retro="true"] .settings-option-input-bt:hover,
+html[data-retro="true"] .close-news-button:hover {
+    background-color: #ff5aa2 !important;
+}
+html[data-retro="true"] .settings-panel-arrow:active,
+html[data-retro="true"] .settings-option-dropdown-button:active,
+html[data-retro="true"] .settings-option-element:active,
+html[data-retro="true"] .settings-option-input-bt:active,
+html[data-retro="true"] .close-news-button:active {
+    transform: translate(4px, 4px);
+    box-shadow: inset 3px 3px 0 rgba(0, 0, 0, 0.35), inset -3px -3px 0 rgba(255, 255, 255, 0.25);
+    background-color: #d91f6f !important;
+}
+
+/* Dropdowns */
+html[data-retro="true"] .settings-option-dropdown-content {
+    background-color: var(--retro-panel);
+    border: var(--retro-px) solid var(--retro-ink);
+    box-shadow: 4px 4px 0 var(--retro-ink);
+    font-size: 1.6vw;
+}
+html[data-retro="true"] .settings-option-dropdown-content a {
+    color: var(--retro-text);
+    padding: 0.9vw 0.6vw;
+}
+html[data-retro="true"] .settings-option-dropdown-content a::before {
+    content: "> ";
+    color: transparent;
+}
+html[data-retro="true"] .settings-option-dropdown-content a:hover {
+    background-color: var(--retro-yellow);
+    color: var(--retro-ink);
+}
+html[data-retro="true"] .settings-option-dropdown-content a:hover::before {
+    color: var(--retro-ink);
+}
+
+/* Text inputs */
+html[data-retro="true"] .settings-option-input,
+html[data-retro="true"] .settings-option-input-input {
+    background-color: var(--retro-ink);
+    color: var(--retro-green);
+    caret-color: var(--retro-green);
+    border: var(--retro-px) solid var(--retro-ink);
+    font-size: 1.5vw;
+    box-shadow: inset 0 0 0 2px var(--retro-cyan);
+}
+html[data-retro="true"] .settings-option-input::placeholder {
+    color: #1f7a10;
+}
+html[data-retro="true"] .settings-option-input-bt-container {
+    border: var(--retro-px) solid var(--retro-ink);
+    box-shadow: 4px 4px 0 var(--retro-ink);
+    box-sizing: border-box;
+    width: 93%;
+}
+html[data-retro="true"] .settings-option-input-input {
+    border: none;
+    box-shadow: none;
+}
+html[data-retro="true"] .settings-option-input-bt-extra {
+    background-color: var(--retro-panel);
+    color: var(--retro-cyan);
+}
+html[data-retro="true"] .settings-option-input-bt {
+    box-shadow: var(--retro-bevel);
+    border-width: 0 0 0 var(--retro-px);
+}
+
+/* Square switches */
+html[data-retro="true"] .slider {
+    background-color: var(--retro-ink);
+    border: var(--retro-px) solid var(--retro-ink);
+    box-shadow: 0 0 0 2px var(--retro-dim), 4px 4px 0 2px var(--retro-ink);
+    transition: background-color 0.15s steps(1);
+}
+html[data-retro="true"] .slider::before {
+    background-color: #8c8c8c;
+    box-shadow: inset 3px 3px 0 rgba(255, 255, 255, 0.45), inset -3px -3px 0 rgba(0, 0, 0, 0.4);
+    transition: transform 0.15s steps(3);
+}
+html[data-retro="true"] input:checked + .slider {
+    background-color: #126b04;
+    border: var(--retro-px) solid var(--retro-ink);
+}
+html[data-retro="true"] input:checked + .slider::before {
+    background-color: var(--retro-green);
+}
+html[data-retro="true"] input:focus-visible + .slider {
+    box-shadow: 0 0 0 2px var(--retro-yellow), 4px 4px 0 2px var(--retro-ink);
+}
+
+/* Page dots */
+html[data-retro="true"] .settings-slider {
+    background-color: var(--retro-dim);
+    border: 2px solid var(--retro-ink);
+    box-shadow: 2px 2px 0 var(--retro-ink);
+}
+html[data-retro="true"] .settings-slider.selected {
+    background-color: var(--retro-yellow);
+}
+
+/* ---------- News popup ---------- */
+html[data-retro="true"] .bg-fade {
+    background-color: rgba(10, 6, 32, 0.78);
+}
+html[data-retro="true"] article {
+    box-sizing: border-box;
+    background-color: var(--retro-panel);
+    border: var(--retro-px) solid var(--retro-cyan);
+    box-shadow: var(--retro-shadow);
+}
+html[data-retro="true"] article .article-image {
+    border-bottom: var(--retro-px) solid var(--retro-ink);
+    box-sizing: border-box;
+}
+html[data-retro="true"] article h2 {
+    color: var(--retro-yellow);
+    text-transform: uppercase;
+    font-size: 2vw;
+    text-shadow: 3px 3px 0 var(--retro-pink);
+}
+html[data-retro="true"] article h3 {
+    color: var(--retro-text);
+    font-size: 1.3vw;
+}
+html[data-retro="true"] .close-news-button {
+    font-size: 2vw;
+    text-transform: uppercase;
+}
+
+/* ---------- Footer ---------- */
+html[data-retro="true"] .bottom-content p {
+    color: var(--retro-dim);
+    text-shadow: 2px 2px 0 var(--retro-ink);
+}
+html[data-retro="true"] .bottom-content a {
+    color: var(--retro-cyan) !important;
+    text-decoration: underline !important;
+}
+html[data-retro="true"] .bottom-content a:hover {
+    color: var(--retro-yellow) !important;
+}
+
+/* ---------- Motion preferences ---------- */
+@media (prefers-reduced-motion: reduce) {
+    html[data-retro="true"] *,
+    html[data-retro="true"] *::before,
+    html[data-retro="true"] *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
